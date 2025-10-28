@@ -1,0 +1,41 @@
+# Laravel standard ignores
+
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/storage/app/public
+/storage/debugbar
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/bootstrap/cache/*
+
+# Environment files
+.env
+.env.backup
+.env.local
+
+# IDE and system files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Compiled files
+npm-debug.log
+yarn-error.log
+composer.lock
+package-lock.json
+
+# OS specific
+ehthumbs.db
+Icon?
+
+# Custom user uploads or debug files
+test_*.pdf
+resources.zip

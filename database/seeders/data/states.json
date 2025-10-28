@@ -1,0 +1,38 @@
+[
+  {
+    "code": "1",
+    "name": "NSW"
+  },
+  {
+    "code": "2",
+    "name": "VIC"
+  },
+  {
+    "code": "3",
+    "name": "QLD"
+  },
+  {
+    "code": "4",
+    "name": "SA"
+  },
+  {
+    "code": "5",
+    "name": "WA"
+  },
+  {
+    "code": "6",
+    "name": "TAS"
+  },
+  {
+    "code": "7",
+    "name": "NT"
+  },
+  {
+    "code": "8",
+    "name": "ACT"
+  },
+  {
+    "code": "9",
+    "name": "OT"
+  }
+]

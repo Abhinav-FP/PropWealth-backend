@@ -95,14 +95,14 @@
         .content,
         .content-2 {
             position: absolute;
-            top: 17%;
-            left: 34%;
+            top: 15%;
+            left: 32%;
             padding: 10mm;
             color: #fff;
             border-radius: 15px;
             text-align: left;
             font-size: 28px;
-            line-height: 34px;
+            line-height: 32px;
             font-weight: 300;
             width: 60%;
         }
@@ -195,8 +195,8 @@
         }
 
         .content.content-2 ol li {
-            font-size: 20px;
-            line-height: 40px;
+            font-size: 16px;
+            line-height: 48px;
             font-weight: bold;
         }
 
@@ -615,6 +615,14 @@
             color: #ff2969; 
             margin: 0; 
         }
+        h5.content-head-sm {
+            padding-top: 25px; 
+            font-size: 28px;
+            font-weight: normal;
+            color: #000; 
+            margin: 0; 
+            text-transform:uppercase;
+        }
     </style>
 </head>
 
@@ -715,13 +723,13 @@
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                    <h4 class="content-head-sm">Albury City Overview</h4> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Albury is a major regional city that is located in the Murray region of New South Wales, Australia. It is part of the twin city of Albury-Wodonga and is located on the Hume Highway and the northern side of the Murray River. Albury is the seat of local govern - ment for the council area which also bears the city's name – the City of Albury. It is on the Victoria–New South Wales border</p> 
+                    <h4 class="content-head-sm" style="padding-top:0;">Albury City Overview</h4> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:10px 0 0;">Albury is a major regional city that is located in the Murray region of New South Wales, Australia. It is part of the twin city of Albury-Wodonga and is located on the Hume Highway and the northern side of the Murray River. Albury is the seat of local govern - ment for the council area which also bears the city's name – the City of Albury. It is on the Victoria–New South Wales border</p> 
                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Albury has an urban population of 53,677[4] and is separated from its twin city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p> 
                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to be named after a village in England, United Kingdom, Albury developed as a major transport link between New South Wales and Victoria and was proclaimed a city in 1946</p> 
                     <div class="chart-row" style="border-spacing:0">
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
-                                 <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400; line-height: auto; ">
+                                 <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 8px;font-weight:400; line-height: auto; ">
                                         <tr>
                                             <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">Median house price</th>
                                         </tr>
@@ -748,7 +756,7 @@
                                  </table>
                             </div>
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">                                
-                                <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400;line-height: auto;">
+                                <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 8px;font-weight:400;line-height: auto;">
                                     <tr>
                                         <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">House prices area growth</th>
                                     </tr>
@@ -814,33 +822,15 @@
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
+                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 20px;">OVERALL SCORE <span  style="color: #000000;">– 8 / 10</span></h4> 
+                     <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 22px;">KEY SCORES</h5>
+                     <h6 style="text-align:center;color:#ff2969; font-weight:bold;font-size:16px;margin:0 0 15px;">______scores</h6>
 
-                                @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
-                                    <img src="{{ $charts['unitPriceChart'] }}" alt="">
-                                @endif
-
-                            </div>
-                            <div class="chart-item">
-
-                                @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
-                                    <img src="{{ $charts['houseRentsChart'] }}" alt="">
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
-                                    <img src="{{ $charts['unitRentsChart'] }}" alt="" style="width: 60%;">
-                                @endif
-
-                            </div>
-                        </div>
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
+                     <div class="text-align:center;">
+                      <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png" alt="PropWealth Next Invest" />                     
+                     </div>
+                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">The Overall Suburb Score is a composite index that combines multiple key metrics into a single score, summarising the suburb’s relative desirability, investment potential, and liveability. </p>
+                       
 
                     </div>
                 </div>

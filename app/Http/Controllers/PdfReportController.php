@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 
 class PdfReportController extends Controller
@@ -154,7 +155,7 @@ class PdfReportController extends Controller
     }
 
     public function generatePdfFromData(Request $request)
-    {
+    {  Log::info("requestrequestrequestrequestrequestrequestrequestrequestrequest: ",$request->all());
         try {
             $request->validate([
                 'name' => 'required|string',

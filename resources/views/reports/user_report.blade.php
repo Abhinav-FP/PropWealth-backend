@@ -609,12 +609,19 @@
         }
 
         h4.content-head-sm {
-            padding-top: 14px; 
+            padding-top: 14px;
             font-size: 24px;
             font-weight: bold;
-            color: #ff2969; 
-            margin: 0; 
+            color: #ff2969;
+            margin: 0;
         }
+        .city-overview-title {
+    padding-top: 14px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+}
+
     </style>
 </head>
 
@@ -664,12 +671,13 @@
                     <li>Demand-Supply - Units (trend of price, inventory)</li>
                     <li>Rental Analysis</li>
                     <li>Social Index</li>
-                    <li>Glossary</li> 
+                    <li>Glossary</li>
                 </ol>
             </div>
         </div>
         <div class="footer footer-2">
-            <p style="padding-left:30px;color: #000000;" class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p style="padding-left:30px;color: #000000;" class="footer-address">{{ $suburb }} Property Investment
+                Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
@@ -682,31 +690,37 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-           
+
             <div class="content content-2" style="color: #000000; font-size: 14px !important; line-height: 21px;">
-               <h4 class="content-head-sm">PropWealth Next</h4> 
-                <p style="color: #000000; font-size: 14px; line-height: 18px;font-weight:400;padding-left: 0;padding-right: 0;padding-bottom:0;"><strong>Invest today in the next GROWTH HOTSPOTS</strong></p> 
-                 <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding-left: 0;padding-right: 0;padding-top:0;">PropWealth Next is designed to give investors more than just market data; it’s a clear,
+                <h4 class="content-head-sm">PropWealth Next</h4>
+                <p
+                    style="color: #000000; font-size: 14px; line-height: 18px;font-weight:400;padding-left: 0;padding-right: 0;padding-bottom:0;">
+                    <strong>Invest today in the next GROWTH HOTSPOTS</strong></p>
+                <p
+                    style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding-left: 0;padding-right: 0;padding-top:0;">
+                    PropWealth Next is designed to give investors more than just market data; it’s a clear,
                     data -backed perspective on where opportunity is heading next.
-                    Through advanced suburb analytics, we identify key growth pockets, rental performance shifts, and future trends shaping property value across Australia.
+                    Through advanced suburb analytics, we identify key growth pockets, rental performance shifts, and
+                    future trends shaping property value across Australia.
                     Every report is built to guide smarter decisions, combining verified data with local
                     market intelligence to help you act with confidence, not guesswork.
                     Your journey with PropWealth Next is about foresight, knowing not just where the
-                    market stands, but where it’s moving next</p> 
-                    <img width="480px" src="/Image/pro_welth_house.png" alt="PropWealth Next Invest" />     
- 
- 
+                    market stands, but where it’s moving next</p>
+                <img width="480px" src="/Image/pro_welth_house.png" alt="PropWealth Next Invest" />
+
+
 
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
 
-       <!-- Page 4 -->
+    <!-- Page 4 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -715,42 +729,62 @@
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                    <h4 class="content-head-sm">{{ $suburb }} City Overview</h4> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">{{ $suburb }} is a major regional city that is located in the   {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }}, Australia. It is part of the twin city of {{ $suburbData['Suburb'] }}  and is located on the Hume Highway and the northern side of the Murray River. {{ $suburb }}  is the seat of local govern - ment for the council area which also bears the city's name – the City of {{ $suburb }}. It is on the  {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }} border</p> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">{{ $suburb }}  has an urban population of 53,677[4] and is separated from its twin city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to be named after a village in England, United Kingdom, {{ $suburb }}  developed as a major transport link between New South Wales and Victoria and was proclaimed a city in 1946</p> 
-                    <div class="chart-row" style="border-spacing:0">
+                        <h4 class="content-head-sm" style="display: inline; margin-right: 8px;">{{ $suburb }}</h4>
+            <h4 class="city-overview-title" style="display: inline; font-size: 24px; font-weight: bold;">City Overview</h4>
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">
+                            {{ $suburb }} is a major regional city that is located in the
+                            {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }},
+                            Australia. It is part of the twin city of {{ $suburbData['Suburb'] }} and is located on the
+                            Hume Highway and the northern side of the Murray River. {{ $suburb }} is the seat of
+                            local govern - ment for the council area which also bears the city's name – the City of
+                            {{ $suburb }}. It is on the
+                            {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }} border
+                        </p>
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">
+                            {{ $suburb }} has an urban population of 53,677[4] and is separated from its twin
+                            city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area
+                            with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital
+                            Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p>
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to
+                            be named after a village in England, United Kingdom, {{ $suburb }} developed as a
+                            major transport link between New South Wales and Victoria and was proclaimed a city in 1946
+                        </p>
+                        <div class="chart-row" style="border-spacing:0">
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
-                                 <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400; line-height: auto; ">
-                                        <tr>
-                                            <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">Median house price</th>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0 5px;">Median house price</td>
-                                            <td style="padding: 0 5px;">$575,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0 5px;">Avg rental yield</td>
-                                            <td style="padding: 0 5px;">5.6%</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0 5px;">Rental turnover</td>
-                                            <td style="padding: 0 5px;">10</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0 5px;">12 month rental growth</td>
-                                            <td style="padding: 0 5px;">12%</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0 5px;">Overall score</td>
-                                            <td style="padding: 0 5px;">8 / 10</td>
-                                        </tr>
-                                 </table>
-                            </div>
-                            <div class="chart-item" style="padding:0;border:0;background: transparent;">                                
-                                <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400;line-height: auto;">
+                                <table border="1" cellspacing="0" cellpadding="0"
+                                    style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400; line-height: auto; ">
                                     <tr>
-                                        <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">House prices area growth</th>
+                                        <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
+                                            Median house price</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">Median house price</td>
+                                        <td style="padding: 0 5px;">$575,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">Avg rental yield</td>
+                                        <td style="padding: 0 5px;">5.6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">Rental turnover</td>
+                                        <td style="padding: 0 5px;">10</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">12 month rental growth</td>
+                                        <td style="padding: 0 5px;">12%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">Overall score</td>
+                                        <td style="padding: 0 5px;">8 / 10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="chart-item" style="padding:0;border:0;background: transparent;">
+                                <table border="1" cellspacing="0" cellpadding="0"
+                                    style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400;line-height: auto;">
+                                    <tr>
+                                        <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
+                                            House prices area growth</th>
                                     </tr>
                                     <tr>
                                         <td style="padding: 0 5px;">12 month</td>
@@ -772,23 +806,25 @@
                             </div>
                         </div>
                         <div class="chart-row" style="border-spacing:0">
-                           <div class="chart-item" style="padding:0;border:0;background: transparent;padding-right:5px;">
-                             <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
-                                @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
-                                        <img src="{{ $charts['unitInventoryChart'] }}" alt="" />
-                                    @endif
-                                </div>
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">Current population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
-                            </div>
-                           <div class="chart-item" style="padding:0;border:0;background: transparent;padding-right:5px;">
+                            <div class="chart-item"
+                                style="padding:0;border:0;background: transparent;padding-right:5px;">
                                 <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
-                            @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
-                                    <img src="{{ $charts['unitInventoryChart'] }}" alt="" />
-                                @endif
-                              </div>
-                               <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">Employment – (SALM) – Small area labour market (top 5 categories)</p> 
+                                    <img src="{{ public_path('Image/population_image.png') }}" class="p-3"
+                                        alt="" />
+                                </div>
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">Current
+                                    population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
                             </div>
-                        </div> 
+                            <div class="chart-item"
+                                style="padding:0;border:0;background: transparent;padding-right:5px;">
+                                <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
+                                    <img src="{{ public_path('Image/Employment_image.png') }}" class="p-3"
+                                        alt="" />
+                                </div>
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">
+                                    Employment – (SALM) – Small area labour market (top 5 categories)</p>
+                            </div>
+                        </div>
                         @if (isset($note) && !empty($note))
                             <p>{{ $note }}</p>
                         @endif
@@ -799,7 +835,8 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
@@ -848,7 +885,8 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
@@ -894,7 +932,8 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
@@ -938,11 +977,83 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
+
+
+
+    <!-- Page 15 -->
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
+            </div>
+            <div class="content content-2" style="color: #000000; font-size: 14px;">
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                <div class="content-head-sm">Supply</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    The number of properties available for sale or rent in a given area. When supply is lower than demand, property prices and rents generally rise, boosting returns.
+                </p>
+            </div>
+            
+            <div class="metric-section">
+                <div class="content-head-sm">Demand</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    The number of buyers or renters actively seeking property in an area. When demand is higher than supply, property prices and rents generally rise, boosting returns.
+                </p>
+            </div>
+            
+            <div class="metric-section">
+                <div class="content-head-sm">Sales Turnover</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    The percentage of all properties in the suburb that are sold within a year. A higher turnover suggests a liquid market, making it easier to buy or sell when needed.
+                </p>
+            </div>
+            
+            <div class="metric-section">
+                <div class="content-head-sm">Cashflow</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    The rental income left over after all expenses (mortgage repayments, maintenance, property management, insurance, etc.). Positive cashflow helps investors build sustainable portfolios and reduces reliance on capital growth alone.
+                </p>
+            </div>
+            
+            <div class="metric-section">
+                <div class="content-head-sm">Median Rent</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    The middle point of all advertised rents in the area. It shows what a "typical" tenant is paying and helps investors assess affordability and returns.
+                </p>
+            </div>
+            
+            <div class="metric-section">
+                <div class="content-head-sm">Vacancy Rate</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    The percentage of rental properties that are unoccupied at a given time. A low vacancy rate means strong rental demand and less risk of lost income. A high vacancy rate may signal oversupply or weaker tenant demand.
+                </p>
+            </div>
+            
+            <div class="metric-section">
+                <div class="content-head-sm">SEIFA (Socio-Economic Indexes for Areas)</div>
+                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                    An ABS index ranking suburbs by socio-economic advantage and disadvantage, based on Census data. A higher SEIFA rank usually indicates wealthier and more stable communities.
+                </p>
+            </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer footer-2" style="color: #fff;">
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
+            <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
+        </div>
+    </div>
+
 </body>
 
 </html>

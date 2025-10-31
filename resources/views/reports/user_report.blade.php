@@ -772,27 +772,26 @@
                             </div>
                         </div>
                         <div class="chart-row" style="border-spacing:0">
-                            <div class="chart-item" style="padding-right:5px;">
-                                <div style="border:1px solid #ff2969; border-radius: 6px;">
+                           <div class="chart-item" style="padding:0;border:0;background: transparent;padding-right:5px;">
+                             <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
-                                    <img src="{{ $charts['unitInventoryChart'] }}" alt="">
-                                @endif
+                                        <img src="{{ $charts['unitInventoryChart'] }}" alt="" />
+                                    @endif
                                 </div>
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Current population of the city – 48,678 Population trend (SA4 – 2016, 2021)</p>
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">Current population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
                             </div>
-                            <div class="chart-item" style="padding-left:5px;>
-                              <div style="border:1px solid #ff2969; border-radius: 6px;">
-                                @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
-                                    <img src="{{ $charts['unitInventoryChart'] }}" alt="">
+                           <div class="chart-item" style="padding:0;border:0;background: transparent;padding-right:5px;">
+                                <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
+                            @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
+                                    <img src="{{ $charts['unitInventoryChart'] }}" alt="" />
                                 @endif
                               </div>
-                               <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Employment – (SALM) – Small area labour market (top 5 categories)</p> 
+                               <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">Employment – (SALM) – Small area labour market (top 5 categories)</p> 
                             </div>
                         </div> 
                         @if (isset($note) && !empty($note))
                             <p>{{ $note }}</p>
                         @endif
-
 
                     </div>
                 </div>

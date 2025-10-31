@@ -195,8 +195,8 @@
         }
 
         .content.content-2 ol li {
-            font-size: 23px;
-            line-height: 65px;
+            font-size: 20px;
+            line-height: 40px;
             font-weight: bold;
         }
 
@@ -607,6 +607,14 @@
             width: auto !important;
             /* Override any inline width styles */
         }
+
+        h4.content-head-sm {
+            padding-top: 14px; 
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff2969; 
+            margin: 0; 
+        }
     </style>
 </head>
 
@@ -634,7 +642,7 @@
             </div>
         </div>
         <div class="footer">
-            <p>215/33LexingtonDr,<br>BellaVistaNSW 2153</p>
+            <p>215/33 Lexington Dr,<br>Bella Vista NSW 2153</p>
             <p>0409 016 393<br>info@propwealth.com.au</p>
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
@@ -649,19 +657,19 @@
             <div class="content content-2">
                 <h4 class="content-head">Table of contents</h4>
                 <ol>
-                    <li>City - introduction</li>
+                    <li>Introduction - PropWealth Next</li>
+                    <li>City - Introduction</li>
                     <li>Scores</li>
-                    <li>Demand-supply - houses (trend of price, inventory)</li>
-                    <li>Demand-supply - units (trend of price, inventory)</li>
-                    <li>Rental analysis</li>
-                    <li>Social index</li>
-                    <li>Glossary / FAQs</li>
-                    <li>CTA</li>
+                    <li>Demand-Supply - Houses (trend of price, inventory)</li>
+                    <li>Demand-Supply - Units (trend of price, inventory)</li>
+                    <li>Rental Analysis</li>
+                    <li>Social Index</li>
+                    <li>Glossary</li> 
                 </ol>
             </div>
         </div>
         <div class="footer footer-2">
-            <p class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p style="padding-left:30px;color: #000000;" class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
@@ -674,98 +682,113 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
-                <p>
-                    @if (isset($houseText) && !empty($houseText))
-                        {{ $houseText }}
-                    @endif
-                </p>
-
-                <p>
-                    @if (isset($unitText) && !empty($unitText))
-                        {{ $unitText }}
-                    @endif
-                </p>
-
-                <div class="content-grap-right">
-                    <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                <h4>House Inventory Trends</h4>
-                                @if (isset($charts['houseInventoryChart']) && !empty($charts['houseInventoryChart']))
-                                    <img src="{{ $charts['houseInventoryChart'] }}" alt="House Inventory Chart">
-                                @else
-                                    <div class="chart-placeholder">Chart data unavailable</div>
-                                @endif
-                            </div>
-                            <div class="chart-item">
-                                <h4>House Listings Analysis</h4>
-                                @if (isset($charts['houseListingsChart']) && !empty($charts['houseListingsChart']))
-                                    <img src="{{ $charts['houseListingsChart'] }}" alt="House Listings Chart">
-                                @else
-                                    <div class="chart-placeholder">Chart data unavailable</div>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item" style="width: 100%;">
-                                <h4>House Price Trends</h4>
-                                @if (isset($charts['housePriceChart']) && !empty($charts['housePriceChart']))
-                                    <img src="{{ $charts['housePriceChart'] }}" alt="House Price Chart"
-                                        style="width: 80%; max-width: 500px;">
-                                @else
-                                    <div class="chart-placeholder">Chart data unavailable</div>
-                                @endif
-                            </div>
-                        </div>
-
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
-                    </div>
-                </div>
+           
+            <div class="content content-2" style="color: #000000; font-size: 14px !important; line-height: 21px;">
+               <h4 class="content-head-sm">PropWealth Next</h4> 
+                <p style="color: #000000; font-size: 14px; line-height: 18px;font-weight:400;padding-left: 0;padding-right: 0;padding-bottom:0;"><strong>Invest today in the next GROWTH HOTSPOTS</strong></p> 
+                 <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding-left: 0;padding-right: 0;padding-top:0;">PropWealth Next is designed to give investors more than just market data; it’s a clear,
+                    data -backed perspective on where opportunity is heading next.
+                    Through advanced suburb analytics, we identify key growth pockets, rental performance shifts, and future trends shaping property value across Australia.
+                    Every report is built to guide smarter decisions, combining verified data with local
+                    market intelligence to help you act with confidence, not guesswork.
+                    Your journey with PropWealth Next is about foresight, knowing not just where the
+                    market stands, but where it’s moving nex</p> 
+                    <img width="480px" src="/Image/pro_welth_house.png" alt="PropWealth Next Invest" />     
+ 
+ 
 
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
 
-
+       <!-- Page 4 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
+            <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
+                    <h4 class="content-head-sm">Albury City Overview</h4> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Albury is a major regional city that is located in the Murray region of New South Wales, Australia. It is part of the twin city of Albury-Wodonga and is located on the Hume Highway and the northern side of the Murray River. Albury is the seat of local govern - ment for the council area which also bears the city's name – the City of Albury. It is on the Victoria–New South Wales border</p> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Albury has an urban population of 53,677[4] and is separated from its twin city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to be named after a village in England, United Kingdom, Albury developed as a major transport link between New South Wales and Victoria and was proclaimed a city in 1946</p> 
+                    <div class="chart-row" style="border-spacing:0">
+                            <div class="chart-item" style="padding:0;border:0;background: transparent;">
+                                 <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400; line-height: auto; ">
+                                        <tr>
+                                            <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">Median house price</th>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0 5px;">Median house price</td>
+                                            <td style="padding: 0 5px;">$575,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0 5px;">Avg rental yield</td>
+                                            <td style="padding: 0 5px;">5.6%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0 5px;">Rental turnover</td>
+                                            <td style="padding: 0 5px;">10</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0 5px;">12 month rental growth</td>
+                                            <td style="padding: 0 5px;">12%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0 5px;">Overall score</td>
+                                            <td style="padding: 0 5px;">8 / 10</td>
+                                        </tr>
+                                 </table>
+                            </div>
+                            <div class="chart-item" style="padding:0;border:0;background: transparent;">                                
+                                <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400;line-height: auto;">
+                                    <tr>
+                                        <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">House prices area growth</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">12 month</td>
+                                        <td style="padding: 0 5px;">7.8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">3 yrs</td>
+                                        <td style="padding: 0 5px;">5.6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">5 yrs</td>
+                                        <td style="padding: 0 5px;">2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0 5px;">10 yrs</td>
+                                        <td style="padding: 0 5px;">12%</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="chart-row" style="border-spacing:0">
+                            <div class="chart-item" style="padding-right:5px;">
+                                <div style="border:1px solid #ff2969; border-radius: 6px;">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
                                     <img src="{{ $charts['unitInventoryChart'] }}" alt="">
                                 @endif
+                                </div>
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Current population of the city – 48,678 Population trend (SA4 – 2016, 2021)</p>
                             </div>
-                            <div class="chart-item">
+                            <div class="chart-item" style="padding-left:5px;>
+                              <div style="border:1px solid #ff2969; border-radius: 6px;">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
                                     <img src="{{ $charts['unitInventoryChart'] }}" alt="">
                                 @endif
-
+                              </div>
+                               <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Employment – (SALM) – Small area labour market (top 5 categories)</p> 
                             </div>
-                        </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['unitListingsChart']) && !empty($charts['unitListingsChart']))
-                                    <img src="{{ $charts['unitListingsChart'] }}" alt="" style="width: 60%;">
-                                @endif
-                            </div>
-                        </div>
-
+                        </div> 
                         @if (isset($note) && !empty($note))
                             <p>{{ $note }}</p>
                         @endif
@@ -777,7 +800,7 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
@@ -826,7 +849,7 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
@@ -872,7 +895,7 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
@@ -916,7 +939,7 @@
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
-            <p class="footer-address">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>

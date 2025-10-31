@@ -155,7 +155,7 @@ class PdfReportController extends Controller
     }
 
     public function generatePdfFromData(Request $request)
-    {  Log::info("requestrequestrequestrequestrequestrequestrequestrequestrequest: ",$request->all());
+    {  
         try {
             $request->validate([
                 'name' => 'required|string',
@@ -271,7 +271,6 @@ class PdfReportController extends Controller
                     }
                 }
             }
-
             // --- Prepare report data ---
             $reportData = [
                 'user' => null, // No user required
@@ -280,6 +279,7 @@ class PdfReportController extends Controller
                 'date' => date('j-F-Y'),
                 'year' => date('Y'),
                 'suburb' => $request->name,
+                'suburbData' => $request->data['SuburbData'],
                 'houseText' => $request->houseText,
                 'unitText' => $request->unitText,
             ];

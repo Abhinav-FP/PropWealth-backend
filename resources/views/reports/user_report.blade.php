@@ -692,7 +692,7 @@
                     Every report is built to guide smarter decisions, combining verified data with local
                     market intelligence to help you act with confidence, not guesswork.
                     Your journey with PropWealth Next is about foresight, knowing not just where the
-                    market stands, but where it’s moving nex</p> 
+                    market stands, but where it’s moving next</p> 
                     <img width="480px" src="/Image/pro_welth_house.png" alt="PropWealth Next Invest" />     
  
  
@@ -715,10 +715,10 @@
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                    <h4 class="content-head-sm">Albury City Overview</h4> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Albury is a major regional city that is located in the Murray region of New South Wales, Australia. It is part of the twin city of Albury-Wodonga and is located on the Hume Highway and the northern side of the Murray River. Albury is the seat of local govern - ment for the council area which also bears the city's name – the City of Albury. It is on the Victoria–New South Wales border</p> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Albury has an urban population of 53,677[4] and is separated from its twin city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p> 
-                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to be named after a village in England, United Kingdom, Albury developed as a major transport link between New South Wales and Victoria and was proclaimed a city in 1946</p> 
+                    <h4 class="content-head-sm">{{ $suburb }} City Overview</h4> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">{{ $suburb }} is a major regional city that is located in the   {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }}, Australia. It is part of the twin city of {{ $suburbData['Suburb'] }}  and is located on the Hume Highway and the northern side of the Murray River. {{ $suburb }}  is the seat of local govern - ment for the council area which also bears the city's name – the City of {{ $suburb }}. It is on the  {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }} border</p> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">{{ $suburb }}  has an urban population of 53,677[4] and is separated from its twin city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p> 
+                    <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to be named after a village in England, United Kingdom, {{ $suburb }}  developed as a major transport link between New South Wales and Victoria and was proclaimed a city in 1946</p> 
                     <div class="chart-row" style="border-spacing:0">
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
                                  <table border="1" cellspacing="0" cellpadding="0" style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400; line-height: auto; ">

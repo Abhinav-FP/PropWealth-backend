@@ -31,7 +31,7 @@ class GeneratePdfReportJob implements ShouldQueue
     protected $tempFiles;
 
     public function __construct(array $reportData, string $recipientEmail, string $recipientName, string $suburbName, ?int $userId = null, array $tempFiles = [])
-    { 
+    {
         $this->reportData = $reportData;
         $this->recipientEmail = $recipientEmail;
         $this->recipientName = $recipientName;
@@ -122,7 +122,6 @@ class GeneratePdfReportJob implements ShouldQueue
                 ]);
             }
 
-            Log::info('Rendering Blade view to HTML');
             $startViewTime = microtime(true);
             $html = view('reports.user_report', $this->reportData)->render();
             $viewRenderTime = round(microtime(true) - $startViewTime, 2);

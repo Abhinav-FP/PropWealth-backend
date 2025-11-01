@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
         @page {
             size: A4;
             margin: 15mm 15mm 32mm 15mm;
@@ -72,14 +73,14 @@
         .header-2 {
             position: absolute;
             top: 8%;
-            right: 20px;
+            right: 15px;
             color: white;
-            font-size: 15px;
+            font-size: 12px;
             text-align: right;
         }
 
         .header-2 {
-            top: 7%;
+            top: 7.4%;
         }
 
         .header.header-4 {
@@ -381,7 +382,7 @@
         }
 
         .page-4-bg {
-            background-image: url("{{ public_path('Image/page6_optimized.jpg') }}");
+            background-image: url("{{ public_path('Image/page4_optimized.jpg') }}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -411,8 +412,7 @@
         @endif
 
         @if (file_exists(public_path('Image/page6_optimized.jpg')))
-            .page-3-bg-base64,
-            .page-4-bg-base64 {
+            .page-3-bg-base64 {
                 background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
                 background-size: cover;
                 background-repeat: no-repeat;
@@ -420,6 +420,16 @@
                 background-color: #ecf0f1;
             }
         @endif
+         @if (file_exists(public_path('Image/page4_optimized.jpg')))
+             .page-4-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page4_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #ecf0f1;
+            }
+        @endif
+
 
         .chart-container {
             width: 100%;
@@ -764,6 +774,16 @@
             font-weight: bold;
             margin: 0 0 4px;
         }
+
+         .page-no {
+            position: absolute;
+            top: 3.5%;
+            right: 24px;
+            color: #000;
+            font-size: 12px;
+            text-align: right;
+        }
+        .text-white{color: white;}
     </style>
 </head>
 
@@ -783,6 +803,9 @@
                     </span>
                 </div>
             </div>
+             <div class="page-no text-white">
+               <span>01</span>
+            </div>
             <div class="content" style="top: 18%;">
                 <p>{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
                     Growth Potential</p>
@@ -800,6 +823,9 @@
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+            <div class="page-no text-white">
+             <span>02</span>
             </div>
             <div class="content content-2">
                 <h4 class="content-head">Table of contents</h4>
@@ -827,6 +853,9 @@
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>03</span>
             </div>
 
             <div class="content content-2" style="color: #000000; font-size: 14px !important; line-height: 21px;">
@@ -856,10 +885,13 @@
         </div>
     </div>
     <!-- Page 4 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>04</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
@@ -985,6 +1017,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>05</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
@@ -1017,10 +1052,13 @@
         </div>
     </div>
     <!-- Page 6 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+                <span>06</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
@@ -1113,6 +1151,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>07</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="metric-section">
@@ -1146,10 +1187,13 @@
         </div>
     </div>
     <!-- Page 8 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>08</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1216,10 +1260,13 @@
         </div>
     </div>
     <!-- Page 9 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>09</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1285,10 +1332,13 @@
         </div>
     </div>
     <!-- Page 10 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>10</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1366,6 +1416,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>11</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
@@ -1411,6 +1464,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>12</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="phone_block">
                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is
@@ -1440,11 +1496,14 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-    <!-- Page 14 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <!-- Page 13 -->
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>13</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <h4 class="city-overview-title">GLOSSARY</h4>
@@ -1563,11 +1622,14 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-    <!-- Page 15 -->
+    <!-- Page 14 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>14</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
 
@@ -1683,10 +1745,13 @@
         </div>
     </div>
     <!-- Page 15 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>15</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
 

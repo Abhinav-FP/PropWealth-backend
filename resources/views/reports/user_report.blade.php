@@ -717,11 +717,57 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+
+        .phone_block {
+            border: 1px solid #000;
+            padding: 60px 25px 80px;
+            border-radius: 20px;
+        }
+
+        .phone_block .content-head-sm {
+            font-size: 24px;
+            line-height: 28px;
+        }
+
+        .phone_no {
+            background-image: url("{{ public_path('Image/arrow-icon.png') }}");
+            background-size: 24px;
+            ;
+            background-repeat: no-repeat;
+            background-position: left;
+            padding-left: 30px;
+            color: #000;
+            font-size: 20px;
+        }
+
+        .phone_no {
+            background: url("{{ public_path('Image/arrow-icon.png') }}") no-repeat;
+            background-size: 18px;
+            ;
+            background-repeat: no-repeat;
+            background-position: left;
+            padding-left: 26px;
+            color: #000;
+            font-size: 25x;
+            font-weight: bold;
+        }
+
+        .website_link {
+            background: url("{{ public_path('Image/web-icon.png') }}") no-repeat;
+            background-size: 18px;
+            ;
+            background-repeat: no-repeat;
+            background-position: left;
+            padding-left: 26px;
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 0 4px;
+        }
     </style>
 </head>
 
 <body>
-
     <!-- Page 1 -->
     <div class="page page-1-bg page-1-bg-base64">
         <div class="content-wrapper">
@@ -749,7 +795,6 @@
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
     </div>
-
     <!-- Page 2 -->
     <div class="page page-2-bg page-2-bg-base64">
         <div class="content-wrapper content-wrapper-2">
@@ -777,8 +822,6 @@
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
     </div>
-
-
     <!-- Page 3 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -812,7 +855,6 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-
     <!-- Page 4 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -938,8 +980,6 @@
         </div>
     </div>
     <!-- Page 5 -->
-
-
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -976,10 +1016,6 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-
-
-
-
     <!-- Page 6 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -1249,7 +1285,6 @@
         </div>
     </div>
     <!-- Page 10 -->
-    <!-- Page 10 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -1325,132 +1360,316 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
+    <!-- Page 11 -->
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
+            </div>
+            <div class="content content-2" style="color: #000000; font-size: 14px; ">
+                <div class="content-grap-right">
+                    <div class="chart-container">
+                        <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">AFFLUENCY <span
+                                style="color: #000000;">INDEX</span></h4>
+                        <p
+                            style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 15px;padding:5px 0 0;">
+                            An important parameter to measure affluency in an area is Socio-Economic Indexes for Areas
+                            (SEIFA), a product developed by the ABS that ranks areas in Australia according to relative
+                            socio-economic advantage and disadvantage. The indexes are based on information from the
+                            five-yearly Census</p>
+                        <div style="margin-bottom: 10px;">
+                              @if (isset($charts['map']) && !empty($charts['map']))
+                                    <img src="{{ $charts['map'] }}" style="width:350px;border-radius:10px" alt="img">
+                                @endif
+                        </div>
+                        <p
+                            style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:15px 0 25px;padding:0;">
+                            <span style="color: #ff2969;font-weight:bold;">Social index distribution</span> –
+                            Percentage of areas in the suburb in different social indexes. More areas in higher ranks
+                            mean higher affluency
+                        </p>
+                        <div style="margin-bottom: 0px;margin-top: 10px;">
+                              @if (isset($charts['seifa']) && !empty($charts['seifa']))
+                                    <img src="{{ $charts['seifa'] }}" style="width:220px;" alt="img">
+                                @endif
+                        </div>
+                    </div>
+                </div>
 
-
-
-
+            </div>
+        </div>
+        <div class="footer footer-2" style="color: #fff;">
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
+            <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
+        </div>
+    </div>
     <!-- Page 12 -->
-    
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
+            </div>
+            <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
+                <div class="phone_block">
+                    <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is
+                        Knowing Where to Invest</h4>
+                    <p
+                        style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;padding:5px 0 0;">
+                        PropWealth Next is built for those who see property as strategy, not chance. We don’t predict
+                        the market, we read it.</p>
+                    <p
+                        style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 15px;padding: 0;">
+                        Every shift, every suburb, every number tells a story about what comes next. Let’s make your
+                        next decision an informed one.</p>
+                    <div class="phone_no"> 0409 016 393</div>
+                    <div class="website_link"><a href="https://propwealth.com.au/"
+                            style="color:#000;text-decoration:none;">www.propwealth.com.au</a></div>
 
-
-
-
-
-
-
-
-        <!-- Page 13 -->
-        <div class="page page-3-bg page-3-bg-base64 page3">
-            <div class="content-wrapper content-wrapper-2">
-                <div class="header-2">
-                    <span>{{ $year }}</span>
+                    <p
+                        style="color: #000000; font-size: 12px; line-height: 13px;font-weight:bold; margin:0 0 15px;padding:5px 0 0;">
+                        PropWealth Next — Invest today in the next GROWTH HOTSPOTS</p>
                 </div>
-                <div class="content content-2" style="color: #000000; font-size: 14px;">
-                    <h4 class="city-overview-title">GLOSSARY</h4>
+            </div>
+        </div>
+        <div class="footer footer-2" style="color: #fff;">
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
+            <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
+        </div>
+    </div>
+    <!-- Page 14 -->
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
+            </div>
+            <div class="content content-2" style="color: #000000; font-size: 14px;">
+                <h4 class="city-overview-title">GLOSSARY</h4>
 
-                    <!-- Median House Price -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median House Price
-                            </div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The midpoint of all house sale prices in the area. Half the properties sold for less,
-                                and
-                                half for more. This is a reliable way to track property values because it avoids being
-                                skewed by one very high or very low sale.
-                            </p>
+                <!-- Median House Price -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median House Price
                         </div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The midpoint of all house sale prices in the area. Half the properties sold for less,
+                            and
+                            half for more. This is a reliable way to track property values because it avoids being
+                            skewed by one very high or very low sale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Rental Yield -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Yield</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A key measure of return on investment. Calculated as:
+                            <span style="margin-left: 15px !important;"><b>Annual Rental Income ÷ Property Value ×
+                                    100</b></span>
+                            For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
+                            yields can mean stronger cashflow but may also carry higher risk
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Rental Turnover -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Turnover</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The percentage of rental properties that change tenants within a year. High turnover
+                            shows active rental demand and liquidity but may also mean higher management
+                            costs or volatility.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Rental Growth -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Growth</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The rate at which rents are rising (or falling) over time. Investors track this to
+                            under-stand whether rental income is likely to increase and keep pace with costs such as
+                            interest rates.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Overall Suburb Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Overall Suburb Score
+                        </div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A combined index of desirability, investment potential, and liveability. It brings
+                            togeth-er
+                            the different scores into one clear snapshot.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SA4 (Statistical Area Level 4) -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SA4 (Statistical Area
+                            Level 4)</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A geographic region defined by the Australian Bureau of Statistics (ABS). Used to
+                            measure large-scale population and employment trends.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PropWealth Investor Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">PropWealth Investor
+                            Score
+                        </div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A proprietary measure that combines multiple factors. It's designed to give investors a
+                            single score summarising long-term investment potential in a suburb.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer footer-2" style="color: #fff;">
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
+                Investment Outlook
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
+            <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
+        </div>
+    </div>
+    <!-- Page 15 -->
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
+            </div>
+            <div class="content content-2" style="color: #000000; font-size: 14px;">
+
+                <!-- PropWealth Investor Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SALM (Small Area Labour
+                            Markets)</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A dataset from the ABS that shows employment types and industries in smaller areas,
+                            helping investors understand the local economy and job base.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Affluency Score  -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Affluency Score</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A rating of a suburb’s socio-economic strength, based on factors like incomes, home
+                            ownership, and housing stability. Higher affluency often means lower risk of default
+                            and more long-term wealth in the community.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Affordability Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            Shows how accessible housing is for both buyers and renters. It combines
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Liquidity Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Liquidity Score</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A rating that reflects how easy it is to trade property in a suburb. A high score means
+                            buyers and sellers are actively transacting, which reduces risk for investors if they
+                            want to exit later.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Supply Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            Measures how long it would take to sell all currently listed properties based on sales
+                            activity. Low inventory = tighter supply and often rising prices. High inventory can sug
+                            -
+                            gest oversupply
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Inventory -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The number of properties for sale compared to how many are being sold. For exam
+                            -
+                            ple, if 100 houses are listed and 25 sell each month, the inventory is 4 months. Lower
+                            inventory often supports price growth
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PropWealth Investor Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA (Socio-Economic
+                            Indexes for Areas)
+                        </div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            A proprietary measure that combines multiple factors. It’s designed to give investors
+                            a single score summarising long-term investment potential in a suburb.
+                        </p>
                     </div>
 
-                    <!-- Rental Yield -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Yield</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A key measure of return on investment. Calculated as:
-                                <span style="margin-left: 15px !important;"><b>Annual Rental Income ÷ Property Value ×
-                                        100</b></span>
-                                For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
-                                yields can mean stronger cashflow but may also carry higher risk
-                            </p>
-                        </div>
-                    </div>
 
-                    <!-- Rental Turnover -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Turnover</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The percentage of rental properties that change tenants within a year. High turnover
-                                shows active rental demand and liquidity but may also mean higher management
-                                costs or volatility.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Rental Growth -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Growth</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The rate at which rents are rising (or falling) over time. Investors track this to
-                                under-stand whether rental income is likely to increase and keep pace with costs such as
-                                interest rates.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Overall Suburb Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Overall Suburb Score
-                            </div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A combined index of desirability, investment potential, and liveability. It brings
-                                togeth-er
-                                the different scores into one clear snapshot.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- SA4 (Statistical Area Level 4) -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">SA4 (Statistical Area
-                                Level 4)</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A geographic region defined by the Australian Bureau of Statistics (ABS). Used to
-                                measure large-scale population and employment trends.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- PropWealth Investor Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">PropWealth Investor
-                                Score
-                            </div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A proprietary measure that combines multiple factors. It's designed to give investors a
-                                single score summarising long-term investment potential in a suburb.
-                            </p>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -1462,250 +1681,128 @@
                 <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
             </div>
         </div>
-
-        <!-- Page 14 -->
-        <div class="page page-3-bg page-3-bg-base64 page3">
-            <div class="content-wrapper content-wrapper-2">
-                <div class="header-2">
-                    <span>{{ $year }}</span>
-                </div>
-                <div class="content content-2" style="color: #000000; font-size: 14px;">
-
-                    <!-- SALM -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">SALM (Small Area
-                                Labour
-                                Markets)</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A dataset from the ABS that shows employment types and industries in smaller areas,
-                                helping
-                                investors understand the local economy and job base.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Affluency Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Affluency Score</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A rating of a suburb's socio-economic strength, based on factors like incomes, home
-                                ownership, and housing stability. Higher affluency often means lower risk of default and
-                                more long-term wealth in the community.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Affordability Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Affordability Score
-                            </div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                Shows how accessible housing is for both buyers and renters. It combines Buy
-                                Affordability:
-                                compares median house prices with local incomes. Rent Affordability: compares rents with
-                                household income. Balanced affordability helps ensure demand remains sustainable.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Liquidity Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Liquidity Score</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A rating that reflects how easy it is to trade property in a suburb. A high score means
-                                buyers and sellers are actively transacting, which reduces risk for investors if they
-                                want
-                                to exit later.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Supply Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply Score</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                Measures how long it would take to sell all currently listed properties based on sales
-                                activity. Low inventory = tighter supply and often rising prices. High inventory can
-                                suggest
-                                oversupply.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Inventory -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The number of properties for sale compared to how many are being sold. For example, if
-                                100
-                                houses are listed and 25 sell each month, the inventory is 4 months. Lower inventory
-                                often
-                                supports price growth.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- PropWealth Investor Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">PropWealth Investor
-                                Score
-                            </div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                A proprietary measure that combines multiple factors. It's designed to give investors a
-                                single score summarising long-term investment potential in a suburb.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
+    </div>
+    <!-- Page 15 -->
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
             </div>
-            <div class="footer footer-2" style="color: #fff;">
-                <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
-                    Investment Outlook
-                    2025:<br>Trends, Insights &
-                    Growth Potential</p>
-                <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
+            <div class="content content-2" style="color: #000000; font-size: 14px;">
+
+                <!-- Supply -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The number of properties available for sale or rent in a given area. When supply is
+                            lower than demand, property prices and rents generally rise, boosting returns.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Demand Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Demand</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The number of buyers or renters actively seeking property in an area. When demand
+                            is higher than supply, property prices and rents generally rise, boosting returns.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Affordability Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover
+                        </div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The percentage of all properties in the suburb that are sold within a year. A higher
+                            turnover suggests a liquid market, making it easier to buy or sell when needed.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cashflow Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Cashflow</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The rental income left over after all expenses (mortgage repayments, maintenance,
+                            property management, insurance, etc.). Positive cashflow helps investors build
+                            sus-tainable
+                            portfolios and reduces reliance on capital growth alone.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Median Rent Score -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The middle point of all advertised rents in the area. It shows what a “typical”
+                            tenant
+                            is
+                            paying and helps investors assess affordability and returns.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Vacancy Rate -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            The percentage of rental properties that are unoccupied at a given time. A low
+                            vacancy rate means strong rental demand and less risk of lost income. A high
+                            vacan-cy
+                            rate
+                            may signal oversupply or weaker tenant demand
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SEIFA (Socio-Economic Indexes for Areas) -->
+                <div class="content-grap-right">
+                    <div class="metric-section">
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA
+                            (Socio-Economic
+                            Indexes for Areas)
+                        </div>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            An ABS index ranking suburbs by socio-economic advantage and disadvantage,
+                            based on Census data. A higher SEIFA rank usually indicates wealthier and more
+                            stable communities.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
-
-        <!-- Page 15 -->
-        <div class="page page-3-bg page-3-bg-base64 page3">
-            <div class="content-wrapper content-wrapper-2">
-                <div class="header-2">
-                    <span>{{ $year }}</span>
-                </div>
-                <div class="content content-2" style="color: #000000; font-size: 14px;">
-
-                    <!-- Supply -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The number of properties available for sale or rent in a given area. When supply is
-                                lower than demand, property prices and rents generally rise, boosting returns.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Demand Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Demand</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The number of buyers or renters actively seeking property in an area. When demand
-                                is higher than supply, property prices and rents generally rise, boosting returns.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Affordability Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The percentage of all properties in the suburb that are sold within a year. A higher
-                                turnover suggests a liquid market, making it easier to buy or sell when needed.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Cashflow Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Cashflow</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The rental income left over after all expenses (mortgage repayments, maintenance,
-                                property management, insurance, etc.). Positive cashflow helps investors build
-                                sus-tainable
-                                portfolios and reduces reliance on capital growth alone.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Median Rent Score -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The middle point of all advertised rents in the area. It shows what a “typical” tenant
-                                is
-                                paying and helps investors assess affordability and returns.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Vacancy Rate -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                The percentage of rental properties that are unoccupied at a given time. A low
-                                vacancy rate means strong rental demand and less risk of lost income. A high vacan-cy
-                                rate
-                                may signal oversupply or weaker tenant demand
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- SEIFA (Socio-Economic Indexes for Areas) -->
-                    <div class="content-grap-right">
-                        <div class="metric-section">
-                            <div class="content-head-min"
-                                style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA (Socio-Economic
-                                Indexes for Areas)
-                            </div>
-                            <p
-                                style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                                An ABS index ranking suburbs by socio-economic advantage and disadvantage,
-                                based on Census data. A higher SEIFA rank usually indicates wealthier and more
-                                stable communities.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="footer footer-2" style="color: #fff;">
-                <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
-                    Investment Outlook
-                    2025:<br>Trends, Insights &
-                    Growth Potential</p>
-                <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
-            </div>
+        <div class="footer footer-2" style="color: #fff;">
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
+                Investment Outlook
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
+            <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
+    </div>
 
 </body>
 

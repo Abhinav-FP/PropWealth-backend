@@ -155,22 +155,11 @@ class PdfReportController extends Controller
     }
 
     public function generatePdfFromData(Request $request)
-    {  
+    {   
         try {
             $request->validate([
                 'name' => 'required|string',
             ]);
-
-            // Debug: log incoming request keys relevant to email dispatch
-            \Log::info('generatePdfFromData received', [
-                'has_recipient_email' => $request->has('recipient_email'),
-                'recipient_email' => $request->input('recipient_email'),
-                'recipient_name' => $request->input('recipient_name'),
-                'suburb' => $request->input('name'),
-                'user_id' => $request->input('user_id'),
-            ]);
-            
-            // Get authenticated user ID from request
             $userId = $request->input('user_id');
             if (!$userId) {
                 return response()->json([
@@ -183,95 +172,90 @@ class PdfReportController extends Controller
 
             // --- Handle Mapbox base64 charts ---
             $charts = [
-                'houseInventoryChart' => $request->houseInventoryChart,
-                'houseListingsChart' => $request->houseListingsChart,
-                'housePriceChart' => $request->housePriceChart,
-                'unitInventoryChart' => $request->unitInventoryChart,
-                'unitListingsChart' => $request->unitListingsChart,
-                'unitPriceChart' => $request->unitPriceChart,
-                'houseRentsChart' => $request->houseRentsChart,
-                'unitRentsChart' => $request->unitRentsChart,
-                'vacancyRatesChart' => $request->vacancyRatesChart,
-                'housePriceSegments' => $request->housePriceSegments,
-                'elevation' => $request->elevation,
-                'seifa' => $request->seifa,
-                'map' => $request->map,
-            ];
+    'houseInventoryChart' => $request->houseInventoryChart,
+    'houseListingsChart' => $request->houseListingsChart,
+    'housePriceChart' => $request->housePriceChart,
+    'unitInventoryChart' => $request->unitInventoryChart,
+    'unitListingsChart' => $request->unitListingsChart,
+    'unitPriceChart' => $request->unitPriceChart,
+    'houseRentsChart' => $request->houseRentsChart,
+    'unitRentsChart' => $request->unitRentsChart,
+    'vacancyRatesChart' => $request->vacancyRatesChart,
+    'housePriceSegments' => $request->housePriceSegments,
+    'elevation' => $request->elevation,
+    'seifa' => $request->seifa,
+    'map' => $request->map,
+];
 
-            // Add performance settings - increased to prevent timeout
-            ini_set('max_execution_time', 600); // Increased from 300 to 600 seconds
-            ini_set('memory_limit', '1024M'); // Increased from 512M to 1024M
-            set_time_limit(600); // Additional safeguard
+// Add performance settings
+ini_set('max_execution_time', 600);
+ini_set('memory_limit', '1024M');
+set_time_limit(600);
 
-            $tempFiles = [];
-            $tempChartPaths = [];
+$tempFiles = [];
+$tempChartPaths = [];
+$publicChartsPath = public_path('charts');
 
-            $publicChartsPath = public_path('charts');
+// Ensure charts directory exists
+if (!file_exists($publicChartsPath)) {
+    mkdir($publicChartsPath, 0755, true);
+}
 
-            // Ensure charts directory exists
-            if (!file_exists($publicChartsPath)) {
-                mkdir($publicChartsPath, 0755, true);
+// Debug: Log incoming chart sizes
+foreach ($charts as $key => $base64) {
+    if ($base64) {
+        $sizeKB = strlen($base64) / 1024;
+    } else {
+    }
+}
+
+foreach ($charts as $key => $base64) {
+    if (!$base64) {
+        \Log::warning("Empty base64 for: " . $key);
+        continue;
+    }
+
+    try {
+        // Extract base64 data
+        $base64 = preg_replace('#^data:image/\w+;base64,#i', '', $base64);
+        $imageData = base64_decode($base64);
+
+        if ($imageData === false) {
+            \Log::warning("Base64 decode failed for: " . $key);
+            continue;
+        }
+
+        $originalSize = strlen($imageData);
+
+        // Check if image data is too small (likely invalid)
+        if ($originalSize < 100) {
+            continue;
+        }
+
+        // Process image with optimization
+        $processedImageData = $this->optimizeImage($imageData, $key);
+        
+        if ($processedImageData) {
+            $filename = $key . '-' . time() . '-' . rand(1000, 9999) . '.png';
+            $filePath = $publicChartsPath . '/' . $filename;
+
+            if (file_put_contents($filePath, $processedImageData) !== false) {
+                $finalSize = strlen($processedImageData);                
+                // Create data URI for PDF
+                $base64Data = base64_encode($processedImageData);
+                $tempChartPaths[$key] = 'data:image/png;base64,' . $base64Data;
+                $tempFiles[] = $filePath;
+            } else {
+                \Log::error("Failed to save file for: " . $key);
             }
+        }
 
-            foreach ($charts as $key => $base64) {
-                if ($base64) {
-                    try {
-                        $base64 = preg_replace('#^data:image/\w+;base64,#i', '', $base64);
-                        $imageData = base64_decode($base64);
+    } catch (\Exception $e) {
+        \Log::error("Error processing chart {$key}: " . $e->getMessage());
+        \Log::error("Stack trace: " . $e->getTraceAsString());
+    }
+}
 
-                        if ($imageData === false || strlen($imageData) < 100) {
-                            \Log::warning("Invalid image data for: " . $key);
-                            continue;
-                        }
-
-                        // Skip very large base64 strings (2MB+ raw data)
-                        if (strlen($imageData) > 2 * 1024 * 1024) {
-                            \Log::warning("Skipping large image: " . $key);
-                            continue;
-                        }
-
-                        // Resize large images before saving (max width = 1200px)
-                        $image = imagecreatefromstring($imageData);
-                        if ($image !== false) {
-                            $maxWidth = 1200;
-                            $width = imagesx($image);
-                            $height = imagesy($image);
-
-                            if ($width > $maxWidth) {
-                                $newHeight = intval($height * ($maxWidth / $width));
-                                $resized = imagecreatetruecolor($maxWidth, $newHeight);
-
-                                // White background (fixes black background issue)
-                                $white = imagecolorallocate($resized, 255, 255, 255);
-                                imagefill($resized, 0, 0, $white);
-
-                                imagecopyresampled($resized, $image, 0, 0, 0, 0, $maxWidth, $newHeight, $width, $height);
-                                imagedestroy($image);
-                                $image = $resized;
-                            }
-
-                            ob_start();
-                            imagepng($image, null, 6); // quality 0-9 (6 = good balance)
-                            $imageData = ob_get_clean();
-                            imagedestroy($image);
-                        }
-
-                        $filename = $key . '-' . time() . '-' . rand(1000, 9999) . '.png';
-                        $filePath = $publicChartsPath . '/' . $filename;
-
-                        if (file_put_contents($filePath, $imageData) !== false) {
-                            // Convert to base64 data URI for direct embedding in PDF
-                            $base64Data = base64_encode($imageData);
-                            $tempChartPaths[$key] = 'data:image/png;base64,' . $base64Data;
-
-                            // Track for cleanup AFTER PDF generation
-                            $tempFiles[] = $filePath;
-                        }
-                    } catch (\Exception $e) {
-                        \Log::error("Error processing chart {$key}: " . $e->getMessage());
-                    }
-                }
-            }
             // --- Prepare report data ---
             $reportData = [
                 'user' => null, // No user required
@@ -307,11 +291,7 @@ class PdfReportController extends Controller
                 try {
                     GeneratePdfReportJob::dispatch($reportData, $recipientEmail, $recipientName, $request->name, $userId, $tempFiles);
                     
-                    \Log::info('PdfReportController: GeneratePdfReportJob dispatched successfully', [
-                        'email' => $recipientEmail,
-                        'suburb' => $request->name,
-                        'dispatch_time' => now()->toISOString()
-                    ]);
+                   
                 } catch (\Throwable $e) {
                     \Log::error('PdfReportController: Failed to dispatch GeneratePdfReportJob', [
                         'email' => $recipientEmail,
@@ -496,7 +476,79 @@ class PdfReportController extends Controller
         }
     }
 
+private function optimizeImage($imageData, $chartName)
+{
+    try {
+        $image = imagecreatefromstring($imageData);
+        if ($image === false) {
+            \Log::warning("Failed to create image from string for: " . $chartName);
+            return $imageData; // Return original if we can't process
+        }
 
+        $width = imagesx($image);
+        $height = imagesy($image);
+        
+        \Log::info("Chart {$chartName} dimensions: {$width}x{$height}");
+
+        // Target dimensions for PDF (good balance between quality and size)
+        $maxWidth = 1000;
+        $maxHeight = 800;
+        $quality = 7; // PNG quality 0-9 (0 = no compression, 9 = max)
+
+        // Only resize if image is larger than our target
+        if ($width > $maxWidth || $height > $maxHeight) {
+            // Calculate new dimensions maintaining aspect ratio
+            $ratio = $width / $height;
+            
+            if ($width > $maxWidth) {
+                $newWidth = $maxWidth;
+                $newHeight = intval($maxWidth / $ratio);
+            } else {
+                $newWidth = $width;
+                $newHeight = $height;
+            }
+            
+            if ($newHeight > $maxHeight) {
+                $newHeight = $maxHeight;
+                $newWidth = intval($maxHeight * $ratio);
+            }
+
+            \Log::info("Resizing {$chartName} from {$width}x{$height} to {$newWidth}x{$newHeight}");
+
+            $resized = imagecreatetruecolor($newWidth, $newHeight);
+            
+            // Preserve transparency for PNG
+            imagealphablending($resized, false);
+            imagesavealpha($resized, true);
+            $transparent = imagecolorallocatealpha($resized, 255, 255, 255, 127);
+            imagefilledrectangle($resized, 0, 0, $newWidth, $newHeight, $transparent);
+
+            imagecopyresampled($resized, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+            imagedestroy($image);
+            $image = $resized;
+        }
+
+        // Capture the optimized image
+        ob_start();
+        imagepng($image, null, $quality);
+        $optimizedData = ob_get_clean();
+        imagedestroy($image);
+
+        $originalSize = strlen($imageData);
+        $optimizedSize = strlen($optimizedData);
+        $savings = round((1 - $optimizedSize / $originalSize) * 100, 2);
+        
+        \Log::info("Image optimization for {$chartName}: " . 
+                  round($originalSize / 1024 / 1024, 2) . "MB -> " . 
+                  round($optimizedSize / 1024 / 1024, 2) . "MB (" . $savings . "% reduction)");
+
+        return $optimizedData;
+
+    } catch (\Exception $e) {
+        \Log::error("Image optimization failed for {$chartName}: " . $e->getMessage());
+        return $imageData; // Return original if optimization fails
+    }
+}
 
     public function download(Report $report)
     {

@@ -95,7 +95,7 @@
         .content,
         .content-2 {
             position: absolute;
-            top: 15%;
+            top: 12%;
             left: 32%;
             padding: 10mm;
             color: #fff;
@@ -108,10 +108,10 @@
         }
 
         .content-2 {
-            left: 7%;
-            top: 14%;
+            left: 5%;
+            top: 12%;
             /* Moved higher to give more space */
-            width: 80%;
+            width: 85%;
             max-height: calc(100% - 100mm);
             /* Better height calculation for PDF */
             overflow: visible;
@@ -635,6 +635,58 @@
             margin: 0; 
             text-transform:uppercase;
         }
+        
+        .chart-col-4 {
+            display: table-cell;
+            width: 40%;
+            padding: 8px;
+            /* Reduced padding */
+            text-align: center;
+            vertical-align: top;
+            /* Changed from middle to top */
+            background: #fafafa;
+            border-radius: 6px;
+            border: 1px solid #ff2969;
+            page-break-inside: avoid;
+        }
+        .chart-col-8 {
+            display: table-cell;
+            width: 60%;
+            padding: 8px;
+            /* Reduced padding */
+            text-align: left;
+            vertical-align: top;
+            /* Changed from middle to top */ 
+            page-break-inside: avoid;
+        }
+
+
+        
+        .chart-col-4 img {
+            /* Use natural image dimensions without forcing width/height */
+            max-width: 260px;
+            /* Fixed max width instead of percentage */
+            max-height: 110px;
+            /* Fixed max height for consistency */
+            width: auto;
+            height: auto;
+            object-fit: scale-down;
+            /* Scale down if needed but preserve ratio */
+            object-position: center;
+            border: 2px solid #f0f0f0;
+            background-color: #fff;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .chart-col-8 h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ff2969;
+            margin: 10px 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 
@@ -655,7 +707,7 @@
                     </span>
                 </div>
             </div>
-            <div class="content">
+            <div class="content" style="top: 18%;">
                 <p>{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
                     Growth Potential</p>
                 <p class="date">{{ $date }}</p>
@@ -744,7 +796,7 @@
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="display: inline; margin-right: 8px;">{{ $suburb }}</h4>
             <h4 class="city-overview-title" style="display: inline; font-size: 24px; font-weight: bold;">City Overview</h4>
-                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
                             {{ $suburb }} is a major regional city that is located in the
                             {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }},
                             Australia. It is part of the twin city of {{ $suburbData['Suburb'] }} and is located on the
@@ -819,20 +871,19 @@
                             </div>
                         </div>
                         <div class="chart-row" style="border-spacing:0">
-                            <div class="chart-item"
-                                style="padding:0;border:0;background: transparent;padding-right:5px;">
+                            <div class="chart-item" style="padding:0;border:0;background: transparent;padding-right:5px;">
                                 <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
-                                    <img src="{{ public_path('Image/population_image.png') }}" class="p-3"
+                                    <img src="{{ public_path('Image/population_image.png') }}" style="width:80%"
                                         alt="" />
                                 </div>
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">Current
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;">Current
                                     population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
                             </div>
                             <div class="chart-item"
                                 style="padding:0;border:0;background: transparent;padding-right:5px;">
                                 <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
-                                    <img src="{{ public_path('Image/Employment_image.png') }}" class="p-3"
-                                        alt="" />
+                                    <img src="{{ public_path('Image/Employment_image.png') }}" style="width:80%"
+                                        alt="img" />
                                 </div>
                                 <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">
                                     Employment – (SALM) – Small area labour market (top 5 categories)</p>
@@ -864,15 +915,14 @@
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 20px;">OVERALL SCORE <span  style="color: #000000;">– 8 / 10</span></h4> 
-                     <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 22px;">KEY SCORES</h5>
-                     <h6 style="text-align:center;color:#ff2969; font-weight:bold;font-size:16px;margin:0 0 15px;">______scores</h6>
+                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 25px;">OVERALL SCORE <span  style="color: #000000;">– 8 / 10</span></h4> 
+                     <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 20px;">KEY SCORES</h5>
+                     <h6 style="text-align:center;color:#ff2969; font-weight:bold;font-size:17px;margin:0 0 15px;">______scores</h6>
 
-                     <div class="text-align:center;">
+                     <div class="text-align:center;margin:0 0 15px;">
                       <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png" alt="PropWealth Next Invest" />                     
                      </div>
-                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">The Overall Suburb Score is a composite index that combines multiple key metrics into a single score, summarising the suburb’s relative desirability, investment potential, and liveability. </p>
-                       
+                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">The Overall Suburb Score is a composite index that combines multiple key metrics into a single score, summarising the suburb’s relative desirability, investment potential, and liveability. </p>                       
 
                     </div>
                 </div>
@@ -893,34 +943,95 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
+            <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
+                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">SUPPLY - <span  style="color: #000000;">DEMAND ANALYSIS</span></h4> 
+                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;">Supply is the number of properties available for use or properties to be sold in the market. Demand is generally the buyers' desire to purchase or rent properties in the market. One of the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a good investment location will have high demand relative to supply.</p>
+                        <div class="chart-row" style="margin-bottom: 0px;" >
+                            <div class="chart-col-4">
                                 @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
-                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="">
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
                                 @endif
                             </div>
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt="">
-                                @endif
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Houses - Sale prices (trend over last 1 yr) – </span> a graph of how the median sale prices of houses have changed in Albury over the last year </p>
                             </div>
                         </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt=""
-                                        style="width: 60%;">
+                        <div class="chart-row"  style="margin-bottom: 0px;">
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
                                 @endif
                             </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Houses – Listings (trend over 1 year) - </span> a graph of how the number of houses on market have changed in Albury over the last year. An increase in listings mean higher supply of houses.</p>
+                            </div>
                         </div>
+                        <div class="chart-row"  style="margin-bottom: 0;">
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
+                                @endif
+                            </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Houses – inventory –</span> an analysis of how many months of supply exists. It is measured as the number of properties for sale compared to how many are being sold. For example, if 100 houses are listed and 25 sell each month, the inventory is 4 months. </p>
+                            </div>
+                        </div>
+ 
+                    </div>
+                </div>
 
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
+            </div>
+        </div>
+        <div class="footer footer-2" style="color: #fff;">
+            <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
+            <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
+        </div>
+    </div>
+
+    <div class="page page-3-bg page-3-bg-base64 page3">
+        <div class="content-wrapper content-wrapper-2">
+            <div class="header-2">
+                <span>{{ $year }}</span>
+            </div>
+            <div class="content content-2" style="color: #000000; font-size: 14px; ">
+                <div class="content-grap-right">
+                    <div class="chart-container">
+                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">SUPPLY - <span  style="color: #000000;">DEMAND ANALYSIS</span></h4> 
+                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;">Supply is the number of properties available for use or properties to be sold in the market. Demand is generally the buyers' desire to purchase or rent properties in the market. One of the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a good investment location will have high demand relative to supply.</p>
+                        <div class="chart-row" style="margin-bottom: 0px;" >
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
+                                @endif
+                            </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Units - Sale prices (trend over last 1 yr) –  </span> a graph of how the median sale prices of houses have changed in Albury over the last year   </p>
+                            </div>
+                        </div>
+                        <div class="chart-row"  style="margin-bottom: 0px;">
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
+                                @endif
+                            </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Units – Listings (trend over 1 year) - </span> a graph of how the number of houses on market have changed in Albury over the last year. An increase in listings mean higher supply of houses.</p>
+                            </div>
+                        </div>
+                        <div class="chart-row"  style="margin-bottom: 0;">
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
+                                @endif
+                            </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Units – inventory – </span> an analysis of how many months of supply exists. It is measured as the number of properties for sale compared to how many are being sold. For example, if 100 houses are listed and 25 sell each month, the inventory is 4 months. </p>
+                            </div>
+                        </div> 
                     </div>
                 </div>
 
@@ -938,34 +1049,41 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
+            <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
+                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">RENTAL - <span  style="color: #000000;">ANALYSIS</span></h4> 
+                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;">As an investor, cashflow becomes a critical parameter. Hence, understanding how the rental market has been is of utmost importance. Rentals increase when demand for rent exceeds supply of properties. So, a good investment location will have high rental demand relative to supply.</p>
+                        <div class="chart-row" style="margin-bottom: 0px;" >
+                            <div class="chart-col-4">
                                 @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
-                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="">
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
                                 @endif
                             </div>
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt="">
-                                @endif
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">House rents (trend over 1 year) -  </span> a graph of how the median rent of houses has changed in Albury over the last year  </p>
                             </div>
                         </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt=""
-                                        style="width: 60%;">
+                        <div class="chart-row"  style="margin-bottom: 0px;">
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
                                 @endif
                             </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Unit rents (trend over 1 year) – </span> a graph of how the median rent of units has changed in Albury over the last year</p>
+                            </div>
                         </div>
-
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
+                        <div class="chart-row"  style="margin-bottom: 0;">
+                            <div class="chart-col-4">
+                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="img">
+                                @endif
+                            </div>
+                            <div class="chart-col-8">
+                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span style="color: #ff2969;font-weight:400;">Vacancy rates (trend over 1 year) - </span> a graph of how the vacancy rates have changed in Albury over the last year </p>
+                            </div>
+                        </div> 
                     </div>
                 </div>
 

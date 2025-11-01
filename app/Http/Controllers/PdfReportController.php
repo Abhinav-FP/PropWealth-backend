@@ -195,6 +195,7 @@ class PdfReportController extends Controller
                 'housePriceSegments' => $request->housePriceSegments,
                 'elevation' => $request->elevation,
                 'seifa' => $request->seifa,
+                'map' => $request->map,
             ];
 
             // Add performance settings - increased to prevent timeout

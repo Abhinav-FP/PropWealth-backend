@@ -95,14 +95,14 @@
         .content,
         .content-2 {
             position: absolute;
-            top: 17%;
-            left: 34%;
+            top: 15%;
+            left: 32%;
             padding: 10mm;
             color: #fff;
             border-radius: 15px;
             text-align: left;
             font-size: 28px;
-            line-height: 34px;
+            line-height: 32px;
             font-weight: 300;
             width: 60%;
         }
@@ -195,8 +195,8 @@
         }
 
         .content.content-2 ol li {
-            font-size: 20px;
-            line-height: 40px;
+            font-size: 16px;
+            line-height: 48px;
             font-weight: bold;
         }
 
@@ -607,7 +607,13 @@
             width: auto !important;
             /* Override any inline width styles */
         }
-
+.content-head-sm {
+            padding-top: 14px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff2969;
+            margin: 0;
+        }
         h4.content-head-sm {
             padding-top: 14px;
             font-size: 24px;
@@ -621,7 +627,14 @@
     font-weight: bold;
     color: #000000;
 }
-
+ h5.content-head-sm {
+            padding-top: 25px; 
+            font-size: 28px;
+            font-weight: normal;
+            color: #000; 
+            margin: 0; 
+            text-transform:uppercase;
+        }
     </style>
 </head>
 
@@ -851,33 +864,15 @@
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
+                     <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 20px;">OVERALL SCORE <span  style="color: #000000;">– 8 / 10</span></h4> 
+                     <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 22px;">KEY SCORES</h5>
+                     <h6 style="text-align:center;color:#ff2969; font-weight:bold;font-size:16px;margin:0 0 15px;">______scores</h6>
 
-                                @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
-                                    <img src="{{ $charts['unitPriceChart'] }}" alt="">
-                                @endif
-
-                            </div>
-                            <div class="chart-item">
-
-                                @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
-                                    <img src="{{ $charts['houseRentsChart'] }}" alt="">
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
-                                    <img src="{{ $charts['unitRentsChart'] }}" alt="" style="width: 60%;">
-                                @endif
-
-                            </div>
-                        </div>
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
+                     <div class="text-align:center;">
+                      <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png" alt="PropWealth Next Invest" />                     
+                     </div>
+                     <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">The Overall Suburb Score is a composite index that combines multiple key metrics into a single score, summarising the suburb’s relative desirability, investment potential, and liveability. </p>
+                       
 
                     </div>
                 </div>
@@ -995,50 +990,50 @@
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="metric-section">
-                <div class="content-head-sm">Supply</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm " style="margin-bottom: 10px;">Supply</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     The number of properties available for sale or rent in a given area. When supply is lower than demand, property prices and rents generally rise, boosting returns.
                 </p>
             </div>
             
             <div class="metric-section">
-                <div class="content-head-sm">Demand</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm" style="margin-bottom: 10px;">Demand</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     The number of buyers or renters actively seeking property in an area. When demand is higher than supply, property prices and rents generally rise, boosting returns.
                 </p>
             </div>
             
             <div class="metric-section">
-                <div class="content-head-sm">Sales Turnover</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm" style="margin-bottom: 10px;">Sales Turnover</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     The percentage of all properties in the suburb that are sold within a year. A higher turnover suggests a liquid market, making it easier to buy or sell when needed.
                 </p>
             </div>
             
             <div class="metric-section">
-                <div class="content-head-sm">Cashflow</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm" style="margin-bottom: 10px;">Cashflow</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     The rental income left over after all expenses (mortgage repayments, maintenance, property management, insurance, etc.). Positive cashflow helps investors build sustainable portfolios and reduces reliance on capital growth alone.
                 </p>
             </div>
             
             <div class="metric-section">
-                <div class="content-head-sm">Median Rent</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm" style="margin-bottom: 10px;">Median Rent</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     The middle point of all advertised rents in the area. It shows what a "typical" tenant is paying and helps investors assess affordability and returns.
                 </p>
             </div>
             
             <div class="metric-section">
-                <div class="content-head-sm">Vacancy Rate</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm" style="margin-bottom: 10px;">Vacancy Rate</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     The percentage of rental properties that are unoccupied at a given time. A low vacancy rate means strong rental demand and less risk of lost income. A high vacancy rate may signal oversupply or weaker tenant demand.
                 </p>
             </div>
             
             <div class="metric-section">
-                <div class="content-head-sm">SEIFA (Socio-Economic Indexes for Areas)</div>
-                <p style="color: #000000; font-size: 13px; line-height: 13px;font-weight:400;padding:0;">
+                <div class="content-head-sm" style="margin-bottom: 10px;">SEIFA (Socio-Economic Indexes for Areas)</div>
+                <p style="color: #000000; font-size: 11px; line-height: 13px;font-weight:400;padding:0;">
                     An ABS index ranking suburbs by socio-economic advantage and disadvantage, based on Census data. A higher SEIFA rank usually indicates wealthier and more stable communities.
                 </p>
             </div>

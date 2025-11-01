@@ -709,11 +709,38 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .phone_block{border:1px solid #000;padding:60px 25px 80px;  border-radius: 20px;}
+        .phone_block  .content-head-sm {font-size:24px; line-height:28px; }
+        .phone_no{background-image: url("{{ public_path('Image/arrow-icon.png') }}");
+            background-size: 24px;;
+            background-repeat: no-repeat;
+            background-position: left; 
+            padding-left:30px;
+            color:#000;
+            font-size:20px;
+        }
+        .phone_no{background: url("{{ public_path('Image/arrow-icon.png') }}")  no-repeat;
+            background-size: 18px;;
+            background-repeat: no-repeat;
+            background-position: left; 
+            padding-left:26px;
+            color:#000;
+            font-size:25x;
+            font-weight:bold;
+        }
+        .website_link{background: url("{{ public_path('Image/web-icon.png') }}") no-repeat ;
+            background-size: 18px;;
+            background-repeat: no-repeat;
+            background-position: left; 
+            padding-left:26px;
+            color:#000;
+            font-size:14px;
+             font-weight:bold;margin:0 0 4px;
+        }
     </style>
 </head>
 
 <body>
-
     <!-- Page 1 -->
     <div class="page page-1-bg page-1-bg-base64">
         <div class="content-wrapper">
@@ -741,7 +768,6 @@
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
     </div>
-
     <!-- Page 2 -->
     <div class="page page-2-bg page-2-bg-base64">
         <div class="content-wrapper content-wrapper-2">
@@ -768,9 +794,7 @@
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
-    </div>
-
-
+    </div> 
     <!-- Page 3 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -804,7 +828,6 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-
     <!-- Page 4 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -930,8 +953,6 @@
         </div>
     </div>
     <!-- Page 5 -->
-
-
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -968,10 +989,6 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-
-
-
-
     <!-- Page 6 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -1101,7 +1118,7 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-        <!-- Page 8 -->
+    <!-- Page 8 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -1170,7 +1187,7 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-        <!-- Page 9 -->
+    <!-- Page 9 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -1238,7 +1255,7 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-        <!-- Page 10 -->
+    <!-- Page 10 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
@@ -1305,40 +1322,27 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-            <!-- Page 11 -->
+    <!-- Page 11 -->  
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
+            <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
-                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="">
-                                @endif
-                            </div>
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt="">
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt=""
-                                        style="width: 60%;">
-                                @endif
-                            </div>
-                        </div>
-
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
+                        <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">AFFLUENCY <span
+                                style="color: #000000;">INDEX</span></h4>
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 15px;padding:5px 0 0;">
+                           An important parameter to measure affluency in an area is Socio-Economic Indexes for Areas (SEIFA), a product developed by the ABS that ranks areas in Australia according to relative socio-economic advantage and disadvantage. The indexes are based on information from the five-yearly Census</p>
+                        <div  style="margin-bottom: 10px;">
+                            <img src="{{ public_path('Image/map-img.png') }}" style="width:350px;border-radius:10px"  alt="" />
+                        </div> 
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:15px 0 25px;padding:0;">
+                          <span style="color: #ff2969;font-weight:bold;">Social index distribution</span>  – Percentage of areas in the suburb in different social indexes. More areas in higher ranks mean higher affluency </p>
+                        <div  style="margin-bottom: 0px;">
+                            <img src="{{ public_path('Image/rank-graph.png') }}" style="width:220px; "  alt="" />
+                        </div> 
                     </div>
                 </div>
 
@@ -1350,44 +1354,23 @@
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
-    </div>
-    <!-- Page 12 -->
+    </div> 
+    <!-- Page 12 --> 
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
-                <div class="content-grap-right">
-                    <div class="chart-container">
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
-                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="">
-                                @endif
-                            </div>
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt="">
-                                @endif
-                            </div>
-                        </div>
+                 <div class="phone_block">
+                   <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is Knowing Where to Invest</h4>
+                   <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;padding:5px 0 0;">PropWealth Next is built for those who see property as strategy, not chance. We don’t predict the market, we read it.</p>
+                   <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 15px;padding: 0;">Every shift, every suburb, every number tells a story about what comes next. Let’s make your next decision an informed one.</p>
+                   <div class="phone_no">  0409 016 393</div>
+                   <div class="website_link"><a href="https://propwealth.com.au/" style="color:#000;text-decoration:none;" >www.propwealth.com.au</a></div>
 
-                        <div class="chart-row">
-                            <div class="chart-item">
-                                @if (isset($charts['housePriceSegments']) && !empty($charts['housePriceSegments']))
-                                    <img src="{{ $charts['housePriceSegments'] }}" alt=""
-                                        style="width: 60%;">
-                                @endif
-                            </div>
-                        </div>
-
-                        @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
-                        @endif
-                    </div>
-                </div>
-
+                   <p style="color: #000000; font-size: 12px; line-height: 13px;font-weight:bold; margin:0 0 15px;padding:5px 0 0;">PropWealth Next — Invest today in the next GROWTH HOTSPOTS</p>
+                 </div>
             </div>
         </div>
         <div class="footer footer-2" style="color: #fff;">
@@ -1397,7 +1380,6 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-
     <!-- Page 14 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -1514,7 +1496,6 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-
     <!-- Page 15 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
@@ -1581,8 +1562,7 @@
                     <div class="metric-section">
                         <div class="content-head-min"
                             style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
-                        <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                        <p style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The middle point of all advertised rents in the area. It shows what a “typical” tenant is
                             paying and helps investors assess affordability and returns.
                         </p>
@@ -1610,8 +1590,7 @@
                             style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA (Socio-Economic
                             Indexes for Areas)
                         </div>
-                        <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                        <p style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
                             An ABS index ranking suburbs by socio-economic advantage and disadvantage,
                             based on Census data. A higher SEIFA rank usually indicates wealthier and more
                             stable communities.

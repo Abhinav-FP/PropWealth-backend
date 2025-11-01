@@ -122,7 +122,6 @@ class GeneratePdfReportJob implements ShouldQueue
                 ]);
             }
 
-            Log::info('Rendering Blade view to HTML');
             $startViewTime = microtime(true);
             $html = view('reports.user_report', $this->reportData)->render();
             $viewRenderTime = round(microtime(true) - $startViewTime, 2);
@@ -268,4 +267,17 @@ class GeneratePdfReportJob implements ShouldQueue
             throw $e; // Re-throw to mark job as failed
         }
     }
+
+    public function failed(\Throwable $exception): void
+{
+    Log::error('GeneratePdfReportJob failed completely', [
+        'email' => $this->recipientEmail,
+        'suburb' => $this->suburbName,
+        'error' => $exception->getMessage(),
+        'exception_class' => get_class($exception),
+        'file' => $exception->getFile(),
+        'line' => $exception->getLine(),
+        'trace' => $exception->getTraceAsString()
+    ]);
+}
 }

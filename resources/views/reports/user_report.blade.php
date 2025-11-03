@@ -58,14 +58,14 @@
         .content-wrapper,
         .content-wrapper-2 {
             position: relative;
-            height: calc(100% - 70mm);
+            height: calc(100% - 60mm);
             padding-top: 10mm;
-            padding-bottom: 30mm;
+            padding-bottom: 20mm;
         }
 
         .content-wrapper-2 {
             margin-bottom: 0;
-            max-height: calc(100% - 90mm);
+            max-height: calc(100% - 60mm);
             overflow: hidden;
         }
 
@@ -112,10 +112,10 @@
 
         .content-2 {
             left: 5%;
-            top: 12%;
+            top: 11%;
             /* Moved higher to give more space */
             width: 85%;
-            max-height: calc(100% - 100mm);
+            max-height: calc(100% - 70mm);
             /* Better height calculation for PDF */
             overflow: visible;
             /* Allow content to flow naturally */
@@ -191,8 +191,8 @@
         h4.content-head {
             padding-top: 14px;
             text-transform: uppercase;
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 28px;
+            font-weight: 600;
             color: #ff2969;
             padding-left: 13px;
             margin: 0;
@@ -629,12 +629,12 @@
             margin: 0;
         }
 
-        h4.content-head-sm {
+        .content-head-large {
             padding-top: 14px;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
             color: #ff2969;
-            margin: 0;
+            margin: 0;line-height:22px;
         }
 
         .city-overview-title {
@@ -654,8 +654,8 @@
         }
 
         .content-head-min {
-            padding-top: 14px;
-            font-size: 16px;
+            padding-top: 8px;
+            font-size: 20px;
             font-weight: bold;
             color: #ff2969;
             margin: 0;
@@ -681,7 +681,7 @@
         .chart-col-4 {
             display: table-cell;
             width: 40%;
-            padding: 8px;
+            padding: 6px;
             /* Reduced padding */
             text-align: center;
             vertical-align: top;
@@ -695,7 +695,7 @@
         .chart-col-8 {
             display: table-cell;
             width: 60%;
-            padding: 8px;
+            padding: 6px;
             /* Reduced padding */
             text-align: left;
             vertical-align: top;
@@ -707,9 +707,9 @@
 
         .chart-col-4 img {
             /* Use natural image dimensions without forcing width/height */
-            max-width: 260px;
+            max-width: 100px;
             /* Fixed max width instead of percentage */
-            max-height: 110px;
+            max-height: 100px;
             /* Fixed max height for consistency */
             width: auto;
             height: auto;
@@ -741,39 +741,27 @@
             font-size: 24px;
             line-height: 28px;
         }
-
-        .phone_no {
-            background-image: url("{{ public_path('Image/arrow-icon.png') }}");
-            background-size: 24px;
-            ;
-            background-repeat: no-repeat;
-            background-position: left;
-            padding-left: 30px;
-            color: #000;
-            font-size: 20px;
-        }
+ 
 
         .phone_no {
             background: url("{{ public_path('Image/arrow-icon.png') }}") no-repeat;
-            background-size: 18px;
-            ;
+            background-size: 18px;            ;
             background-repeat: no-repeat;
             background-position: left;
             padding-left: 26px;
             color: #000;
-            font-size: 25x;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: bold;line-height:22px; 
         }
 
         .website_link {
             background: url("{{ public_path('Image/web-icon.png') }}") no-repeat;
-            background-size: 18px;
-            ;
+            background-size: 18px;          ;
             background-repeat: no-repeat;
             background-position: left;
             padding-left: 26px;
             color: #000;
-            font-size: 14px;
+            font-size: 14px;line-height:22px;
             font-weight: bold;
             margin: 0 0 4px;
         }
@@ -953,7 +941,7 @@
                                 </table>
                             </div>
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
-                                <table sytle="float:right;" border="1" cellspacing="0" cellpadding="0" width="80%"
+                                <table sytle="margin-left:5%;" border="1" cellspacing="0" cellpadding="0" width="80%"
                                     style="border-collapse: collapse; margin-bottom: 5px;color: #000000; font-size: 8px;font-weight:400; line-height: 7px;">
                                     <tr>
                                         <th valign="middle" colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
@@ -985,7 +973,7 @@
                                     <img src="{{ public_path('Image/population_image.png') }}" style="width:80%"
                                         alt="" />
                                 </div>
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;">Current
+                                <p style="color: #000000; font-size: 10px; line-height: 9px;font-weight:400;">Current
                                     population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
                             </div>
                             <div class="chart-item"
@@ -994,12 +982,12 @@
                                     <img src="{{ public_path('Image/Employment_image.png') }}" style="width:80%"
                                         alt="img" />
                                 </div>
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; ">
+                                <p style="color: #000000; font-size: 10px; line-height: 9px;font-weight:400; ">
                                     Employment – (SALM) – Small area labour market (top 5 categories)</p>
                             </div>
                         </div>
                         @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
+                            <p style="color: #000000; font-size: 10px; line-height: 8px;font-weight:400; ">{{ $note }}</p>
                         @endif
 
                     </div>
@@ -1038,7 +1026,7 @@
                             <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png"
                                 alt="PropWealth Next Invest" />
                         </div>
-                        <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; ">The Overall
+                        <p style="color: #000000; font-size: 10px; line-height: 10px;font-weight:400; ">The Overall
                             Suburb Score is a composite index that combines multiple key metrics into a single score,
                             summarising the suburb’s relative desirability, investment potential, and liveability. </p>
 
@@ -1073,7 +1061,7 @@
                         <div class="content-head-black" style="display: inline;font-weight:400;">3/10 (socio
                             economics score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The affluency score provides an assessment of a suburb's overall socio-economic standing. It
                             is informed by indicators such as the proportion of fully owned dwellings, income levels,
                             and investment yield. This score reflects long-term financial stability, housing security,
@@ -1092,7 +1080,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">6/10 (buy
                             affordability score & rent affordability score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The affordability score measures the financial accessibility of housing in a suburb by
                             combining two distinct perspectives: buy affordability and rent affordability. The buy
                             affordability component assesses how attainable home ownership is based on the relationship
@@ -1111,7 +1099,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">5/10 (sales
                             turnover)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The liquidity score reflects the level of transactional activity within a suburb, as
                             measured by the frequency of property sales over a given period. It provides insight into
                             market dynamism and demand intensity. A higher score denotes a more active market, where
@@ -1128,7 +1116,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">7/10 (inventory
                             Score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The supply score is based on inventory levels, which estimate how many months it would take
                             to clear the current stock of listed properties at the prevailing rate of sales. This metric
                             provides a forward-looking view of market balance. A lower inventory typically points to
@@ -1168,7 +1156,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">4/10 (Investor
                             Score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The investor score is a proprietary metric developed by PropWealth to evaluate the
                             investment potential of a suburb. It draws on a range of underlying indicators such as
                             rental yield, price momentum, ownership composition, supply-demand dynamics,
@@ -1203,32 +1191,32 @@
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">SUPPLY - <span
                                 style="color: #000000;">DEMAND ANALYSIS</span></h4>
-                        <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 5px;">
+                        <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0 0 5px;">
                             Supply is the number of properties available for use or properties to be sold in the market.
                             Demand is generally the buyers' desire to purchase or rent properties in the market. One of
                             the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a
                             good investment location will have high demand relative to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important">
                             <div class="chart-col-4">
                                 @if (isset($charts['housePriceChart']) && !empty($charts['housePriceChart']))
                                     <img src="{{ $charts['housePriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Houses - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
                                     {{ $suburb }} over the last year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseListingsChart']) && !empty($charts['houseListingsChart']))
                                     <img src="{{ $charts['houseListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Houses – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
@@ -1242,7 +1230,7 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Houses – inventory –</span> an analysis
                                     of how many months of supply exists. It is measured as the number of properties for
                                     sale compared to how many are being sold. For example, if 100 houses are listed and
@@ -1276,32 +1264,32 @@
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">SUPPLY - <span
                                 style="color: #000000;">DEMAND ANALYSIS</span></h4>
-                        <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 5px;">
+                        <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0 0 5px;">
                             Supply is the number of properties available for use or properties to be sold in the market.
                             Demand is generally the buyers' desire to purchase or rent properties in the market. One of
                             the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a
                             good investment location will have high demand relative to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
                                     <img src="{{ $charts['unitPriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
                                     {{ $suburb }} over the last year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitListingsChart']) && !empty($charts['unitListingsChart']))
                                     <img src="{{ $charts['unitListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
@@ -1315,7 +1303,7 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units – inventory – </span> an analysis
                                     of how many months of supply exists. It is measured as the number of properties for
                                     sale compared to how many are being sold. For example, if 100 houses are listed and
@@ -1348,12 +1336,12 @@
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">RENTAL - <span
                                 style="color: #000000;">ANALYSIS</span></h4>
-                        <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 5px;">
+                        <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0 0 5px;">
                             As an investor, cashflow becomes a critical parameter. Hence, understanding how the rental
                             market has been is of utmost importance. Rentals increase when demand for rent exceeds
                             supply of properties. So, a good investment location will have high rental demand relative
                             to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
                                     <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
@@ -1362,14 +1350,14 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">House rents (trend over 1 year) -
                                     </span> a graph of how the median rent of houses has changed in {{ $suburb }}
                                     over the last
                                     year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
                                     <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">
@@ -1378,7 +1366,7 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Unit rents (trend over 1 year) –
                                     </span> a graph of how the median rent of units has changed in {{ $suburb }}
                                     over the last
@@ -1394,7 +1382,7 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Vacancy rates (trend over 1 year) -
                                     </span> a graph of how the vacancy rates have changed in {{ $suburb }} over
                                     the last year
@@ -1428,7 +1416,7 @@
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">AFFLUENCY <span
                                 style="color: #000000;">INDEX</span></h4>
                         <p
-                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 15px;padding:5px 0 0;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:300; margin:0 0 10px;padding:5px 0 0;">
                             An important parameter to measure affluency in an area is Socio-Economic Indexes for Areas
                             (SEIFA), a product developed by the ABS that ranks areas in Australia according to relative
                             socio-economic advantage and disadvantage. The indexes are based on information from the
@@ -1472,7 +1460,7 @@
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="phone_block">
-                    <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is
+                    <h4 class="content-head-large" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is<br>
                         Knowing Where to Invest</h4>
                     <p
                         style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 5px;padding:5px 0 0;">
@@ -1509,20 +1497,17 @@
              <span>13</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
-                <h4 class="city-overview-title">GLOSSARY</h4>
+                <h4 class="city-overview-title" style="margin:0;padding:0 0 15px">GLOSSARY</h4>
 
                 <!-- Median House Price -->
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median House Price
+                            style="display: block; margin-bottom: 0px;">Median House Price 
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            The midpoint of all house sale prices in the area. Half the properties sold for less,
-                            and
-                            half for more. This is a reliable way to track property values because it avoids being
-                            skewed by one very high or very low sale.
+                            style="color: #000000; font-size: 11px; line-height:8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            The midpoint of all house sale prices in the area. Half the properties sold for less, and half for more. This is a reliable way to track property values because it avoids being skewed by one very high or very low sale.
                         </p>
                     </div>
                 </div>
@@ -1531,13 +1516,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Yield</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Rental Yield</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A key measure of return on investment. Calculated as:
-                            <span style="margin-left: 15px !important;"><b>Annual Rental Income ÷ Property Value ×
-                                    100</b></span>
-                            For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A key measure of return on investment. Calculated as:<br>
+                            <span style="text-align:center;display: block;"><b style="color: #000000;">Annual Rental Income ÷ Property Value ×  100</b></span><br>  For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
                             yields can mean stronger cashflow but may also carry higher risk
                         </p>
                     </div>
@@ -1547,9 +1530,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Turnover</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Rental Turnover</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The percentage of rental properties that change tenants within a year. High turnover
                             shows active rental demand and liquidity but may also mean higher management
                             costs or volatility.
@@ -1561,9 +1544,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Growth</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Rental Growth</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The rate at which rents are rising (or falling) over time. Investors track this to
                             under-stand whether rental income is likely to increase and keep pace with costs such as
                             interest rates.
@@ -1575,10 +1558,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Overall Suburb Score
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Overall Suburb Score
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A combined index of desirability, investment potential, and liveability. It brings
                             togeth-er
                             the different scores into one clear snapshot.
@@ -1590,10 +1573,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SA4 (Statistical Area
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">SA4 (Statistical Area
                             Level 4)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A geographic region defined by the Australian Bureau of Statistics (ABS). Used to
                             measure large-scale population and employment trends.
                         </p>
@@ -1604,11 +1587,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">PropWealth Investor
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">PropWealth Investor
                             Score
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A proprietary measure that combines multiple factors. It's designed to give investors a
                             single score summarising long-term investment potential in a suburb.
                         </p>
@@ -1640,12 +1623,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SALM (Small Area Labour
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">SALM (Small Area Labour
                             Markets)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A dataset from the ABS that shows employment types and industries in smaller areas,
-                            helping investors understand the local economy and job base.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A dataset from the ABS that shows employment types and industries in smaller areas, helping investors understand the local economy and job base.
                         </p>
                     </div>
                 </div>
@@ -1654,12 +1636,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Affluency Score</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Affluency Score</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A rating of a suburb’s socio-economic strength, based on factors like incomes, home
-                            ownership, and housing stability. Higher affluency often means lower risk of default
-                            and more long-term wealth in the community.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A rating of a suburb’s socio-economic strength, based on factors like incomes, home ownership, and housing stability. Higher affluency often means lower risk of default and more long-term wealth in the community.
                         </p>
                     </div>
                 </div>
@@ -1668,10 +1648,19 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Affordability Score</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            Shows how accessible housing is for both buyers and renters. It combines
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                           Shows how accessible housing is for both buyers and renters. It combines
+                        </p>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                           <span style="color:#ff2969; font-weight:normal;">Buy Affordability: </span>  compares median house prices with local incomes
+                        </p>
+                         <p
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                           <span style="color:#ff2969; font-weight:normal;">Rent Affordability: </span>  compares rents with household income.<br>
+                           Balanced affordability helps ensure demand remains sustainable.
                         </p>
                     </div>
                 </div>
@@ -1680,12 +1669,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Liquidity Score</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Liquidity Score</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A rating that reflects how easy it is to trade property in a suburb. A high score means
-                            buyers and sellers are actively transacting, which reduces risk for investors if they
-                            want to exit later.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A rating that reflects how easy it is to trade property in a suburb. A high score means buyers and sellers are actively transacting, which reduces risk for investors if they want to exit later.
                         </p>
                     </div>
                 </div>
@@ -1694,13 +1681,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Supply Score </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            Measures how long it would take to sell all currently listed properties based on sales
-                            activity. Low inventory = tighter supply and often rising prices. High inventory can sug
-                            -
-                            gest oversupply
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                             Measures how long it would take to sell all currently listed properties based on sales activity. Low inventory = tighter supply and often rising prices. High inventory can suggest oversupply.
                         </p>
                     </div>
                 </div>
@@ -1709,13 +1693,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Inventory</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            The number of properties for sale compared to how many are being sold. For exam
-                            -
-                            ple, if 100 houses are listed and 25 sell each month, the inventory is 4 months. Lower
-                            inventory often supports price growth
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            The number of properties for sale compared to how many are being sold. For example, if 100 houses are listed and 25 sell each month, the inventory is 4 months. Lower inventory often supports price growth.
                         </p>
                     </div>
                 </div>
@@ -1724,13 +1705,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA (Socio-Economic
-                            Indexes for Areas)
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">PropWealth Investor Score
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A proprietary measure that combines multiple factors. It’s designed to give investors
-                            a single score summarising long-term investment potential in a suburb.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A proprietary measure that combines multiple factors. It’s designed to give investors a single score summarising long-term investment potential in a suburb.
                         </p>
                     </div>
 
@@ -1762,9 +1741,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Supply</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The number of properties available for sale or rent in a given area. When supply is
                             lower than demand, property prices and rents generally rise, boosting returns.
                         </p>
@@ -1775,9 +1754,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Demand</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Demand</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The number of buyers or renters actively seeking property in an area. When demand
                             is higher than supply, property prices and rents generally rise, boosting returns.
                         </p>
@@ -1788,10 +1767,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Sales Turnover
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The percentage of all properties in the suburb that are sold within a year. A higher
                             turnover suggests a liquid market, making it easier to buy or sell when needed.
                         </p>
@@ -1802,9 +1781,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Cashflow</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Cashflow</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The rental income left over after all expenses (mortgage repayments, maintenance,
                             property management, insurance, etc.). Positive cashflow helps investors build
                             sus-tainable
@@ -1817,9 +1796,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Median Rent</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The middle point of all advertised rents in the area. It shows what a “typical”
                             tenant
                             is
@@ -1832,9 +1811,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Inventory</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The percentage of rental properties that are unoccupied at a given time. A low
                             vacancy rate means strong rental demand and less risk of lost income. A high
                             vacan-cy
@@ -1848,12 +1827,12 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">SEIFA
                             (Socio-Economic
                             Indexes for Areas)
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             An ABS index ranking suburbs by socio-economic advantage and disadvantage,
                             based on Census data. A higher SEIFA rank usually indicates wealthier and more
                             stable communities.

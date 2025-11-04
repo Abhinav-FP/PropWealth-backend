@@ -240,10 +240,9 @@ foreach ($charts as $key => $base64) {
             $filePath = $publicChartsPath . '/' . $filename;
 
             if (file_put_contents($filePath, $processedImageData) !== false) {
-                $finalSize = strlen($processedImageData);                
-                // Create data URI for PDF
-                $base64Data = base64_encode($processedImageData);
-                $tempChartPaths[$key] = 'data:image/png;base64,' . $base64Data;
+                $finalSize = strlen($processedImageData);
+                // Pass lightweight file URI to avoid huge queue payloads
+                $tempChartPaths[$key] = 'file://' . $filePath;
                 $tempFiles[] = $filePath;
             } else {
                 \Log::error("Failed to save file for: " . $key);

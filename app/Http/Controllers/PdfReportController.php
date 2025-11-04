@@ -288,7 +288,13 @@ foreach ($charts as $key => $base64) {
                 ]);
                 
                 try {
-                    GeneratePdfReportJob::dispatch($reportData, $recipientEmail, $recipientName, $request->name, $userId, $tempFiles);
+                    // Persist heavy reportData to a temporary JSON file to keep the queued payload small
+                    $dataKey = 'tmp/report-data-' . \Illuminate\Support\Str::uuid() . '.json';
+                    \Illuminate\Support\Facades\Storage::disk('local')->put($dataKey, json_encode($reportData));
+                    $reportDataPath = storage_path('app/' . $dataKey);
+
+                    // Dispatch job with a lightweight payload and a pointer to the JSON file
+                    GeneratePdfReportJob::dispatch(null, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles);
                     
                    
                 } catch (\Throwable $e) {

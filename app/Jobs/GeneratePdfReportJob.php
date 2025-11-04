@@ -24,19 +24,21 @@ class GeneratePdfReportJob implements ShouldQueue
     public $backoff = 60; // Wait 60 seconds between retries
 
     protected $reportData;
+    protected $reportDataPath;
     protected $recipientEmail;
     protected $recipientName;
     protected $suburbName;
     protected $userId;
     protected $tempFiles;
 
-    public function __construct(array $reportData, string $recipientEmail, string $recipientName, string $suburbName, ?int $userId = null, array $tempFiles = [])
+    public function __construct(?array $reportData, string $recipientEmail, string $recipientName, string $suburbName, ?int $userId = null, ?string $reportDataPath = null, array $tempFiles = [])
     {
         $this->reportData = $reportData;
         $this->recipientEmail = $recipientEmail;
         $this->recipientName = $recipientName;
         $this->suburbName = $suburbName;
         $this->userId = $userId;
+        $this->reportDataPath = $reportDataPath;
         $this->tempFiles = $tempFiles;
     }
 
@@ -120,6 +122,27 @@ class GeneratePdfReportJob implements ShouldQueue
                     'readable' => $readable,
                     'size_bytes' => $size
                 ]);
+            }
+
+            // Load heavy report data from JSON on disk if a path was provided
+            if (!$this->reportData && $this->reportDataPath && file_exists($this->reportDataPath)) {
+                try {
+                    $loaded = json_decode(file_get_contents($this->reportDataPath), true);
+                    if (is_array($loaded)) {
+                        $this->reportData = $loaded;
+                        Log::info('Loaded reportData from JSON file', [
+                            'path' => $this->reportDataPath,
+                            'charts_count' => isset($loaded['charts']) && is_array($loaded['charts']) ? count($loaded['charts']) : null,
+                        ]);
+                    } else {
+                        Log::warning('JSON file did not decode to array', ['path' => $this->reportDataPath]);
+                    }
+                } catch (\Throwable $e) {
+                    Log::error('Failed to load reportData from path', [
+                        'path' => $this->reportDataPath,
+                        'error' => $e->getMessage(),
+                    ]);
+                }
             }
 
             $startViewTime = microtime(true);
@@ -208,6 +231,19 @@ class GeneratePdfReportJob implements ShouldQueue
                 } catch (\Exception $e) {
                     Log::warning('Failed to delete temp file', [
                         'file' => $tempFile,
+                        'error' => $e->getMessage()
+                    ]);
+                }
+            }
+
+            // Clean up persisted JSON if present
+            if ($this->reportDataPath && file_exists($this->reportDataPath)) {
+                try {
+                    unlink($this->reportDataPath);
+                    Log::info('Deleted reportData JSON file', ['file' => $this->reportDataPath]);
+                } catch (\Exception $e) {
+                    Log::warning('Failed to delete reportData JSON file', [
+                        'file' => $this->reportDataPath,
                         'error' => $e->getMessage()
                     ]);
                 }

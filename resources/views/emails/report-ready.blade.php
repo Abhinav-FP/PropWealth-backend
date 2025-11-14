@@ -4,8 +4,7 @@
     <title>PropWealth Next Market Outlook</title>
 </head>
 <body>
-    <p>Hi {{ ucfirst(strtolower($user->first_name)) }},</p>
-
+<p>Hi {{ ucwords(strtolower($user->first_name)) }},</p>
     <p>Your PropWealth Next market outlook for {{ $suburb }} is ready.<br>
     It highlights key trends, growth indicators, and data that matter most to your investment decisions.</p>
 

@@ -474,7 +474,7 @@
             /* Use natural image dimensions without forcing width/height */
             max-width: 280px;
             /* Fixed max width instead of percentage */
-            max-height: 160px;
+            max-height: 150px;
             /* Fixed max height for consistency */
             width: auto;
             height: auto;

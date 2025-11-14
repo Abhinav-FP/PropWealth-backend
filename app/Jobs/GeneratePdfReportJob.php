@@ -152,7 +152,9 @@ class GeneratePdfReportJob implements ShouldQueue
 
             // Save PDF
             Log::info('Generating filename and saving PDF');
-            $filename = 'report-' . Str::uuid() . '.pdf';
+            $currentYear = date('Y');
+            $formattedSuburb = ucwords(strtolower($this->suburbName));
+            $filename = "PropWealth Next – {$formattedSuburb} Market Outlook {$currentYear}.pdf";
             $storagePath = 'reports/' . $filename;
             
             Log::info('Saving PDF to storage', [

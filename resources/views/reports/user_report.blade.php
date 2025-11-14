@@ -707,18 +707,16 @@
 
         .chart-col-4 img {
             /* Use natural image dimensions without forcing width/height */
-            max-width: 100px;
+            max-width: 100%;
             /* Fixed max width instead of percentage */
-            max-height: 100px;
+            max-height: 130px;
             /* Fixed max height for consistency */
-            width: auto;
+            width: 100%;
             height: auto;
-            object-fit: scale-down;
+            object-fit: cover;
             /* Scale down if needed but preserve ratio */
-            object-position: center;
-            border: 2px solid #f0f0f0;
-            background-color: #fff;
-            border-radius: 4px;
+            object-position: center; 
+            background-color: #fff; 
             transition: all 0.3s ease;
         }
 
@@ -1019,9 +1017,8 @@
                         </h4>
                         <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 20px;">KEY SCORES
                         </h5>
-                        <h6 style="text-align:center;color:#ff2969; font-weight:bold;font-size:17px;margin:0 0 15px;">
-                            ______scores</h6>
-
+                        <h6 style="text-align:center;color:#ff2969;font-weight:bold;font-size:17px;margin:0 0 15px;">
+                          <span style="height:4px;width: 42px; display: inline-block; border-radius:10px;vertical-align: middle;background:#ff2969;margin-top:18px;margin-right:4px;"></span> scores</h6>
                         <div class="text-align:center;margin:0 0 15px;">
                             <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png"
                                 alt="PropWealth Next Invest" />
@@ -1196,41 +1193,41 @@
                             Demand is generally the buyers' desire to purchase or rent properties in the market. One of
                             the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a
                             good investment location will have high demand relative to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;!important">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['housePriceChart']) && !empty($charts['housePriceChart']))
                                     <img src="{{ $charts['housePriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400;margin:0"><span
                                         style="color: #ff2969;font-weight:400;">Houses - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
                                     {{ $suburb }} over the last year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;!important">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseListingsChart']) && !empty($charts['houseListingsChart']))
                                     <img src="{{ $charts['houseListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400;margin:0 "><span
                                         style="color: #ff2969;font-weight:400;">Houses – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
                                     the last year. An increase in listings mean higher supply of houses.</p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0;">
+                        <div class="chart-row" style="margin-bottom: 0;border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseInventoryChart']) && !empty($charts['houseInventoryChart']))
                                     <img src="{{ $charts['houseInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0"><span
                                         style="color: #ff2969;font-weight:400;">Houses – inventory –</span> an analysis
                                     of how many months of supply exists. It is measured as the number of properties for
                                     sale compared to how many are being sold. For example, if 100 houses are listed and
@@ -1269,7 +1266,7 @@
                             Demand is generally the buyers' desire to purchase or rent properties in the market. One of
                             the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a
                             good investment location will have high demand relative to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;!important">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
                                     <img src="{{ $charts['unitPriceChart'] }}" alt="img">
@@ -1282,7 +1279,7 @@
                                     {{ $suburb }} over the last year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;!important">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitListingsChart']) && !empty($charts['unitListingsChart']))
                                     <img src="{{ $charts['unitListingsChart'] }}" alt="img">
@@ -1296,7 +1293,7 @@
                                     the last year. An increase in listings mean higher supply of houses.</p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0;">
+                        <div class="chart-row" style="margin-bottom: 0;border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
                                     <img src="{{ $charts['unitInventoryChart'] }}" alt="img">
@@ -1341,7 +1338,7 @@
                             market has been is of utmost importance. Rentals increase when demand for rent exceeds
                             supply of properties. So, a good investment location will have high rental demand relative
                             to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;!important">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
                                     <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
@@ -1357,7 +1354,7 @@
                                     year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;!important">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
                                     <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">

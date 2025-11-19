@@ -72,7 +72,7 @@
         .header,
         .header-2 {
             position: absolute;
-            top: 9%;
+            top: 8.5%;
             right: 15px;
             color: white;
             font-size: 11px;
@@ -99,7 +99,7 @@
         .content-2 {
             position: absolute;
             top: 12%;
-            left: 32%;
+            left: 30%;
             padding: 10mm;
             color: #fff;
             border-radius: 15px;
@@ -773,6 +773,15 @@
             text-align: right;
         }
         .text-white{color: white;}
+         .logo_head {
+            position: absolute;
+            top: 5.7%;
+            left: 38px;
+            color: #000;
+            font-size: 12px;
+            text-align: right;
+        }
+        .logo_head img{width: 175px; height:auto;}
     </style>
 </head>
 
@@ -780,6 +789,9 @@
     <!-- Page 1 -->
     <div class="page page-1-bg page-1-bg-base64">
         <div class="content-wrapper">
+          <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-white.png') }}" alt="logo" />
+          </div>
             <div class="header" >
                 <div class="market-report" style="line-height:5px;">
                     <h3>#Market Report</h3><span>
@@ -794,7 +806,7 @@
                <span>01</span>
             </div>
             <div class="content" style="top: 19%;">
-                <p style="line-height:18px; font-size: 26px;padding-left:12px;">{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
+                <p style="line-height:18px; font-size: 26px;padding-left:18px;">{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
                     Growth Potential</p>
                 <p class="date">{{ $date }}</p>
             </div>
@@ -810,6 +822,9 @@
     <!-- Page 2 -->
     <div class="page page-2-bg page-2-bg-base64">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-white.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -840,6 +855,9 @@
     <!-- Page 3 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -876,6 +894,9 @@
     <!-- Page 4 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1003,6 +1024,9 @@
     <!-- Page 5 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1042,6 +1066,9 @@
     <!-- Page 6 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1136,6 +1163,9 @@
     <!-- Page 7 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1175,8 +1205,11 @@
         </div>
     </div>
     <!-- Page 8 -->
-    <div class="page page-4-bg page-4-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">    
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1248,8 +1281,11 @@
         </div>
     </div>
     <!-- Page 9 -->
-    <div class="page page-4-bg page-4-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">    
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1322,6 +1358,9 @@
     <!-- Page 10 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1401,6 +1440,9 @@
     <!-- Page 11 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1449,6 +1491,9 @@
     <!-- Page 12 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1487,6 +1532,9 @@
     <!-- Page 13 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1608,6 +1656,9 @@
     <!-- Page 14 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
@@ -1726,6 +1777,9 @@
     <!-- Page 15 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>

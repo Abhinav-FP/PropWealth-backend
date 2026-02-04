@@ -167,6 +167,7 @@ class PdfReportController extends Controller
                     'message' => 'User authentication required. Please verify your OTP first.',
                 ], 401);
             }
+            Log::info(json_encode($request->all()));
 
             // No authentication required - removed user dependency and download limits
 

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         @page {
             size: A4;
             margin: 15mm 15mm 32mm 15mm;
@@ -14,7 +15,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-family: "Poppins", sans-serif;
             font-size: 12px;
             line-height: 1.4;
             color: #333;
@@ -31,7 +32,7 @@
             height: 297mm;
             display: block;
             position: relative;
-            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-family: "Poppins", sans-serif;
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center top;
@@ -57,29 +58,29 @@
         .content-wrapper,
         .content-wrapper-2 {
             position: relative;
-            height: calc(100% - 70mm);
+            height: calc(100% - 60mm);
             padding-top: 10mm;
-            padding-bottom: 30mm;
+            padding-bottom: 20mm;
         }
 
         .content-wrapper-2 {
             margin-bottom: 0;
-            max-height: calc(100% - 90mm);
+            max-height: calc(100% - 60mm);
             overflow: hidden;
         }
 
         .header,
         .header-2 {
             position: absolute;
-            top: 8%;
-            right: 20px;
+            top: 9%;
+            right: 15px;
             color: white;
-            font-size: 15px;
+            font-size: 11px;
             text-align: right;
         }
 
         .header-2 {
-            top: 7%;
+            top: 6.6%;
         }
 
         .header.header-4 {
@@ -88,9 +89,11 @@
         }
 
         .market-report h3 {
-            padding: 0px;
-            margin: 0;
+             font-weight:normal;
+            margin:0;padding:0 0 6px;
+            font-size: 13px; line-height:6px;
         }
+         .market-report span{font-size: 10px; line-height:5px;color:rgba(255,255,255,.7);display:block}
 
         .content,
         .content-2 {
@@ -109,10 +112,10 @@
 
         .content-2 {
             left: 5%;
-            top: 12%;
+            top: 11%;
             /* Moved higher to give more space */
             width: 85%;
-            max-height: calc(100% - 100mm);
+            max-height: calc(100% - 70mm);
             /* Better height calculation for PDF */
             overflow: visible;
             /* Allow content to flow naturally */
@@ -130,19 +133,20 @@
         }
 
         .date {
-            margin-top: 25px !important;
-            font-size: 22px;
-            margin-left: 32% !important;
+            margin-top: 5px !important;
+            font-size: 20px;
+            margin-left: 28% !important;
         }
 
         .footer,
         .footer-2,
         .footer-4 {
             position: fixed;
-            bottom: 22mm;
-            left: 13%;
+            bottom: 23mm;
+            left: 20%;
             right: 20mm;
-            font-size: 10px;
+            font-size: 8px;
+            line-height:6px;
             display: table;
             width: 80%;
             z-index: 999;
@@ -159,11 +163,11 @@
 
 
         .footer-2 {
-            bottom: 22mm;
+            bottom: 20mm;
         }
 
         .footer-4 {
-            bottom: 22mm;
+            bottom: 20mm;
         }
 
         .footer-2 p {
@@ -187,8 +191,8 @@
         h4.content-head {
             padding-top: 14px;
             text-transform: uppercase;
-            font-size: 32px;
-            font-weight: bold;
+            font-size: 28px;
+            font-weight: 600;
             color: #ff2969;
             padding-left: 13px;
             margin: 0;
@@ -196,7 +200,7 @@
 
         .content.content-2 ol li {
             font-size: 16px;
-            line-height: 48px;
+            line-height: 28px;
             font-weight: bold;
         }
 
@@ -381,7 +385,7 @@
         }
 
         .page-4-bg {
-            background-image: url("{{ public_path('Image/page6_optimized.jpg') }}");
+            background-image: url("{{ public_path('Image/page4_optimized.jpg') }}");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -406,6 +410,7 @@
             background-color: #34495e;
         }
 
+<<<<<<< HEAD
         @endif @if (file_exists(public_path('Image/page6_optimized.jpg'))) .page-3-bg-base64,
         .page-4-bg-base64 {
             background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
@@ -414,6 +419,27 @@
             background-position: center;
             background-color: #ecf0f1;
         }
+=======
+        @if (file_exists(public_path('Image/page6_optimized.jpg')))
+            .page-3-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #ecf0f1;
+            }
+        @endif
+         @if (file_exists(public_path('Image/page4_optimized.jpg')))
+             .page-4-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page4_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #ecf0f1;
+            }
+        @endif
+
+>>>>>>> 77d4e6dac82c667febafc48069e7ec4578a74dec
 
         @endif .chart-container {
             width: 100%;
@@ -455,7 +481,7 @@
             /* Use natural image dimensions without forcing width/height */
             max-width: 280px;
             /* Fixed max width instead of percentage */
-            max-height: 160px;
+            max-height: 150px;
             /* Fixed max height for consistency */
             width: auto;
             height: auto;
@@ -610,12 +636,12 @@
             margin: 0;
         }
 
-        h4.content-head-sm {
+        .content-head-large {
             padding-top: 14px;
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
             color: #ff2969;
-            margin: 0;
+            margin: 0;line-height:22px;
         }
 
         .city-overview-title {
@@ -635,8 +661,8 @@
         }
 
         .content-head-min {
-            padding-top: 14px;
-            font-size: 16px;
+            padding-top: 8px;
+            font-size: 20px;
             font-weight: bold;
             color: #ff2969;
             margin: 0;
@@ -662,7 +688,7 @@
         .chart-col-4 {
             display: table-cell;
             width: 40%;
-            padding: 8px;
+            padding: 6px;
             /* Reduced padding */
             text-align: center;
             vertical-align: top;
@@ -676,7 +702,7 @@
         .chart-col-8 {
             display: table-cell;
             width: 60%;
-            padding: 8px;
+            padding: 6px;
             /* Reduced padding */
             text-align: left;
             vertical-align: top;
@@ -688,18 +714,16 @@
 
         .chart-col-4 img {
             /* Use natural image dimensions without forcing width/height */
-            max-width: 260px;
+            max-width: 100%;
             /* Fixed max width instead of percentage */
-            max-height: 110px;
+            max-height: 130px;
             /* Fixed max height for consistency */
-            width: auto;
+            width: 100%;
             height: auto;
-            object-fit: scale-down;
+            object-fit: cover;
             /* Scale down if needed but preserve ratio */
-            object-position: center;
-            border: 2px solid #f0f0f0;
-            background-color: #fff;
-            border-radius: 4px;
+            object-position: center; 
+            background-color: #fff; 
             transition: all 0.3s ease;
         }
 
@@ -722,42 +746,40 @@
             font-size: 24px;
             line-height: 28px;
         }
-
-        .phone_no {
-            background-image: url("{{ public_path('Image/arrow-icon.png') }}");
-            background-size: 24px;
-            ;
-            background-repeat: no-repeat;
-            background-position: left;
-            padding-left: 30px;
-            color: #000;
-            font-size: 20px;
-        }
+ 
 
         .phone_no {
             background: url("{{ public_path('Image/arrow-icon.png') }}") no-repeat;
-            background-size: 18px;
-            ;
+            background-size: 18px;            ;
             background-repeat: no-repeat;
             background-position: left;
             padding-left: 26px;
             color: #000;
-            font-size: 25x;
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: bold;line-height:22px; 
         }
 
         .website_link {
             background: url("{{ public_path('Image/web-icon.png') }}") no-repeat;
-            background-size: 18px;
-            ;
+            background-size: 18px;          ;
             background-repeat: no-repeat;
             background-position: left;
             padding-left: 26px;
             color: #000;
-            font-size: 14px;
+            font-size: 14px;line-height:22px;
             font-weight: bold;
             margin: 0 0 4px;
         }
+
+         .page-no {
+            position: absolute;
+            top: 2.5%;
+            right: 30px;
+            color: #000;
+            font-size: 12px;
+            text-align: right;
+        }
+        .text-white{color: white;}
     </style>
 </head>
 
@@ -765,28 +787,31 @@
     <!-- Page 1 -->
     <div class="page page-1-bg page-1-bg-base64">
         <div class="content-wrapper">
-            <div class="header">
-                <div class="market-report">
-                    <h3>#Market Report</h3>
-                    <span>
+            <div class="header" >
+                <div class="market-report" style="line-height:5px;">
+                    <h3>#Market Report</h3><span>
                         @if (isset($suburb) && !empty($suburb))
                         {{ $suburb }}
                         @endif
-
                         {{ $year }}
                     </span>
                 </div>
             </div>
-            <div class="content" style="top: 18%;">
-                <p>{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
+             <div class="page-no text-white">
+               <span>01</span>
+            </div>
+            <div class="content" style="top: 19%;">
+                <p style="line-height:18px; font-size: 26px;padding-left:12px;">{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
                     Growth Potential</p>
                 <p class="date">{{ $date }}</p>
             </div>
         </div>
         <div class="footer">
-            <p>215/33 Lexington Dr,<br>Bella Vista NSW 2153</p>
-            <p>0409 016 393<br>info@propwealth.com.au</p>
-            <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
+            <p><img src="{{ public_path('Image/pin_icon.png') }}" style="width:12px;margin-top:10px;vertical-align:bottom;"
+                                        alt="img" />&nbsp;&nbsp;215/33 Lexington Dr,<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Bella Vista NSW 2153</p>
+            <p><img src="{{ public_path('Image/phone_icon.png') }}" style="width:12px;margin-top:10px;vertical-align:bottom;"
+                                        alt="img" />&nbsp; 0409 016 393<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; info@propwealth.com.au</p>
+            <p><a href="https://propwealth.com.au/"><img src="{{ public_path('Image/web-f-icon.png') }}" style="width:12px;margin-top:10px;vertical-align:middle;"  alt="img" />&nbsp; www.propwealth.com.au</a></p>
         </div>
     </div>
     <!-- Page 2 -->
@@ -794,6 +819,9 @@
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+            <div class="page-no text-white">
+             <span>02</span>
             </div>
             <div class="content content-2">
                 <h4 class="content-head">Table of contents</h4>
@@ -822,6 +850,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>03</span>
+            </div>
 
             <div class="content content-2" style="color: #000000; font-size: 14px !important; line-height: 21px;">
                 <h4 class="content-head-sm">PropWealth Next</h4>
@@ -830,7 +861,7 @@
                     <strong>Invest today in the next GROWTH HOTSPOTS</strong>
                 </p>
                 <p
-                    style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding-left: 0;padding-right: 0;padding-top:0;">
+                    style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding-left: 0;padding-right: 0;padding-top:0;">
                     PropWealth Next is designed to give investors more than just market data; it’s a clear,
                     data -backed perspective on where opportunity is heading next.
                     Through advanced suburb analytics, we identify key growth pockets, rental performance shifts, and
@@ -850,10 +881,13 @@
         </div>
     </div>
     <!-- Page 4 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>04</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
@@ -862,12 +896,17 @@
                         </h4>
                         <h4 class="city-overview-title" style="display: inline; font-size: 24px; font-weight: bold;">
                             City Overview</h4>
+<<<<<<< HEAD
                         @if(isset($charts['desc_1']) && !empty($charts['desc_1']))
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
                             {{ $charts['desc_1'] }}
                         </p>
                         @else
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
+=======
+                        <p
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0; margin-top: 10px;;">
+>>>>>>> 77d4e6dac82c667febafc48069e7ec4578a74dec
                             {{ $suburb }} is a major regional city that is located in the
                             {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }},
                             Australia. It is part of the twin city of {{ $suburbData['Suburb'] }} and is located on the
@@ -876,6 +915,7 @@
                             {{ $suburb }}. It is on the
                             {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }} border
                         </p>
+<<<<<<< HEAD
                         @endif
                         @if (isset($charts['desc_2']) && !empty($charts['desc_2']))
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
@@ -889,6 +929,14 @@
                             Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.
                         </p>
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to
+=======
+                        <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;">
+                            {{ $suburb }} has an urban population of 53,677[4] and is separated from its twin
+                            city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area
+                            with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital
+                            Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p>
+                        <p style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;">Said to
+>>>>>>> 77d4e6dac82c667febafc48069e7ec4578a74dec
                             be named after a village in England, United Kingdom, {{ $suburb }} developed as a
                             major transport link between New South Wales and Victoria and was proclaimed a city in 1946
                         </p>
@@ -896,56 +944,56 @@
                         @endif
                         <div class="chart-row" style="border-spacing:0">
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
-                                <table border="1" cellspacing="0" cellpadding="0"
-                                    style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400; line-height: auto; ">
+                                <table width="80%" border="1" cellspacing="0" cellpadding="0"
+                                    style="border-collapse: collapse; margin-bottom: 5px;color: #000000; font-size: 8px;font-weight:400; line-height: 7px; ">
                                     <tr>
-                                        <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
+                                        <th valign="middle" colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
                                             Median house price</th>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">Median house price</td>
-                                        <td style="padding: 0 5px;">$575,000</td>
+                                        <td valign="middle" style="padding: 0 5px;">Median house price</td>
+                                        <td valign="middle" style="padding: 0 5px;">$575,000</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">Avg rental yield</td>
-                                        <td style="padding: 0 5px;">5.6%</td>
+                                        <td valign="middle" style="padding: 0 5px;">Avg rental yield</td>
+                                        <td valign="middle" style="padding: 0 5px;">5.6%</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">Rental turnover</td>
-                                        <td style="padding: 0 5px;">10</td>
+                                        <td valign="middle" style="padding: 0 5px;">Rental turnover</td>
+                                        <td valign="middle" style="padding: 0 5px;">10</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">12 month rental growth</td>
+                                        <td valign="middle" style="padding: 0 5px;">12 month rental growth</td>
                                         <td style="padding: 0 5px;">12%</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">Overall score</td>
-                                        <td style="padding: 0 5px;">8 / 10</td>
+                                        <td valign="middle" style="padding: 0 5px;">Overall score</td>
+                                        <td valign="middle" style="padding: 0 5px;">8 / 10</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
-                                <table border="1" cellspacing="0" cellpadding="0"
-                                    style="border-collapse: collapse; margin-bottom: 10px;color: #000000; font-size: 10px;font-weight:400;line-height: auto;">
+                                <table sytle="margin-left:5%;" border="1" cellspacing="0" cellpadding="0" width="80%"
+                                    style="border-collapse: collapse; margin-bottom: 5px;color: #000000; font-size: 8px;font-weight:400; line-height: 7px;">
                                     <tr>
-                                        <th colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
+                                        <th valign="middle" colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
                                             House prices area growth</th>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">12 month</td>
-                                        <td style="padding: 0 5px;">7.8%</td>
+                                        <td valign="middle" style="padding: 0 5px;">12 month</td>
+                                        <td valign="middle" style="padding: 0 5px;">7.8%</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">3 yrs</td>
+                                        <td valign="middle" style="padding: 0 5px;">3 yrs</td>
                                         <td style="padding: 0 5px;">5.6%</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">5 yrs</td>
-                                        <td style="padding: 0 5px;">2%</td>
+                                        <td valign="middle" style="padding: 0 5px;">5 yrs</td>
+                                        <td valign="middle" style="padding: 0 5px;">2%</td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 0 5px;">10 yrs</td>
-                                        <td style="padding: 0 5px;">12%</td>
+                                        <td valign="middle" style="padding: 0 5px;">10 yrs</td>
+                                        <td valign="middle" style="padding: 0 5px;">12%</td>
                                     </tr>
                                 </table>
                             </div>
@@ -957,7 +1005,7 @@
                                     <img src="{{ public_path('Image/population_image.png') }}" style="width:80%"
                                         alt="" />
                                 </div>
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;">Current
+                                <p style="color: #000000; font-size: 10px; line-height: 9px;font-weight:400;">Current
                                     population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
                             </div>
                             <div class="chart-item"
@@ -966,12 +1014,16 @@
                                     <img src="{{ public_path('Image/Employment_image.png') }}" style="width:80%"
                                         alt="img" />
                                 </div>
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">
+                                <p style="color: #000000; font-size: 10px; line-height: 9px;font-weight:400; ">
                                     Employment – (SALM) – Small area labour market (top 5 categories)</p>
                             </div>
                         </div>
                         @if (isset($note) && !empty($note))
+<<<<<<< HEAD
                         <p>{{ $note }}</p>
+=======
+                            <p style="color: #000000; font-size: 10px; line-height: 8px;font-weight:400; ">{{ $note }}</p>
+>>>>>>> 77d4e6dac82c667febafc48069e7ec4578a74dec
                         @endif
 
                     </div>
@@ -992,6 +1044,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>05</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="content-grap-right">
                     <div class="chart-container">
@@ -1000,14 +1055,13 @@
                         </h4>
                         <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 20px;">KEY SCORES
                         </h5>
-                        <h6 style="text-align:center;color:#ff2969; font-weight:bold;font-size:17px;margin:0 0 15px;">
-                            ______scores</h6>
-
+                        <h6 style="text-align:center;color:#ff2969;font-weight:bold;font-size:17px;margin:0 0 15px;">
+                          <span style="height:4px;width: 42px; display: inline-block; border-radius:10px;vertical-align: middle;background:#ff2969;margin-top:18px;margin-right:4px;"></span> scores</h6>
                         <div class="text-align:center;margin:0 0 15px;">
                             <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png"
                                 alt="PropWealth Next Invest" />
                         </div>
-                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; ">The Overall
+                        <p style="color: #000000; font-size: 10px; line-height: 10px;font-weight:400; ">The Overall
                             Suburb Score is a composite index that combines multiple key metrics into a single score,
                             summarising the suburb’s relative desirability, investment potential, and liveability. </p>
 
@@ -1024,10 +1078,13 @@
         </div>
     </div>
     <!-- Page 6 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+                <span>06</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
@@ -1039,7 +1096,7 @@
                         <div class="content-head-black" style="display: inline;font-weight:400;">3/10 (socio
                             economics score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The affluency score provides an assessment of a suburb's overall socio-economic standing. It
                             is informed by indicators such as the proportion of fully owned dwellings, income levels,
                             and investment yield. This score reflects long-term financial stability, housing security,
@@ -1058,7 +1115,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">6/10 (buy
                             affordability score & rent affordability score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The affordability score measures the financial accessibility of housing in a suburb by
                             combining two distinct perspectives: buy affordability and rent affordability. The buy
                             affordability component assesses how attainable home ownership is based on the relationship
@@ -1077,7 +1134,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">5/10 (sales
                             turnover)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The liquidity score reflects the level of transactional activity within a suburb, as
                             measured by the frequency of property sales over a given period. It provides insight into
                             market dynamism and demand intensity. A higher score denotes a more active market, where
@@ -1094,7 +1151,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">7/10 (inventory
                             Score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The supply score is based on inventory levels, which estimate how many months it would take
                             to clear the current stock of listed properties at the prevailing rate of sales. This metric
                             provides a forward-looking view of market balance. A lower inventory typically points to
@@ -1120,6 +1177,9 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>07</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
                     <div class="metric-section">
@@ -1131,7 +1191,7 @@
                         <div class="content-head-black" style="display: inline; font-weight:400;">4/10 (Investor
                             Score)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The investor score is a proprietary metric developed by PropWealth to evaluate the
                             investment potential of a suburb. It draws on a range of underlying indicators such as
                             rental yield, price momentum, ownership composition, supply-demand dynamics,
@@ -1153,43 +1213,46 @@
         </div>
     </div>
     <!-- Page 8 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>08</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">SUPPLY - <span
                                 style="color: #000000;">DEMAND ANALYSIS</span></h4>
-                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;">
+                        <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0 0 5px;">
                             Supply is the number of properties available for use or properties to be sold in the market.
                             Demand is generally the buyers' desire to purchase or rent properties in the market. One of
                             the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a
                             good investment location will have high demand relative to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['housePriceChart']) && !empty($charts['housePriceChart']))
                                 <img src="{{ $charts['housePriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400;margin:0"><span
                                         style="color: #ff2969;font-weight:400;">Houses - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
                                     {{ $suburb }} over the last year
                                 </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseListingsChart']) && !empty($charts['houseListingsChart']))
                                 <img src="{{ $charts['houseListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400;margin:0 "><span
                                         style="color: #ff2969;font-weight:400;">Houses – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
@@ -1197,14 +1260,14 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0;">
+                        <div class="chart-row" style="margin-bottom: 0;border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseInventoryChart']) && !empty($charts['houseInventoryChart']))
                                 <img src="{{ $charts['houseInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0"><span
                                         style="color: #ff2969;font-weight:400;">Houses – inventory –</span> an analysis
                                     of how many months of supply exists. It is measured as the number of properties for
                                     sale compared to how many are being sold. For example, if 100 houses are listed and
@@ -1225,43 +1288,46 @@
         </div>
     </div>
     <!-- Page 9 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>09</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">SUPPLY - <span
                                 style="color: #000000;">DEMAND ANALYSIS</span></h4>
-                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;">
+                        <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0 0 5px;">
                             Supply is the number of properties available for use or properties to be sold in the market.
                             Demand is generally the buyers' desire to purchase or rent properties in the market. One of
                             the most fundamental laws of economics is that prices rise when demand exceeds supply. So, a
                             good investment location will have high demand relative to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
                                 <img src="{{ $charts['unitPriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
                                     {{ $suburb }} over the last year
                                 </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitListingsChart']) && !empty($charts['unitListingsChart']))
                                 <img src="{{ $charts['unitListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
@@ -1269,14 +1335,14 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0;">
+                        <div class="chart-row" style="margin-bottom: 0;border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
                                 <img src="{{ $charts['unitInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units – inventory – </span> an analysis
                                     of how many months of supply exists. It is measured as the number of properties for
                                     sale compared to how many are being sold. For example, if 100 houses are listed and
@@ -1296,22 +1362,25 @@
         </div>
     </div>
     <!-- Page 10 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>10</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">RENTAL - <span
                                 style="color: #000000;">ANALYSIS</span></h4>
-                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;">
+                        <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; margin:0 0 5px;">
                             As an investor, cashflow becomes a critical parameter. Hence, understanding how the rental
                             market has been is of utmost importance. Rentals increase when demand for rent exceeds
                             supply of properties. So, a good investment location will have high rental demand relative
                             to supply.</p>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
                                 <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
@@ -1320,14 +1389,14 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">House rents (trend over 1 year) -
                                     </span> a graph of how the median rent of houses has changed in {{ $suburb }}
                                     over the last
                                     year </p>
                             </div>
                         </div>
-                        <div class="chart-row" style="margin-bottom: 0px;">
+                        <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
                                 <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">
@@ -1336,7 +1405,7 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Unit rents (trend over 1 year) –
                                     </span> a graph of how the median rent of units has changed in {{ $suburb }}
                                     over the last
@@ -1352,7 +1421,7 @@
                                 @endif
                             </div>
                             <div class="chart-col-8">
-                                <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
+                                <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Vacancy rates (trend over 1 year) -
                                     </span> a graph of how the vacancy rates have changed in {{ $suburb }} over
                                     the last year
@@ -1377,13 +1446,16 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>11</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">AFFLUENCY <span
                                 style="color: #000000;">INDEX</span></h4>
                         <p
-                            style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 15px;padding:5px 0 0;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:300; margin:0 0 10px;padding:5px 0 0;">
                             An important parameter to measure affluency in an area is Socio-Economic Indexes for Areas
                             (SEIFA), a product developed by the ABS that ranks areas in Australia according to relative
                             socio-economic advantage and disadvantage. The indexes are based on information from the
@@ -1394,7 +1466,7 @@
                             @endif
                         </div>
                         <p
-                            style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:15px 0 25px;padding:0;">
+                            style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:15px 0 25px;padding:0;">
                             <span style="color: #ff2969;font-weight:bold;">Social index distribution</span> –
                             Percentage of areas in the suburb in different social indexes. More areas in higher ranks
                             mean higher affluency
@@ -1422,16 +1494,19 @@
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>12</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="phone_block">
-                    <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is
+                    <h4 class="content-head-large" style="padding-top:0 !important;margin:0 0 5px;">The Next Step Is<br>
                         Knowing Where to Invest</h4>
                     <p
-                        style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 5px;padding:5px 0 0;">
+                        style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 5px;padding:5px 0 0;">
                         PropWealth Next is built for those who see property as strategy, not chance. We don’t predict
                         the market, we read it.</p>
                     <p
-                        style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:0 0 15px;padding: 0;">
+                        style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:0 0 15px;padding: 0;">
                         Every shift, every suburb, every number tells a story about what comes next. Let’s make your
                         next decision an informed one.</p>
                     <div class="phone_no"> 0409 016 393</div>
@@ -1451,27 +1526,27 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-    <!-- Page 14 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <!-- Page 13 -->
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
+             <div class="page-no">
+             <span>13</span>
+            </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
-                <h4 class="city-overview-title">GLOSSARY</h4>
+                <h4 class="city-overview-title" style="margin:0;padding:0 0 15px">GLOSSARY</h4>
 
                 <!-- Median House Price -->
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median House Price
+                            style="display: block; margin-bottom: 0px;">Median House Price 
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            The midpoint of all house sale prices in the area. Half the properties sold for less,
-                            and
-                            half for more. This is a reliable way to track property values because it avoids being
-                            skewed by one very high or very low sale.
+                            style="color: #000000; font-size: 11px; line-height:8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            The midpoint of all house sale prices in the area. Half the properties sold for less, and half for more. This is a reliable way to track property values because it avoids being skewed by one very high or very low sale.
                         </p>
                     </div>
                 </div>
@@ -1480,13 +1555,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Yield</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Rental Yield</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A key measure of return on investment. Calculated as:
-                            <span style="margin-left: 15px !important;"><b>Annual Rental Income ÷ Property Value ×
-                                    100</b></span>
-                            For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A key measure of return on investment. Calculated as:<br>
+                            <span style="text-align:center;display: block;"><b style="color: #000000;">Annual Rental Income ÷ Property Value ×  100</b></span><br>  For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
                             yields can mean stronger cashflow but may also carry higher risk
                         </p>
                     </div>
@@ -1496,9 +1569,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Turnover</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Rental Turnover</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The percentage of rental properties that change tenants within a year. High turnover
                             shows active rental demand and liquidity but may also mean higher management
                             costs or volatility.
@@ -1510,9 +1583,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Rental Growth</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Rental Growth</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The rate at which rents are rising (or falling) over time. Investors track this to
                             under-stand whether rental income is likely to increase and keep pace with costs such as
                             interest rates.
@@ -1524,10 +1597,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Overall Suburb Score
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Overall Suburb Score
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A combined index of desirability, investment potential, and liveability. It brings
                             togeth-er
                             the different scores into one clear snapshot.
@@ -1539,10 +1612,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SA4 (Statistical Area
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">SA4 (Statistical Area
                             Level 4)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A geographic region defined by the Australian Bureau of Statistics (ABS). Used to
                             measure large-scale population and employment trends.
                         </p>
@@ -1553,11 +1626,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">PropWealth Investor
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">PropWealth Investor
                             Score
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A proprietary measure that combines multiple factors. It's designed to give investors a
                             single score summarising long-term investment potential in a suburb.
                         </p>
@@ -1574,11 +1647,14 @@
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
-    <!-- Page 15 -->
+    <!-- Page 14 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>14</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
 
@@ -1586,12 +1662,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SALM (Small Area Labour
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">SALM (Small Area Labour
                             Markets)</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A dataset from the ABS that shows employment types and industries in smaller areas,
-                            helping investors understand the local economy and job base.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A dataset from the ABS that shows employment types and industries in smaller areas, helping investors understand the local economy and job base.
                         </p>
                     </div>
                 </div>
@@ -1600,12 +1675,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Affluency Score</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Affluency Score</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A rating of a suburb’s socio-economic strength, based on factors like incomes, home
-                            ownership, and housing stability. Higher affluency often means lower risk of default
-                            and more long-term wealth in the community.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A rating of a suburb’s socio-economic strength, based on factors like incomes, home ownership, and housing stability. Higher affluency often means lower risk of default and more long-term wealth in the community.
                         </p>
                     </div>
                 </div>
@@ -1614,10 +1687,19 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Affordability Score</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            Shows how accessible housing is for both buyers and renters. It combines
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                           Shows how accessible housing is for both buyers and renters. It combines
+                        </p>
+                        <p
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                           <span style="color:#ff2969; font-weight:normal;">Buy Affordability: </span>  compares median house prices with local incomes
+                        </p>
+                         <p
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                           <span style="color:#ff2969; font-weight:normal;">Rent Affordability: </span>  compares rents with household income.<br>
+                           Balanced affordability helps ensure demand remains sustainable.
                         </p>
                     </div>
                 </div>
@@ -1626,12 +1708,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Liquidity Score</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Liquidity Score</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A rating that reflects how easy it is to trade property in a suburb. A high score means
-                            buyers and sellers are actively transacting, which reduces risk for investors if they
-                            want to exit later.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A rating that reflects how easy it is to trade property in a suburb. A high score means buyers and sellers are actively transacting, which reduces risk for investors if they want to exit later.
                         </p>
                     </div>
                 </div>
@@ -1640,13 +1720,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Supply Score </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            Measures how long it would take to sell all currently listed properties based on sales
-                            activity. Low inventory = tighter supply and often rising prices. High inventory can sug
-                            -
-                            gest oversupply
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                             Measures how long it would take to sell all currently listed properties based on sales activity. Low inventory = tighter supply and often rising prices. High inventory can suggest oversupply.
                         </p>
                     </div>
                 </div>
@@ -1655,13 +1732,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Inventory</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            The number of properties for sale compared to how many are being sold. For exam
-                            -
-                            ple, if 100 houses are listed and 25 sell each month, the inventory is 4 months. Lower
-                            inventory often supports price growth
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            The number of properties for sale compared to how many are being sold. For example, if 100 houses are listed and 25 sell each month, the inventory is 4 months. Lower inventory often supports price growth.
                         </p>
                     </div>
                 </div>
@@ -1670,13 +1744,11 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA (Socio-Economic
-                            Indexes for Areas)
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">PropWealth Investor Score
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
-                            A proprietary measure that combines multiple factors. It’s designed to give investors
-                            a single score summarising long-term investment potential in a suburb.
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
+                            A proprietary measure that combines multiple factors. It’s designed to give investors a single score summarising long-term investment potential in a suburb.
                         </p>
                     </div>
 
@@ -1694,10 +1766,13 @@
         </div>
     </div>
     <!-- Page 15 -->
-    <div class="page page-3-bg page-3-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
             <div class="header-2">
                 <span>{{ $year }}</span>
+            </div>
+             <div class="page-no">
+             <span>15</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
 
@@ -1705,9 +1780,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Supply</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The number of properties available for sale or rent in a given area. When supply is
                             lower than demand, property prices and rents generally rise, boosting returns.
                         </p>
@@ -1718,9 +1793,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Demand</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Demand</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The number of buyers or renters actively seeking property in an area. When demand
                             is higher than supply, property prices and rents generally rise, boosting returns.
                         </p>
@@ -1731,10 +1806,10 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Sales Turnover
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Sales Turnover
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The percentage of all properties in the suburb that are sold within a year. A higher
                             turnover suggests a liquid market, making it easier to buy or sell when needed.
                         </p>
@@ -1745,9 +1820,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Cashflow</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Cashflow</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The rental income left over after all expenses (mortgage repayments, maintenance,
                             property management, insurance, etc.). Positive cashflow helps investors build
                             sus-tainable
@@ -1760,9 +1835,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Median Rent</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Median Rent</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The middle point of all advertised rents in the area. It shows what a “typical”
                             tenant
                             is
@@ -1775,9 +1850,9 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Inventory</div>
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">Inventory</div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             The percentage of rental properties that are unoccupied at a given time. A low
                             vacancy rate means strong rental demand and less risk of lost income. A high
                             vacan-cy
@@ -1791,12 +1866,12 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">SEIFA
+                            style="display: block; margin-right: 5px; margin-bottom: 8px;">SEIFA
                             (Socio-Economic
                             Indexes for Areas)
                         </div>
                         <p
-                            style="color: #000000; font-size: 11px; line-height: 15px;font-weight:400;padding:0;margin-top: 10px !important;">
+                            style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             An ABS index ranking suburbs by socio-economic advantage and disadvantage,
                             based on Census data. A higher SEIFA rank usually indicates wealthier and more
                             stable communities.

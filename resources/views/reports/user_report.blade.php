@@ -390,38 +390,32 @@
         }
 
         /* Alternative approach using base64 encoded images for maximum compatibility */
-        @if (file_exists(public_path('Image/page1_optimized.jpg')))
-            .page-1-bg-base64 {
-                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page1_optimized.jpg'))) }}");
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-color: #2c3e50;
-            }
-        @endif
+        @if (file_exists(public_path('Image/page1_optimized.jpg'))) .page-1-bg-base64 {
+            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page1_optimized.jpg'))) }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #2c3e50;
+        }
 
-        @if (file_exists(public_path('Image/page2_optimized.jpg')))
-            .page-2-bg-base64 {
-                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page2_optimized.jpg'))) }}");
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-color: #34495e;
-            }
-        @endif
+        @endif @if (file_exists(public_path('Image/page2_optimized.jpg'))) .page-2-bg-base64 {
+            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page2_optimized.jpg'))) }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #34495e;
+        }
 
-        @if (file_exists(public_path('Image/page6_optimized.jpg')))
-            .page-3-bg-base64,
-            .page-4-bg-base64 {
-                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-color: #ecf0f1;
-            }
-        @endif
+        @endif @if (file_exists(public_path('Image/page6_optimized.jpg'))) .page-3-bg-base64,
+        .page-4-bg-base64 {
+            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #ecf0f1;
+        }
 
-        .chart-container {
+        @endif .chart-container {
             width: 100%;
             margin: 12px 0;
             /* Further reduced margin */
@@ -776,7 +770,7 @@
                     <h3>#Market Report</h3>
                     <span>
                         @if (isset($suburb) && !empty($suburb))
-                            {{ $suburb }}
+                        {{ $suburb }}
                         @endif
 
                         {{ $year }}
@@ -868,8 +862,12 @@
                         </h4>
                         <h4 class="city-overview-title" style="display: inline; font-size: 24px; font-weight: bold;">
                             City Overview</h4>
-                        <p
-                            style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
+                        @if(isset($charts['desc_1']) && !empty($charts['desc_1']))
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
+                            {{ $charts['desc_1'] }}
+                        </p>
+                        @else
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
                             {{ $suburb }} is a major regional city that is located in the
                             {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }},
                             Australia. It is part of the twin city of {{ $suburbData['Suburb'] }} and is located on the
@@ -878,15 +876,24 @@
                             {{ $suburb }}. It is on the
                             {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }} border
                         </p>
+                        @endif
+                        @if (isset($charts['desc_2']) && !empty($charts['desc_2']))
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
+                            {{ $charts['desc_2'] }}
+                        </p>
+                        @else
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">
                             {{ $suburb }} has an urban population of 53,677[4] and is separated from its twin
                             city in Victoria, Wodonga, by the Murray River. Together, the two cities form an urban area
                             with a population of 97,793 in 2021.[5] It is 554 kilometres (344 mi) from the state capital
-                            Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.</p>
+                            Sydney and 326 kilometres (203 mi) from the Victorian capital Melbourne.
+                        </p>
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">Said to
                             be named after a village in England, United Kingdom, {{ $suburb }} developed as a
                             major transport link between New South Wales and Victoria and was proclaimed a city in 1946
                         </p>
+
+                        @endif
                         <div class="chart-row" style="border-spacing:0">
                             <div class="chart-item" style="padding:0;border:0;background: transparent;">
                                 <table border="1" cellspacing="0" cellpadding="0"
@@ -964,7 +971,7 @@
                             </div>
                         </div>
                         @if (isset($note) && !empty($note))
-                            <p>{{ $note }}</p>
+                        <p>{{ $note }}</p>
                         @endif
 
                     </div>
@@ -1164,20 +1171,21 @@
                         <div class="chart-row" style="margin-bottom: 0px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['housePriceChart']) && !empty($charts['housePriceChart']))
-                                    <img src="{{ $charts['housePriceChart'] }}" alt="img">
+                                <img src="{{ $charts['housePriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
                                 <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Houses - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
-                                    {{ $suburb }} over the last year </p>
+                                    {{ $suburb }} over the last year
+                                </p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseListingsChart']) && !empty($charts['houseListingsChart']))
-                                    <img src="{{ $charts['houseListingsChart'] }}" alt="img">
+                                <img src="{{ $charts['houseListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1185,13 +1193,14 @@
                                         style="color: #ff2969;font-weight:400;">Houses – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
-                                    the last year. An increase in listings mean higher supply of houses.</p>
+                                    the last year. An increase in listings mean higher supply of houses.
+                                </p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseInventoryChart']) && !empty($charts['houseInventoryChart']))
-                                    <img src="{{ $charts['houseInventoryChart'] }}" alt="img">
+                                <img src="{{ $charts['houseInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1234,20 +1243,21 @@
                         <div class="chart-row" style="margin-bottom: 0px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
-                                    <img src="{{ $charts['unitPriceChart'] }}" alt="img">
+                                <img src="{{ $charts['unitPriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
                                 <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
-                                    {{ $suburb }} over the last year </p>
+                                    {{ $suburb }} over the last year
+                                </p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitListingsChart']) && !empty($charts['unitListingsChart']))
-                                    <img src="{{ $charts['unitListingsChart'] }}" alt="img">
+                                <img src="{{ $charts['unitListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1255,13 +1265,14 @@
                                         style="color: #ff2969;font-weight:400;">Units – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
-                                    the last year. An increase in listings mean higher supply of houses.</p>
+                                    the last year. An increase in listings mean higher supply of houses.
+                                </p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
-                                    <img src="{{ $charts['unitInventoryChart'] }}" alt="img">
+                                <img src="{{ $charts['unitInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1303,9 +1314,9 @@
                         <div class="chart-row" style="margin-bottom: 0px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
-                                    <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
+                                <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
                                 @else
-                                    <div class="chart-placeholder">House Rents Chart Not Available</div>
+                                <div class="chart-placeholder">House Rents Chart Not Available</div>
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1319,9 +1330,9 @@
                         <div class="chart-row" style="margin-bottom: 0px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
-                                    <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">
+                                <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">
                                 @else
-                                    <div class="chart-placeholder">Unit Rents Chart Not Available</div>
+                                <div class="chart-placeholder">Unit Rents Chart Not Available</div>
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1335,9 +1346,9 @@
                         <div class="chart-row" style="margin-bottom: 0;">
                             <div class="chart-col-4">
                                 @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
-                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="Vacancy Rates Chart">
+                                <img src="{{ $charts['vacancyRatesChart'] }}" alt="Vacancy Rates Chart">
                                 @else
-                                    <div class="chart-placeholder">Vacancy Rates Chart Not Available</div>
+                                <div class="chart-placeholder">Vacancy Rates Chart Not Available</div>
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1378,9 +1389,9 @@
                             socio-economic advantage and disadvantage. The indexes are based on information from the
                             five-yearly Census</p>
                         <div style="margin-bottom: 10px;">
-                              @if (isset($charts['map']) && !empty($charts['map']))
-                                    <img src="{{ $charts['map'] }}" style="width:350px;border-radius:10px" alt="img">
-                                @endif
+                            @if (isset($charts['map']) && !empty($charts['map']))
+                            <img src="{{ $charts['map'] }}" style="width:350px;border-radius:10px" alt="img">
+                            @endif
                         </div>
                         <p
                             style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400; margin:15px 0 25px;padding:0;">
@@ -1389,9 +1400,9 @@
                             mean higher affluency
                         </p>
                         <div style="margin-bottom: 0px;margin-top: 10px;">
-                              @if (isset($charts['seifa']) && !empty($charts['seifa']))
-                                    <img src="{{ $charts['seifa'] }}" style="width:220px;" alt="img">
-                                @endif
+                            @if (isset($charts['seifa']) && !empty($charts['seifa']))
+                            <img src="{{ $charts['seifa'] }}" style="width:220px;" alt="img">
+                            @endif
                         </div>
                     </div>
                 </div>

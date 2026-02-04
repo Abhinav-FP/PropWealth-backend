@@ -5,6 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Str;
 
 class ReportReady extends Mailable
 {
@@ -25,7 +26,9 @@ class ReportReady extends Mailable
 
     public function build()
     {
-        return $this->subject('Your SuburbTrends Report is Ready!')
+        $firstName = Str::title(Str::lower($this->user->first_name));
+        
+        return $this->subject("{$firstName}, your PropWealth Next market outlook for {$this->suburb}")
             ->view('emails.report-ready')
             ->attach($this->filePath, [
                 'as' => $this->filename,

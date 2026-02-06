@@ -45,7 +45,7 @@ Route::get('/proxy-suburbs', function () {
 
 
 Route::get('/proxy-suburb/{id}', function ($id) {
-  $response = Http::get("https://storage.googleapis.com/suburbtrends-map-dev/api/suburb/{$id}");
+  $response = Http::get("https://storage.googleapis.com/propwealth-map/api/suburb/{$id}");
   return response($response->body(), $response->status())
     ->header('Content-Type', $response->header('Content-Type'));
 });

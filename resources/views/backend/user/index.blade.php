@@ -18,7 +18,7 @@
             <table class="table" id="reportsTable">
               <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>SN</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Mobile</th>

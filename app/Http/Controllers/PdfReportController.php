@@ -167,7 +167,7 @@ class PdfReportController extends Controller
                     'message' => 'User authentication required. Please verify your OTP first.',
                 ], 401);
             }
-            // Log::info(json_encode($request->all()));
+            Log::info(json_encode($request->all()));
 
             // No authentication required - removed user dependency and download limits
 
@@ -188,6 +188,8 @@ class PdfReportController extends Controller
                 'map' => $request->map,
                 'desc_1' => $request->desc_1,
                 'desc_2' => $request->desc_2,
+                'score' => $request->score,
+                'scoreChart' => $request->scoreChart,
             ];
 
             // Add performance settings
@@ -257,9 +259,15 @@ class PdfReportController extends Controller
                 }
             }
 
-            // --- Prepare report data ---
+            // After processing all charts
+
+            $tempChartPaths['desc_1'] = $request->desc_1;
+            $tempChartPaths['desc_2'] = $request->desc_2;
+            $tempChartPaths['score'] = $request->score;
+            $tempChartPaths['scoreChart'] = $request->scoreChart;
+
             $reportData = [
-                'user' => null, // No user required
+                'user' => null,
                 'charts' => $tempChartPaths,
                 'note' => $request->note,
                 'date' => date('j-F-Y'),
@@ -269,6 +277,7 @@ class PdfReportController extends Controller
                 'houseText' => $request->houseText,
                 'unitText' => $request->unitText,
             ];
+
 
             // Check if we should generate PDF asynchronously
             $recipientEmail = trim($request->input('recipient_email', ''));
@@ -291,13 +300,22 @@ class PdfReportController extends Controller
 
                 try {
                     // Persist heavy reportData to a temporary JSON file to keep the queued payload small
-                    $dataKey = 'tmp/report-data-' . \Illuminate\Support\Str::uuid() . '.json';
-                    \Illuminate\Support\Facades\Storage::disk('local')->put($dataKey, json_encode($reportData));
-                    $reportDataPath = storage_path('app/' . $dataKey);
+                    // $dataKey = 'tmp/report-data-' . \Illuminate\Support\Str::uuid() . '.json';
+                    // \Illuminate\Support\Facades\Storage::disk('local')->put($dataKey, json_encode($reportData));
+                    // $reportDataPath = storage_path('app/' . $dataKey);
 
                     // Dispatch job with a lightweight payload and a pointer to the JSON file
-                    GeneratePdfReportJob::dispatch($reportData, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles);
-                    // GeneratePdfReportJob::dispatch(null, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles);
+                    GeneratePdfReportJob::dispatch(
+                        $reportData,
+                        $recipientEmail,
+                        $recipientName,
+                        $request->name,
+                        $userId,
+                        $tempFiles   // ✅ correct array
+                    );
+
+                    // GeneratePdfReportJob::dispatch($reportData, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles);
+                    // GeneratePdfReportJob::dispatch(null, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles); 
                 } catch (\Throwable $e) {
                     \Log::error('PdfReportController: Failed to dispatch GeneratePdfReportJob', [
                         'email' => $recipientEmail,

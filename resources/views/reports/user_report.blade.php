@@ -1069,7 +1069,7 @@
                 <div class="content-grap-right">
                     <div class="chart-container">
                         <h4 class="content-head-sm" style="padding-top:0 !important;margin:0 0 25px;">OVERALL SCORE
-                            <span style="color: #000000;">– 8 / 10</span>
+                            <span style="color: #000000;">– {{$charts['score']}} / 10</span>
                         </h4>
                         <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 20px;">KEY SCORES
                         </h5>
@@ -1077,7 +1077,7 @@
                             <span style="height:4px;width: 42px; display: inline-block; border-radius:10px;vertical-align: middle;background:#ff2969;margin-top:18px;margin-right:4px;"></span> scores
                         </h6>
                         <div class="text-align:center;margin:0 0 15px;">
-                            <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png" alt="PropWealth Next Invest" />
+                            <img style="display: block; margin:auto;" width="400px" src="{{$charts['scoreChart']}}" alt="PropWealth Next Invest" />
                         </div>
                         <p style="color: #000000; font-size: 10px; line-height: 10px;font-weight:400; ">The Overall
                             Suburb Score is a composite index that combines multiple key metrics into a single score,

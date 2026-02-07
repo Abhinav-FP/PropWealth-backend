@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
         @page {
             size: A4;
             margin: 15mm 15mm 32mm 15mm;
@@ -90,19 +89,11 @@
         }
 
         .market-report h3 {
-            font-weight: normal;
-            margin: 0;
-            padding: 0 0 6px;
-            font-size: 13px;
-            line-height: 6px;
+             font-weight:normal;
+            margin:0;padding:0 0 6px;
+            font-size: 13px; line-height:6px;
         }
-
-        .market-report span {
-            font-size: 10px;
-            line-height: 5px;
-            color: rgba(255, 255, 255, .7);
-            display: block
-        }
+         .market-report span{font-size: 10px; line-height:5px;color:rgba(255,255,255,.7);display:block}
 
         .content,
         .content-2 {
@@ -155,7 +146,7 @@
             left: 20%;
             right: 20mm;
             font-size: 8px;
-            line-height: 6px;
+            line-height:6px;
             display: table;
             width: 80%;
             z-index: 999;
@@ -403,39 +394,47 @@
         }
 
         /* Alternative approach using base64 encoded images for maximum compatibility */
-        @if (file_exists(public_path('Image/page1_optimized.jpg'))) .page-1-bg-base64 {
-            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page1_optimized.jpg'))) }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #2c3e50;
-        }
+        @if (file_exists(public_path('Image/page1_optimized.jpg')))
+            .page-1-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page1_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #2c3e50;
+            }
+        @endif
 
-        @endif @if (file_exists(public_path('Image/page2_optimized.jpg'))) .page-2-bg-base64 {
-            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page2_optimized.jpg'))) }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #34495e;
-        }
+        @if (file_exists(public_path('Image/page2_optimized.jpg')))
+            .page-2-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page2_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #34495e;
+            }
+        @endif
 
-        @endif @if (file_exists(public_path('Image/page6_optimized.jpg'))) .page-3-bg-base64 {
-            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #ecf0f1;
-        }
+        @if (file_exists(public_path('Image/page6_optimized.jpg')))
+            .page-3-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page6_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #ecf0f1;
+            }
+        @endif
+         @if (file_exists(public_path('Image/page4_optimized.jpg')))
+             .page-4-bg-base64 {
+                background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page4_optimized.jpg'))) }}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #ecf0f1;
+            }
+        @endif
 
-        @endif @if (file_exists(public_path('Image/page4_optimized.jpg'))) .page-4-bg-base64 {
-            background-image: url("data:image/jpeg;base64,{{ base64_encode(file_get_contents(public_path('Image/page4_optimized.jpg'))) }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: #ecf0f1;
-        }
 
-        @endif .chart-container {
+        .chart-container {
             width: 100%;
             margin: 12px 0;
             /* Further reduced margin */
@@ -635,8 +634,7 @@
             font-size: 32px;
             font-weight: bold;
             color: #ff2969;
-            margin: 0;
-            line-height: 22px;
+            margin: 0;line-height:22px;
         }
 
         .city-overview-title {
@@ -717,8 +715,8 @@
             height: auto;
             object-fit: cover;
             /* Scale down if needed but preserve ratio */
-            object-position: center;
-            background-color: #fff;
+            object-position: center; 
+            background-color: #fff; 
             transition: all 0.3s ease;
         }
 
@@ -741,36 +739,32 @@
             font-size: 24px;
             line-height: 28px;
         }
-
+ 
 
         .phone_no {
             background: url("{{ public_path('Image/arrow-icon.png') }}") no-repeat;
-            background-size: 18px;
-            ;
+            background-size: 18px;            ;
             background-repeat: no-repeat;
             background-position: left;
             padding-left: 26px;
             color: #000;
             font-size: 20px;
-            font-weight: bold;
-            line-height: 22px;
+            font-weight: bold;line-height:22px; 
         }
 
         .website_link {
             background: url("{{ public_path('Image/web-icon.png') }}") no-repeat;
-            background-size: 18px;
-            ;
+            background-size: 18px;          ;
             background-repeat: no-repeat;
             background-position: left;
             padding-left: 26px;
             color: #000;
-            font-size: 14px;
-            line-height: 22px;
+            font-size: 14px;line-height:22px;
             font-weight: bold;
             margin: 0 0 4px;
         }
 
-        .page-no {
+         .page-no {
             position: absolute;
             top: 2.5%;
             right: 30px;
@@ -778,12 +772,8 @@
             font-size: 12px;
             text-align: right;
         }
-
-        .text-white {
-            color: white;
-        }
-
-        .logo_head {
+        .text-white{color: white;}
+         .logo_head {
             position: absolute;
             top: 5.7%;
             left: 38px;
@@ -791,11 +781,7 @@
             font-size: 12px;
             text-align: right;
         }
-
-        .logo_head img {
-            width: 175px;
-            height: auto;
-        }
+        .logo_head img{width: 175px; height:auto;}
     </style>
 </head>
 
@@ -803,21 +789,21 @@
     <!-- Page 1 -->
     <div class="page page-1-bg page-1-bg-base64">
         <div class="content-wrapper">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-white.png') }}" alt="logo" />
-            </div>
-            <div class="header">
+          <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-white.png') }}" alt="logo" />
+          </div>
+            <div class="header" >
                 <div class="market-report" style="line-height:5px;">
                     <h3>#Market Report</h3><span>
                         @if (isset($suburb) && !empty($suburb))
-                        {{ $suburb }}
+                            {{ $suburb }}
                         @endif
                         {{ $year }}
                     </span>
                 </div>
             </div>
-            <div class="page-no text-white">
-                <span>01</span>
+             <div class="page-no text-white">
+               <span>01</span>
             </div>
             <div class="content" style="top: 19%;">
                 <p style="line-height:18px; font-size: 26px;padding-left:18px;">{{ $suburb }} Property<br>Investment Outlook<br>{{ $year }}: Trends, Insights<br>and
@@ -827,23 +813,23 @@
         </div>
         <div class="footer">
             <p><img src="{{ public_path('Image/pin_icon.png') }}" style="width:12px;margin-top:10px;vertical-align:bottom;"
-                    alt="img" />&nbsp;&nbsp;215/33 Lexington Dr,<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Bella Vista NSW 2153</p>
+                                        alt="img" />&nbsp;&nbsp;215/33 Lexington Dr,<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Bella Vista NSW 2153</p>
             <p><img src="{{ public_path('Image/phone_icon.png') }}" style="width:12px;margin-top:10px;vertical-align:bottom;"
-                    alt="img" />&nbsp; 0409 016 393<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; info@propwealth.com.au</p>
-            <p><a href="https://propwealth.com.au/"><img src="{{ public_path('Image/web-f-icon.png') }}" style="width:12px;margin-top:10px;vertical-align:middle;" alt="img" />&nbsp; www.propwealth.com.au</a></p>
+                                        alt="img" />&nbsp; 0409 016 393<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; info@propwealth.com.au</p>
+            <p><a href="https://propwealth.com.au/"><img src="{{ public_path('Image/web-f-icon.png') }}" style="width:12px;margin-top:10px;vertical-align:middle;"  alt="img" />&nbsp; www.propwealth.com.au</a></p>
         </div>
     </div>
     <!-- Page 2 -->
     <div class="page page-2-bg page-2-bg-base64">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-white.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-white.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
             <div class="page-no text-white">
-                <span>02</span>
+             <span>02</span>
             </div>
             <div class="content content-2">
                 <h4 class="content-head">Table of contents</h4>
@@ -869,14 +855,14 @@
     <!-- Page 3 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>03</span>
+             <div class="page-no">
+             <span>03</span>
             </div>
 
             <div class="content content-2" style="color: #000000; font-size: 14px !important; line-height: 21px;">
@@ -908,14 +894,14 @@
     <!-- Page 4 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>04</span>
+             <div class="page-no">
+             <span>04</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
@@ -929,9 +915,10 @@
                         </h4>
                         <h4 class="city-overview-title" style="display: inline; font-size: 24px; font-weight: bold;">
                             City Overview</h4>
-                        @if(filled($charts['desc_1'] ?? null))
-                        <p style="color:#000;font-size:10px;line-height:13px;font-weight:400;margin-top:10px;">
-                            {{ mb_convert_encoding($charts['desc_1'], 'HTML-ENTITIES', 'UTF-8') }}
+                        @if(!empty(trim($charts['desc_1'] ?? '')))
+
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
+                            {{ $charts['desc_1'] }}
                         </p>
                         @else
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
@@ -944,9 +931,10 @@
                             {{ $suburbData['Sub Region (SA3)'] ?? ($suburbData['Region (SA4)'] ?? 'various') }} border
                         </p>
                         @endif
-                        @if(filled($charts['desc_2'] ?? null))
-                        <p style="color:#000;font-size:10px;line-height:13px;font-weight:400;margin-top:10px;">
-                            {{ mb_convert_encoding($charts['desc_2'], 'HTML-ENTITIES', 'UTF-8') }}
+                        @if(!empty(trim($charts['desc_2'] ?? '')))
+
+                        <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0; margin-top: 10px;;">
+                            {{ $charts['desc_2'] }}
                         </p>
                         @else
                         <p style="color: #000000; font-size: 10px; line-height: 13px;font-weight:400;padding:0;">
@@ -1038,7 +1026,7 @@
                             </div>
                         </div>
                         @if (isset($note) && !empty($note))
-                        <p style="color: #000000; font-size: 10px; line-height: 8px;font-weight:400; ">{{ $note }}</p>
+                            <p style="color: #000000; font-size: 10px; line-height: 8px;font-weight:400; ">{{ $note }}</p>
                         @endif
 
                     </div>
@@ -1056,14 +1044,14 @@
     <!-- Page 5 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>05</span>
+             <div class="page-no">
+             <span>05</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="content-grap-right">
@@ -1074,10 +1062,10 @@
                         <h5 class="content-head" style="text-align:center;margin:0 0 15px;font-size: 20px;">KEY SCORES
                         </h5>
                         <h6 style="text-align:center;color:#ff2969;font-weight:bold;font-size:17px;margin:0 0 15px;">
-                            <span style="height:4px;width: 42px; display: inline-block; border-radius:10px;vertical-align: middle;background:#ff2969;margin-top:18px;margin-right:4px;"></span> scores
-                        </h6>
+                          <span style="height:4px;width: 42px; display: inline-block; border-radius:10px;vertical-align: middle;background:#ff2969;margin-top:18px;margin-right:4px;"></span> scores</h6>
                         <div class="text-align:center;margin:0 0 15px;">
-                            <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png" alt="PropWealth Next Invest" />
+                            <img style="display: block; margin:auto;" width="400px" src="/Image/graph2.png"
+                                alt="PropWealth Next Invest" />
                         </div>
                         <p style="color: #000000; font-size: 10px; line-height: 10px;font-weight:400; ">The Overall
                             Suburb Score is a composite index that combines multiple key metrics into a single score,
@@ -1098,13 +1086,13 @@
     <!-- Page 6 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
+             <div class="page-no">
                 <span>06</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
@@ -1195,14 +1183,14 @@
     <!-- Page 7 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>07</span>
+             <div class="page-no">
+             <span>07</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <div class="content-grap-right">
@@ -1237,16 +1225,16 @@
         </div>
     </div>
     <!-- Page 8 -->
-    <div class="page page-4-bg page-4-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">    
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>08</span>
+             <div class="page-no">
+             <span>08</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1261,21 +1249,20 @@
                         <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['housePriceChart']) && !empty($charts['housePriceChart']))
-                                <img src="{{ $charts['housePriceChart'] }}" alt="img">
+                                    <img src="{{ $charts['housePriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
                                 <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400;margin:0"><span
                                         style="color: #ff2969;font-weight:400;">Houses - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
-                                    {{ $suburb }} over the last year
-                                </p>
+                                    {{ $suburb }} over the last year </p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseListingsChart']) && !empty($charts['houseListingsChart']))
-                                <img src="{{ $charts['houseListingsChart'] }}" alt="img">
+                                    <img src="{{ $charts['houseListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1283,14 +1270,13 @@
                                         style="color: #ff2969;font-weight:400;">Houses – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
-                                    the last year. An increase in listings mean higher supply of houses.
-                                </p>
+                                    the last year. An increase in listings mean higher supply of houses.</p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0;border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseInventoryChart']) && !empty($charts['houseInventoryChart']))
-                                <img src="{{ $charts['houseInventoryChart'] }}" alt="img">
+                                    <img src="{{ $charts['houseInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1315,16 +1301,16 @@
         </div>
     </div>
     <!-- Page 9 -->
-    <div class="page page-4-bg page-4-bg-base64 page3">
+    <div class="page page-4-bg page-4-bg-base64 page3">    
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>09</span>
+             <div class="page-no">
+             <span>09</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1339,21 +1325,20 @@
                         <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitPriceChart']) && !empty($charts['unitPriceChart']))
-                                <img src="{{ $charts['unitPriceChart'] }}" alt="img">
+                                    <img src="{{ $charts['unitPriceChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
                                 <p style="color: #000000; font-size: 12px; line-height: 9px;font-weight:400; "><span
                                         style="color: #ff2969;font-weight:400;">Units - Sale prices (trend over last 1
                                         yr) – </span> a graph of how the median sale prices of houses have changed in
-                                    {{ $suburb }} over the last year
-                                </p>
+                                    {{ $suburb }} over the last year </p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitListingsChart']) && !empty($charts['unitListingsChart']))
-                                <img src="{{ $charts['unitListingsChart'] }}" alt="img">
+                                    <img src="{{ $charts['unitListingsChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1361,14 +1346,13 @@
                                         style="color: #ff2969;font-weight:400;">Units – Listings (trend over 1 year) -
                                     </span> a graph of how the number of houses on market have changed in
                                     {{ $suburb }} over
-                                    the last year. An increase in listings mean higher supply of houses.
-                                </p>
+                                    the last year. An increase in listings mean higher supply of houses.</p>
                             </div>
                         </div>
                         <div class="chart-row" style="margin-bottom: 0;border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitInventoryChart']) && !empty($charts['unitInventoryChart']))
-                                <img src="{{ $charts['unitInventoryChart'] }}" alt="img">
+                                    <img src="{{ $charts['unitInventoryChart'] }}" alt="img">
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1394,14 +1378,14 @@
     <!-- Page 10 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>10</span>
+             <div class="page-no">
+             <span>10</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1416,9 +1400,9 @@
                         <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['houseRentsChart']) && !empty($charts['houseRentsChart']))
-                                <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
+                                    <img src="{{ $charts['houseRentsChart'] }}" alt="House Rents Chart">
                                 @else
-                                <div class="chart-placeholder">House Rents Chart Not Available</div>
+                                    <div class="chart-placeholder">House Rents Chart Not Available</div>
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1432,9 +1416,9 @@
                         <div class="chart-row" style="margin-bottom: 0px;!important; border-spacing:3px;">
                             <div class="chart-col-4">
                                 @if (isset($charts['unitRentsChart']) && !empty($charts['unitRentsChart']))
-                                <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">
+                                    <img src="{{ $charts['unitRentsChart'] }}" alt="Unit Rents Chart">
                                 @else
-                                <div class="chart-placeholder">Unit Rents Chart Not Available</div>
+                                    <div class="chart-placeholder">Unit Rents Chart Not Available</div>
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1448,9 +1432,9 @@
                         <div class="chart-row" style="margin-bottom: 0;">
                             <div class="chart-col-4">
                                 @if (isset($charts['vacancyRatesChart']) && !empty($charts['vacancyRatesChart']))
-                                <img src="{{ $charts['vacancyRatesChart'] }}" alt="Vacancy Rates Chart">
+                                    <img src="{{ $charts['vacancyRatesChart'] }}" alt="Vacancy Rates Chart">
                                 @else
-                                <div class="chart-placeholder">Vacancy Rates Chart Not Available</div>
+                                    <div class="chart-placeholder">Vacancy Rates Chart Not Available</div>
                                 @endif
                             </div>
                             <div class="chart-col-8">
@@ -1476,14 +1460,14 @@
     <!-- Page 11 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>11</span>
+             <div class="page-no">
+             <span>11</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; ">
                 <div class="content-grap-right">
@@ -1497,9 +1481,9 @@
                             socio-economic advantage and disadvantage. The indexes are based on information from the
                             five-yearly Census</p>
                         <div style="margin-bottom: 10px;">
-                            @if (isset($charts['map']) && !empty($charts['map']))
-                            <img src="{{ $charts['map'] }}" style="width:350px;border-radius:10px" alt="img">
-                            @endif
+                              @if (isset($charts['map']) && !empty($charts['map']))
+                                    <img src="{{ $charts['map'] }}" style="width:350px;border-radius:10px" alt="img">
+                                @endif
                         </div>
                         <p
                             style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400; margin:15px 0 25px;padding:0;">
@@ -1508,9 +1492,9 @@
                             mean higher affluency
                         </p>
                         <div style="margin-bottom: 0px;margin-top: 10px;">
-                            @if (isset($charts['seifa']) && !empty($charts['seifa']))
-                            <img src="{{ $charts['seifa'] }}" style="width:220px;" alt="img">
-                            @endif
+                              @if (isset($charts['seifa']) && !empty($charts['seifa']))
+                                    <img src="{{ $charts['seifa'] }}" style="width:220px;" alt="img">
+                                @endif
                         </div>
                     </div>
                 </div>
@@ -1527,14 +1511,14 @@
     <!-- Page 12 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>12</span>
+             <div class="page-no">
+             <span>12</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px; line-height: 21px;">
                 <div class="phone_block">
@@ -1568,14 +1552,14 @@
     <!-- Page 13 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>13</span>
+             <div class="page-no">
+             <span>13</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
                 <h4 class="city-overview-title" style="margin:0;padding:0 0 15px">GLOSSARY</h4>
@@ -1584,7 +1568,7 @@
                 <div class="content-grap-right">
                     <div class="metric-section">
                         <div class="content-head-min"
-                            style="display: block; margin-bottom: 0px;">Median House Price
+                            style="display: block; margin-bottom: 0px;">Median House Price 
                         </div>
                         <p
                             style="color: #000000; font-size: 11px; line-height:8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
@@ -1601,7 +1585,7 @@
                         <p
                             style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
                             A key measure of return on investment. Calculated as:<br>
-                            <span style="text-align:center;display: block;"><b style="color: #000000;">Annual Rental Income ÷ Property Value × 100</b></span><br> For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
+                            <span style="text-align:center;display: block;"><b style="color: #000000;">Annual Rental Income ÷ Property Value ×  100</b></span><br>  For example, if rent is $500 per week on a $500,000 property, the yield is 5.2%. Higher
                             yields can mean stronger cashflow but may also carry higher risk
                         </p>
                     </div>
@@ -1692,14 +1676,14 @@
     <!-- Page 14 -->
     <div class="page page-3-bg page-3-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>14</span>
+             <div class="page-no">
+             <span>14</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
 
@@ -1735,16 +1719,16 @@
                             style="display: block; margin-right: 5px; margin-bottom: 8px;">Affordability Score</div>
                         <p
                             style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
-                            Shows how accessible housing is for both buyers and renters. It combines
+                           Shows how accessible housing is for both buyers and renters. It combines
                         </p>
                         <p
                             style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
-                            <span style="color:#ff2969; font-weight:normal;">Buy Affordability: </span> compares median house prices with local incomes
+                           <span style="color:#ff2969; font-weight:normal;">Buy Affordability: </span>  compares median house prices with local incomes
                         </p>
-                        <p
+                         <p
                             style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
-                            <span style="color:#ff2969; font-weight:normal;">Rent Affordability: </span> compares rents with household income.<br>
-                            Balanced affordability helps ensure demand remains sustainable.
+                           <span style="color:#ff2969; font-weight:normal;">Rent Affordability: </span>  compares rents with household income.<br>
+                           Balanced affordability helps ensure demand remains sustainable.
                         </p>
                     </div>
                 </div>
@@ -1768,7 +1752,7 @@
                             style="display: block; margin-right: 5px; margin-bottom: 8px;">Supply Score </div>
                         <p
                             style="color: #000000; font-size: 11px; line-height: 8px;font-weight:400;padding:0;margin-top: 5px !important;padding-bottom:0px;margin-bottom:0;">
-                            Measures how long it would take to sell all currently listed properties based on sales activity. Low inventory = tighter supply and often rising prices. High inventory can suggest oversupply.
+                             Measures how long it would take to sell all currently listed properties based on sales activity. Low inventory = tighter supply and often rising prices. High inventory can suggest oversupply.
                         </p>
                     </div>
                 </div>
@@ -1813,14 +1797,14 @@
     <!-- Page 15 -->
     <div class="page page-4-bg page-4-bg-base64 page3">
         <div class="content-wrapper content-wrapper-2">
-            <div class="logo_head ">
-                <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
-            </div>
+         <div class="logo_head ">
+            <img src="{{ public_path('Image/logo-black.png') }}" alt="logo" />
+          </div>
             <div class="header-2">
                 <span>{{ $year }}</span>
             </div>
-            <div class="page-no">
-                <span>15</span>
+             <div class="page-no">
+             <span>15</span>
             </div>
             <div class="content content-2" style="color: #000000; font-size: 14px;">
 

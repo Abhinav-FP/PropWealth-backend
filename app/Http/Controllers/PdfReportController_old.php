@@ -49,70 +49,70 @@ class PdfReportController extends Controller
     private function buildReportQuery(Request $request)
     {
         $query = Report::with('user');
-
+        
         // Define sortable columns whitelist for security
         $sortableColumns = ['id', 'created_at', 'suburb_name', 'user.first_name', 'user.last_name', 'user.email', 'user.mobile_number'];
-
+        
         // Apply search filter (name, email, mobile, suburb)
         if ($request->filled('search')) {
             $search = $request->input('search');
             $query->where(function ($q) use ($search) {
                 $q->whereHas('user', function ($userQuery) use ($search) {
                     $userQuery->where('first_name', 'LIKE', "%{$search}%")
-                        ->orWhere('last_name', 'LIKE', "%{$search}%")
-                        ->orWhere('email', 'LIKE', "%{$search}%")
-                        ->orWhere('mobile_number', 'LIKE', "%{$search}%");
+                              ->orWhere('last_name', 'LIKE', "%{$search}%")
+                              ->orWhere('email', 'LIKE', "%{$search}%")
+                              ->orWhere('mobile_number', 'LIKE', "%{$search}%");
                 })
-                    ->orWhere('suburb_name', 'LIKE', "%{$search}%");
+                ->orWhere('suburb_name', 'LIKE', "%{$search}%");
             });
         }
-
+        
         // Apply date range filters
         if ($request->filled('start_date')) {
             $query->whereDate('created_at', '>=', $request->input('start_date'));
         }
-
+        
         if ($request->filled('end_date')) {
             $query->whereDate('created_at', '<=', $request->input('end_date'));
         }
-
-
+        
+        
         // Apply suburb/location filter
         if ($request->filled('location')) {
             $query->where('suburb_name', 'LIKE', "%{$request->input('location')}%");
         }
-
+        
         // Apply email filter specifically
         if ($request->filled('email')) {
             $query->whereHas('user', function ($userQuery) use ($request) {
                 $userQuery->where('email', 'LIKE', "%{$request->input('email')}%");
             });
         }
-
+        
         // Apply mobile filter specifically  
         if ($request->filled('mobile')) {
             $query->whereHas('user', function ($userQuery) use ($request) {
                 $userQuery->where('mobile_number', 'LIKE', "%{$request->input('mobile')}%");
             });
         }
-
+        
         // Apply sorting with whitelist validation
         $sortBy = $request->input('sort_by', 'created_at');
         $sortDir = $request->input('sort_dir', 'desc');
-
+        
         // Validate sort direction
         if (!in_array(strtolower($sortDir), ['asc', 'desc'])) {
             $sortDir = 'desc';
         }
-
+        
         // Apply sorting based on column type
         if (in_array($sortBy, $sortableColumns)) {
             if (strpos($sortBy, 'user.') === 0) {
                 // Sort by user relationship fields
                 $userField = str_replace('user.', '', $sortBy);
                 $query->join('users', 'reports.user_id', '=', 'users.id')
-                    ->select('reports.*')
-                    ->orderBy("users.{$userField}", $sortDir);
+                      ->select('reports.*')
+                      ->orderBy("users.{$userField}", $sortDir);
             } else {
                 // Sort by report fields
                 $query->orderBy($sortBy, $sortDir);
@@ -121,7 +121,7 @@ class PdfReportController extends Controller
             // Default sorting if invalid sort column
             $query->latest('created_at');
         }
-
+        
         return $query;
     }
 
@@ -155,7 +155,7 @@ class PdfReportController extends Controller
     }
 
     public function generatePdfFromData(Request $request)
-    {
+    {   
         try {
             $request->validate([
                 'name' => 'required|string',
@@ -167,95 +167,94 @@ class PdfReportController extends Controller
                     'message' => 'User authentication required. Please verify your OTP first.',
                 ], 401);
             }
-            // Log::info(json_encode($request->all()));
 
             // No authentication required - removed user dependency and download limits
 
             // --- Handle Mapbox base64 charts ---
             $charts = [
-                'houseInventoryChart' => $request->houseInventoryChart,
-                'houseListingsChart' => $request->houseListingsChart,
-                'housePriceChart' => $request->housePriceChart,
-                'unitInventoryChart' => $request->unitInventoryChart,
-                'unitListingsChart' => $request->unitListingsChart,
-                'unitPriceChart' => $request->unitPriceChart,
-                'houseRentsChart' => $request->houseRentsChart,
-                'unitRentsChart' => $request->unitRentsChart,
-                'vacancyRatesChart' => $request->vacancyRatesChart,
-                'housePriceSegments' => $request->housePriceSegments,
-                'elevation' => $request->elevation,
-                'seifa' => $request->seifa,
-                'map' => $request->map,
-                'desc_1' => $request->desc_1,
-                'desc_2' => $request->desc_2,
-            ];
+    'houseInventoryChart' => $request->houseInventoryChart,
+    'houseListingsChart' => $request->houseListingsChart,
+    'housePriceChart' => $request->housePriceChart,
+    'unitInventoryChart' => $request->unitInventoryChart,
+    'unitListingsChart' => $request->unitListingsChart,
+    'unitPriceChart' => $request->unitPriceChart,
+    'houseRentsChart' => $request->houseRentsChart,
+    'unitRentsChart' => $request->unitRentsChart,
+    'vacancyRatesChart' => $request->vacancyRatesChart,
+    'housePriceSegments' => $request->housePriceSegments,
+    'elevation' => $request->elevation,
+    'seifa' => $request->seifa,
+    'map' => $request->map,
+];
 
-            // Add performance settings
-            ini_set('max_execution_time', 600);
-            ini_set('memory_limit', '1024M');
-            set_time_limit(600);
+// Add performance settings
+ini_set('max_execution_time', 600);
+ini_set('memory_limit', '1024M');
+set_time_limit(600);
 
-            $tempFiles = [];
-            $tempChartPaths = [];
-            $publicChartsPath = public_path('charts');
+$tempFiles = [];
+$tempChartPaths = [];
+$publicChartsPath = public_path('charts');
 
-            // Ensure charts directory exists
-            if (!file_exists($publicChartsPath)) {
-                mkdir($publicChartsPath, 0755, true);
+// Ensure charts directory exists
+if (!file_exists($publicChartsPath)) {
+    mkdir($publicChartsPath, 0755, true);
+}
+
+// Debug: Log incoming chart sizes
+foreach ($charts as $key => $base64) {
+    if ($base64) {
+        $sizeKB = strlen($base64) / 1024;
+    } else {
+    }
+}
+
+foreach ($charts as $key => $base64) {
+    if (!$base64) {
+        \Log::warning("Empty base64 for: " . $key);
+        continue;
+    }
+
+    try {
+        // Extract base64 data
+        $base64 = preg_replace('#^data:image/\w+;base64,#i', '', $base64);
+        $imageData = base64_decode($base64);
+
+        if ($imageData === false) {
+            \Log::warning("Base64 decode failed for: " . $key);
+            continue;
+        }
+
+        $originalSize = strlen($imageData);
+
+        // Check if image data is too small (likely invalid)
+        if ($originalSize < 100) {
+            continue;
+        }
+
+        // Process image with optimization
+        $processedImageData = $this->optimizeImage($imageData, $key);
+        
+        if ($processedImageData) {
+            $filename = $key . '-' . time() . '-' . rand(1000, 9999) . '.png';
+            $filePath = $publicChartsPath . '/' . $filename;
+
+            if (file_put_contents($filePath, $processedImageData) !== false) {
+                $finalSize = strlen($processedImageData);                
+                // Create data URI for PDF
+                $base64Data = base64_encode($processedImageData);
+                $tempChartPaths[$key] = 'data:image/png;base64,' . $base64Data;
+                $tempFiles[] = $filePath;
+            } else {
+                \Log::error("Failed to save file for: " . $key);
             }
+        }
 
-            // Debug: Log incoming chart sizes
-            foreach ($charts as $key => $base64) {
-                if ($base64) {
-                    $sizeKB = strlen($base64) / 1024;
-                } else {
-                }
-            }
-
-            foreach ($charts as $key => $base64) {
-                if (!$base64) {
-                    \Log::warning("Empty base64 for: " . $key);
-                    continue;
-                }
-
-                try {
-                    // Extract base64 data
-                    $base64 = preg_replace('#^data:image/\w+;base64,#i', '', $base64);
-                    $imageData = base64_decode($base64);
-
-                    if ($imageData === false) {
-                        \Log::warning("Base64 decode failed for: " . $key);
-                        continue;
-                    }
-
-                    $originalSize = strlen($imageData);
-
-                    // Check if image data is too small (likely invalid)
-                    if ($originalSize < 100) {
-                        continue;
-                    }
-
-                    // Process image with optimization
-                    $processedImageData = $this->optimizeImage($imageData, $key);
-
-                    if ($processedImageData) {
-                        $filename = $key . '-' . time() . '-' . rand(1000, 9999) . '.png';
-                        $filePath = $publicChartsPath . '/' . $filename;
-
-                        if (file_put_contents($filePath, $processedImageData) !== false) {
-                            $finalSize = strlen($processedImageData);
-                            // Pass lightweight file URI to avoid huge queue payloads
-                            $tempChartPaths[$key] = 'file://' . $filePath;
-                            $tempFiles[] = $filePath;
-                        } else {
-                            \Log::error("Failed to save file for: " . $key);
-                        }
-                    }
-                } catch (\Exception $e) {
-                    \Log::error("Error processing chart {$key}: " . $e->getMessage());
-                    \Log::error("Stack trace: " . $e->getTraceAsString());
-                }
-            }
+    } catch (\Exception $e) {
+        \Log::error("Error processing chart {$key}: " . $e->getMessage());
+        \Log::error("Stack trace: " . $e->getTraceAsString());
+    }
+}
 
             // --- Prepare report data ---
             $reportData = [
@@ -269,11 +268,11 @@ class PdfReportController extends Controller
                 'houseText' => $request->houseText,
                 'unitText' => $request->unitText,
             ];
-
+            
             // Check if we should generate PDF asynchronously
             $recipientEmail = trim($request->input('recipient_email', ''));
             $recipientName = trim($request->input('recipient_name', ''));
-
+            
             if (!empty($recipientEmail) && filter_var($recipientEmail, FILTER_VALIDATE_EMAIL)) {
                 // Dispatch async job to generate PDF and email it
                 \Log::info('PdfReportController: Dispatching async PDF generation job', [
@@ -288,16 +287,11 @@ class PdfReportController extends Controller
                     'php_version' => PHP_VERSION,
                     'timestamp' => now()->toISOString()
                 ]);
-
+                
                 try {
-                    // Persist heavy reportData to a temporary JSON file to keep the queued payload small
-                    $dataKey = 'tmp/report-data-' . \Illuminate\Support\Str::uuid() . '.json';
-                    \Illuminate\Support\Facades\Storage::disk('local')->put($dataKey, json_encode($reportData));
-                    $reportDataPath = storage_path('app/' . $dataKey);
-
-                    // Dispatch job with a lightweight payload and a pointer to the JSON file
-                    GeneratePdfReportJob::dispatch($reportData, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles);
-                    // GeneratePdfReportJob::dispatch(null, $recipientEmail, $recipientName, $request->name, $userId, $reportDataPath, $tempFiles);
+                    GeneratePdfReportJob::dispatch($reportData, $recipientEmail, $recipientName, $request->name, $userId, $tempFiles);
+                    
+                   
                 } catch (\Throwable $e) {
                     \Log::error('PdfReportController: Failed to dispatch GeneratePdfReportJob', [
                         'email' => $recipientEmail,
@@ -310,9 +304,9 @@ class PdfReportController extends Controller
                     ]);
                     throw $e;
                 }
-
+                
                 // NOTE: Temp files cleanup will happen AFTER PDF generation in the job
-
+                
                 // Return immediately
                 return response()->json([
                     'success' => true,
@@ -340,7 +334,7 @@ class PdfReportController extends Controller
             $options->set('debugLayoutPaddingBox', false);
 
             $pdf = new \Dompdf\Dompdf($options);
-
+            
             try {
                 $html = view('reports.user_report', $reportData)->render();
                 \Log::info('Generated PDF HTML length: ' . strlen($html));
@@ -348,7 +342,7 @@ class PdfReportController extends Controller
                 \Log::error('Error rendering PDF view: ' . $e->getMessage());
                 throw $e;
             }
-
+            
             \Log::info('TRACE 1: About to load HTML into PDF');
             $pdf->loadHtml($html);
             \Log::info('TRACE 2: HTML loaded, about to set paper');
@@ -356,7 +350,7 @@ class PdfReportController extends Controller
             // --- Check email recipient BEFORE rendering to avoid timeout issues ---
             $recipientEmail = trim($request->input('recipient_email', ''));
             $recipientName = trim($request->input('recipient_name', ''));
-
+            
             \Log::info('CHECKING EMAIL BEFORE PDF RENDER', [
                 'has_email' => !empty($recipientEmail),
                 'email' => $recipientEmail,
@@ -396,7 +390,7 @@ class PdfReportController extends Controller
                 if (filter_var($recipientEmail, FILTER_VALIDATE_EMAIL)) {
                     try {
                         $fileLocalPath = storage_path('app/public/' . $storagePath);
-
+                        
                         \Log::info('PdfReportController: About to dispatch SendReportEmailJob (sync path)', [
                             'email' => $recipientEmail,
                             'name' => $recipientName,
@@ -409,7 +403,7 @@ class PdfReportController extends Controller
                             'memory_usage_mb' => round(memory_get_usage(true) / 1024 / 1024, 2),
                             'timestamp' => now()->toISOString()
                         ]);
-
+                        
                         // Queue email dispatch to avoid blocking the request (corrected parameter order)
                         SendReportEmailJob::dispatch(
                             $recipientEmail,
@@ -482,78 +476,79 @@ class PdfReportController extends Controller
         }
     }
 
-    private function optimizeImage($imageData, $chartName)
-    {
-        try {
-            $image = imagecreatefromstring($imageData);
-            if ($image === false) {
-                \Log::warning("Failed to create image from string for: " . $chartName);
-                return $imageData; // Return original if we can't process
-            }
-
-            $width = imagesx($image);
-            $height = imagesy($image);
-
-            \Log::info("Chart {$chartName} dimensions: {$width}x{$height}");
-
-            // Target dimensions for PDF (good balance between quality and size)
-            $maxWidth = 1000;
-            $maxHeight = 800;
-            $quality = 7; // PNG quality 0-9 (0 = no compression, 9 = max)
-
-            // Only resize if image is larger than our target
-            if ($width > $maxWidth || $height > $maxHeight) {
-                // Calculate new dimensions maintaining aspect ratio
-                $ratio = $width / $height;
-
-                if ($width > $maxWidth) {
-                    $newWidth = $maxWidth;
-                    $newHeight = intval($maxWidth / $ratio);
-                } else {
-                    $newWidth = $width;
-                    $newHeight = $height;
-                }
-
-                if ($newHeight > $maxHeight) {
-                    $newHeight = $maxHeight;
-                    $newWidth = intval($maxHeight * $ratio);
-                }
-
-                \Log::info("Resizing {$chartName} from {$width}x{$height} to {$newWidth}x{$newHeight}");
-
-                $resized = imagecreatetruecolor($newWidth, $newHeight);
-
-                // Preserve transparency for PNG
-                imagealphablending($resized, false);
-                imagesavealpha($resized, true);
-                $transparent = imagecolorallocatealpha($resized, 255, 255, 255, 127);
-                imagefilledrectangle($resized, 0, 0, $newWidth, $newHeight, $transparent);
-
-                imagecopyresampled($resized, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
-                imagedestroy($image);
-                $image = $resized;
-            }
-
-            // Capture the optimized image
-            ob_start();
-            imagepng($image, null, $quality);
-            $optimizedData = ob_get_clean();
-            imagedestroy($image);
-
-            $originalSize = strlen($imageData);
-            $optimizedSize = strlen($optimizedData);
-            $savings = round((1 - $optimizedSize / $originalSize) * 100, 2);
-
-            \Log::info("Image optimization for {$chartName}: " .
-                round($originalSize / 1024 / 1024, 2) . "MB -> " .
-                round($optimizedSize / 1024 / 1024, 2) . "MB (" . $savings . "% reduction)");
-
-            return $optimizedData;
-        } catch (\Exception $e) {
-            \Log::error("Image optimization failed for {$chartName}: " . $e->getMessage());
-            return $imageData; // Return original if optimization fails
+private function optimizeImage($imageData, $chartName)
+{
+    try {
+        $image = imagecreatefromstring($imageData);
+        if ($image === false) {
+            \Log::warning("Failed to create image from string for: " . $chartName);
+            return $imageData; // Return original if we can't process
         }
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+        
+        \Log::info("Chart {$chartName} dimensions: {$width}x{$height}");
+
+        // Target dimensions for PDF (good balance between quality and size)
+        $maxWidth = 1000;
+        $maxHeight = 800;
+        $quality = 7; // PNG quality 0-9 (0 = no compression, 9 = max)
+
+        // Only resize if image is larger than our target
+        if ($width > $maxWidth || $height > $maxHeight) {
+            // Calculate new dimensions maintaining aspect ratio
+            $ratio = $width / $height;
+            
+            if ($width > $maxWidth) {
+                $newWidth = $maxWidth;
+                $newHeight = intval($maxWidth / $ratio);
+            } else {
+                $newWidth = $width;
+                $newHeight = $height;
+            }
+            
+            if ($newHeight > $maxHeight) {
+                $newHeight = $maxHeight;
+                $newWidth = intval($maxHeight * $ratio);
+            }
+
+            \Log::info("Resizing {$chartName} from {$width}x{$height} to {$newWidth}x{$newHeight}");
+
+            $resized = imagecreatetruecolor($newWidth, $newHeight);
+            
+            // Preserve transparency for PNG
+            imagealphablending($resized, false);
+            imagesavealpha($resized, true);
+            $transparent = imagecolorallocatealpha($resized, 255, 255, 255, 127);
+            imagefilledrectangle($resized, 0, 0, $newWidth, $newHeight, $transparent);
+
+            imagecopyresampled($resized, $image, 0, 0, 0, 0, $newWidth, $newHeight, $width, $height);
+            imagedestroy($image);
+            $image = $resized;
+        }
+
+        // Capture the optimized image
+        ob_start();
+        imagepng($image, null, $quality);
+        $optimizedData = ob_get_clean();
+        imagedestroy($image);
+
+        $originalSize = strlen($imageData);
+        $optimizedSize = strlen($optimizedData);
+        $savings = round((1 - $optimizedSize / $originalSize) * 100, 2);
+        
+        \Log::info("Image optimization for {$chartName}: " . 
+                  round($originalSize / 1024 / 1024, 2) . "MB -> " . 
+                  round($optimizedSize / 1024 / 1024, 2) . "MB (" . $savings . "% reduction)");
+
+        return $optimizedData;
+
+    } catch (\Exception $e) {
+        \Log::error("Image optimization failed for {$chartName}: " . $e->getMessage());
+        return $imageData; // Return original if optimization fails
     }
+}
 
     public function download(Report $report)
     {
@@ -591,7 +586,7 @@ class PdfReportController extends Controller
         // Export reports for a specific user
         $user = User::findOrFail($userId);
         $reports = Report::where('user_id', $userId)->latest()->get();
-
+        
         // You can implement Excel export logic here
         // For now, return a simple response
         return response()->json([
@@ -606,20 +601,20 @@ class PdfReportController extends Controller
         try {
             // Use the same query builder as the listing page
             $reports = $this->buildReportQuery($request)->get();
-
+            
             if ($reports->isEmpty()) {
                 return response()->json([
                     'success' => false,
                     'message' => 'No reports found with the applied filters.'
                 ], 404);
             }
-
+            
             // Transform data for Excel export
             $exportData = $reports->map(function ($report) {
                 return [
                     'ID' => $report->id,
                     'First Name' => $report->user ? $report->user->first_name : 'N/A',
-                    'Last Name' => $report->user ? $report->user->last_name : 'N/A',
+                    'Last Name' => $report->user ? $report->user->last_name : 'N/A', 
                     'Email' => $report->user ? $report->user->email : 'N/A',
                     'Mobile' => $report->user ? $report->user->mobile_number : 'N/A',
                     'Location' => $report->suburb_name ?? 'N/A',
@@ -627,13 +622,13 @@ class PdfReportController extends Controller
                     'File Name' => $report->file_name ?? 'N/A'
                 ];
             });
-
+            
             // Create CSV content
             $csvContent = $this->arrayToCsv($exportData->toArray());
-
+            
             // Generate filename with timestamp
             $filename = 'reports_export_' . date('Y-m-d_H-i-s') . '.csv';
-
+            
             // Return CSV download response
             return response($csvContent)
                 ->header('Content-Type', 'text/csv')
@@ -641,19 +636,20 @@ class PdfReportController extends Controller
                 ->header('Cache-Control', 'no-cache, no-store, must-revalidate')
                 ->header('Pragma', 'no-cache')
                 ->header('Expires', '0');
+                
         } catch (\Exception $e) {
             \Log::error('Export Error: ' . $e->getMessage(), [
                 'request' => $request->all(),
                 'trace' => $e->getTraceAsString()
             ]);
-
+            
             return response()->json([
                 'success' => false,
                 'message' => 'An error occurred while exporting data. Please try again.'
             ], 500);
         }
     }
-
+    
     /**
      * Convert array data to CSV format
      */
@@ -662,21 +658,21 @@ class PdfReportController extends Controller
         if (empty($data)) {
             return '';
         }
-
+        
         $output = fopen('php://temp', 'r+');
-
+        
         // Add headers
         fputcsv($output, array_keys($data[0]));
-
+        
         // Add data rows
         foreach ($data as $row) {
             fputcsv($output, $row);
         }
-
+        
         rewind($output);
         $csvContent = stream_get_contents($output);
         fclose($output);
-
+        
         return $csvContent;
     }
 }

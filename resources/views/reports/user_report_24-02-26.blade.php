@@ -241,30 +241,30 @@
         }
 
         /* .content-grap-right ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        }
 
-    .content-grap-right ul li {
-      margin: 8px;
-      float: left;
-      display: table-cell;
-    }
+        .content-grap-right ul li {
+        margin: 8px;
+        float: left;
+        display: table-cell;
+        }
 
-    .content-grap-right ul li img {
-      width: 100%;
-      height: auto;
-      max-width: 300px;
-      background-color: #fff;
-    }
+        .content-grap-right ul li img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        background-color: #fff;
+        }
 
 
-    .content-grap-right img {
-      width: 80%;
-      height: auto;
-      max-width: 300px;
-    } */
+        .content-grap-right img {
+        width: 80%;
+        height: auto;
+        max-width: 300px;
+        } */
 
         .content-grap-left table {
             width: 100%;
@@ -861,7 +861,7 @@
         </div>
         <div class="footer footer-2">
             <p style="padding-left:30px;color: #000000;" class="footer-address">{{ $suburb }} Property Investment
-                Outlook {{ $year }}:<br>Trends, Insights &
+                Outlook 2025:<br>Trends, Insights &
                 Growth Potential</p>
             <p><a href="https://propwealth.com.au/">www.propwealth.com.au</a></p>
         </div>
@@ -900,9 +900,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -972,39 +971,72 @@
                                     </tr>
                                     <tr>
                                         <td valign="middle" style="padding: 0 5px;">Median house price</td>
-                                        <td valign="middle" style="padding: 0 5px;">
-                                            ${{ number_format($charts['house_price'] ?? 575000) }}
-                                        </td>
+                                        <td valign="middle" style="padding: 0 5px;">$575,000</td>
                                     </tr>
                                     <tr>
                                         <td valign="middle" style="padding: 0 5px;">Avg rental yield</td>
-                                        <td valign="middle" style="padding: 0 5px;">
-                                            {{ isset($charts['avg_rental_yield']) 
-                                            ? number_format($charts['avg_rental_yield'], 2) . '%' 
-                                            : '5.60%' }}
-                                        </td>
+                                        <td valign="middle" style="padding: 0 5px;">5.6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" style="padding: 0 5px;">Rental turnover</td>
+                                        <td valign="middle" style="padding: 0 5px;">10</td>
                                     </tr>
                                     <tr>
                                         <td valign="middle" style="padding: 0 5px;">12 month rental growth</td>
-                                        <td style="padding: 0 5px;">
-                                            {{ isset($charts['rent_growth_12m']) 
-                                                ? number_format($charts['rent_growth_12m'], 2) . '%' 
-                                                : '12.00%' }}
-                                        </td>
+                                        <td style="padding: 0 5px;">12%</td>
                                     </tr>
                                     <tr>
                                         <td valign="middle" style="padding: 0 5px;">Overall score</td>
-                                        <td valign="middle" style="padding: 0 5px;">
-                                            {{ isset($charts['investor_score']) && $charts['investor_score'] !== null
-                                                ? $charts['investor_score'] . '/10' 
-                                                : '8/10' }}
-                                        </td>
+                                        <td valign="middle" style="padding: 0 5px;">8 / 10</td>
                                     </tr>
                                 </table>
                             </div>
-
+                            <div class="chart-item" style="padding:0;border:0;background: transparent;">
+                                <table sytle="margin-left:5%;" border="1" cellspacing="0" cellpadding="0" width="80%"
+                                    style="border-collapse: collapse; margin-bottom: 5px;color: #000000; font-size: 8px;font-weight:400; line-height: 7px;">
+                                    <tr>
+                                        <th valign="middle" colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
+                                            House prices area growth</th>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" style="padding: 0 5px;">12 month</td>
+                                        <td valign="middle" style="padding: 0 5px;">7.8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" style="padding: 0 5px;">3 yrs</td>
+                                        <td style="padding: 0 5px;">5.6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" style="padding: 0 5px;">5 yrs</td>
+                                        <td valign="middle" style="padding: 0 5px;">2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle" style="padding: 0 5px;">10 yrs</td>
+                                        <td valign="middle" style="padding: 0 5px;">12%</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-
+                        <div class="chart-row" style="border-spacing:0">
+                            <div class="chart-item"
+                                style="padding:0;border:0;background: transparent;padding-right:5px;">
+                                <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
+                                    <img src="{{ public_path('Image/population_image.png') }}" style="width:80%"
+                                        alt="" />
+                                </div>
+                                <p style="color: #000000; font-size: 10px; line-height: 9px;font-weight:400;">Current
+                                    population of the city – 48,678 Population trend (SA4 – 2016, 2021) </p>
+                            </div>
+                            <div class="chart-item"
+                                style="padding:0;border:0;background: transparent;padding-right:5px;">
+                                <div style="border:1px solid #ff2969; border-radius: 6px;padding:5px;">
+                                    <img src="{{ public_path('Image/Employment_image.png') }}" style="width:80%"
+                                        alt="img" />
+                                </div>
+                                <p style="color: #000000; font-size: 10px; line-height: 9px;font-weight:400; ">
+                                    Employment – (SALM) – Small area labour market (top 5 categories)</p>
+                            </div>
+                        </div>
                         @if (isset($note) && !empty($note))
                         <p style="color: #000000; font-size: 10px; line-height: 8px;font-weight:400; ">{{ $note }}</p>
                         @endif
@@ -1016,9 +1048,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1059,9 +1090,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1084,13 +1114,8 @@
                         </div>
                         <div class="content-head-min"
                             style="display: inline; margin-right: 5px; margin-bottom: 26px;">Affluency Score – </div>
-                        <div class="content-head-black" style="display: inline;font-weight:400;">
-                            @if(filled($charts['scores_data']['Affluency score'] ?? null))
-                            {{$charts['scores_data']['Affluency score']}}/10 (socio economics score)
-                            @else
-                            <span>Data under verification</span>
-                            @endif
-                        </div>
+                        <div class="content-head-black" style="display: inline;font-weight:400;">3/10 (socio
+                            economics score)</div>
                         <p
                             style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The affluency score provides an assessment of a suburb's overall socio-economic standing. It
@@ -1108,14 +1133,8 @@
                         <div class="content-head-min"
                             style="display: inline; margin-right: 5px; margin-bottom: 10px;">Affordability Score –
                         </div>
-                        <div class="content-head-black" style="display: inline; font-weight:400;">
-                            @if(filled($charts['scores_data']['Affordability score'] ?? null))
-                            {{$charts['scores_data']['Affordability score']}}/10 (buy affordability score & rent affordability score)
-                            @else
-                            <span>Data under verification</span>
-                            @endif
-
-                        </div>
+                        <div class="content-head-black" style="display: inline; font-weight:400;">6/10 (buy
+                            affordability score & rent affordability score)</div>
                         <p
                             style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The affordability score measures the financial accessibility of housing in a suburb by
@@ -1133,13 +1152,8 @@
                         </div>
                         <div class="content-head-min"
                             style="display: inline; margin-right: 5px; margin-bottom: 10px;">Liquidity Score – </div>
-                        <div class="content-head-black" style="display: inline; font-weight:400;">
-                            @if(filled($charts['scores_data']['Liquidity score'] ?? null))
-                            {{$charts['scores_data']['Liquidity score']}}/10 (sales turnover)
-                            @else
-                            <span>Data under verification</span>
-                            @endif
-                        </div>
+                        <div class="content-head-black" style="display: inline; font-weight:400;">5/10 (sales
+                            turnover)</div>
                         <p
                             style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The liquidity score reflects the level of transactional activity within a suburb, as
@@ -1153,14 +1167,10 @@
                     <div class="metric-section">
                         <div class="content-head-black" style="display: inline; font-weight:500;margin-right: 6px;">4.
                         </div>
-                        <div class="content-head-min" style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply Score – </div>
-                        <div class="content-head-black" style="display: inline; font-weight:400;">
-                            @if(filled($charts['scores_data']['Supply score'] ?? null))
-                            {{$charts['scores_data']['Supply score']}}/10 (inventory Score)
-                            @else
-                            <span>Data under verification</span>
-                            @endif
-                        </div>
+                        <div class="content-head-min"
+                            style="display: inline; margin-right: 5px; margin-bottom: 10px;">Supply Score – </div>
+                        <div class="content-head-black" style="display: inline; font-weight:400;">7/10 (inventory
+                            Score)</div>
                         <p
                             style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The supply score is based on inventory levels, which estimate how many months it would take
@@ -1177,9 +1187,8 @@
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
                 Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1203,13 +1212,8 @@
                         <div class="content-head-min"
                             style="display: inline; margin-right: 5px; margin-bottom: 10px;">PropWealth Investor Score
                             –</div>
-                        <div class="content-head-black" style="display: inline; font-weight:400;">
-                            @if(filled($charts['scores_data']['Investor score'] ?? null))
-                            {{$charts['scores_data']['Investor score']}}/10 (Investor Score)
-                            @else
-                            <span>Data under verification</span>
-                            @endif
-                        </div>
+                        <div class="content-head-black" style="display: inline; font-weight:400;">4/10 (Investor
+                            Score)</div>
                         <p
                             style="color: #000000; font-size: 12px; line-height: 10px;font-weight:400;padding:0;margin-top: 10px !important;">
                             The investor score is a proprietary metric developed by PropWealth to evaluate the
@@ -1227,9 +1231,8 @@
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
                 Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1306,9 +1309,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1384,9 +1386,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1467,9 +1468,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1519,9 +1519,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1561,9 +1560,8 @@
         </div>
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1686,9 +1684,8 @@
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
                 Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>
@@ -1807,9 +1804,8 @@
             <div class="footer footer-2" style="color: #fff;">
                 <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
                     Investment Outlook
-                    {{ $year }}:<br>Trends, Insights &
-                    Growth Potential
-                </p>
+                    2025:<br>Trends, Insights &
+                    Growth Potential</p>
                 <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
             </div>
         </div>
@@ -1936,9 +1932,8 @@
         <div class="footer footer-2" style="color: #fff;">
             <p class="footer-address" style="padding-left:30px;">{{ $suburb }} Property
                 Investment Outlook
-                {{ $year }}:<br>Trends, Insights &
-                Growth Potential
-            </p>
+                2025:<br>Trends, Insights &
+                Growth Potential</p>
             <p><a href="https://propwealth.com.au/" style="color: #fff;">www.propwealth.com.au</a></p>
         </div>
     </div>

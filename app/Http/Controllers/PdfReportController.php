@@ -12,6 +12,7 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use App\Models\Report;
 use App\Models\UserDownloadLimit;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -154,6 +155,44 @@ class PdfReportController extends Controller
         return $pdf->download('report-for-' . $user->first_name . '.pdf');
     }
 
+    /**
+     * Get latest value from Month-Year array (Dec-25 etc)
+     */
+    private function getLatestValue(array $data)
+    {
+        if (empty($data)) return null;
+
+        $formatted = [];
+
+        foreach ($data as $monthYear => $value) {
+            try {
+                $date = Carbon::createFromFormat('M-y', $monthYear);
+                $formatted[$date->timestamp] = $value;
+            } catch (\Exception $e) {
+                continue;
+            }
+        }
+
+        if (empty($formatted)) return null;
+
+        ksort($formatted);
+        return end($formatted);
+    }
+
+    /**
+     * Clean currency or percent values
+     */
+    private function cleanNumber($value)
+    {
+        if (!$value) return null;
+
+        return (float) str_replace(
+            ['$', ',', '%', ' '],
+            '',
+            $value
+        );
+    }
+
     public function generatePdfFromData(Request $request)
     {
         try {
@@ -265,6 +304,71 @@ class PdfReportController extends Controller
             $tempChartPaths['desc_2'] = $request->desc_2;
             $tempChartPaths['score'] = $request->score;
             $tempChartPaths['scoreChart'] = $request->scoreChart;
+            $tempChartPaths['scores_data'] = $request->data['Scores'] ?? null;
+
+            $data = $request->data ?? [];
+
+            /*
+            |--------------------------------------------------------------------------
+            | 1. Latest House Price
+            |--------------------------------------------------------------------------
+            */
+            $house_price = $this->getLatestValue($data['House Price'] ?? []);
+
+            /*
+            |--------------------------------------------------------------------------
+            | 2. Latest House Rent
+            |--------------------------------------------------------------------------
+            */
+            // $house_rent = $this->getLatestValue($data['House Rents'] ?? []);
+
+            /*
+            |--------------------------------------------------------------------------
+            | 3. Rent Medians (cleaned)
+            |--------------------------------------------------------------------------
+            */
+            $house_rent_median = $this->cleanNumber($data['SuburbData']['House rent median'] ?? null);
+
+            $house_rent_median_12m_ago = $this->cleanNumber($data['SuburbData']['House rent median (12m ago)'] ?? null);
+
+            /*
+            |--------------------------------------------------------------------------
+            | 4. Avg Rental Yield
+            |--------------------------------------------------------------------------
+            | Formula: (Rent Median * 52 / House Price) * 100
+            */
+            $avg_rental_yield = null;
+
+            if ($house_rent_median && $house_price) {
+                $avg_rental_yield = (($house_rent_median * 52) / $house_price) * 100;
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | 5. 12 Month Rent Growth
+            |--------------------------------------------------------------------------
+            | Formula: ((Current / 12m ago) - 1) * 100
+            */
+            $rent_growth_12m = null;
+
+            if ($house_rent_median && $house_rent_median_12m_ago) {
+                $rent_growth_12m = (($house_rent_median / $house_rent_median_12m_ago) - 1) * 100;
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | 6. Investor Score
+            |--------------------------------------------------------------------------
+            */
+            $investor_score = $data['Scores']['Investor score'] ?? null;
+
+            $tempChartPaths['investor_score'] = $investor_score;
+            $tempChartPaths['rent_growth_12m'] = $rent_growth_12m;
+            $tempChartPaths['avg_rental_yield'] = $avg_rental_yield;
+            $tempChartPaths['house_price'] = $house_price;
+            // $tempChartPaths['house_rent'] = $house_rent;
+            // $tempChartPaths['house_rent_median'] = $house_rent_median;
+
 
             $reportData = [
                 'user' => null,
@@ -586,7 +690,6 @@ class PdfReportController extends Controller
         // Download the file from the 'public' disk with the original file name
         return Storage::disk('public')->download($relativePath, $report->file_name);
     }
-
 
     public function destroy(Report $report)
     {

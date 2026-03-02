@@ -968,7 +968,7 @@
                                     style="border-collapse: collapse; margin-bottom: 5px;color: #000000; font-size: 8px;font-weight:400; line-height: 7px; ">
                                     <tr>
                                         <th valign="middle" colspan="2" style="text-align: left;font-weight:400;padding: 0 5px;">
-                                            Median house price</th>
+                                            Important numbers</th>
                                     </tr>
                                     <tr>
                                         <td valign="middle" style="padding: 0 5px;">Median house price</td>
